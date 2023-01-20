@@ -1,0 +1,2 @@
+Per avviarla c'è bisogno del .net framework runtime 7.0, scaricabile all'indirizzo: https://dotnet.microsoft.com/en-us/download/dotnet/7.0
+Si ringrazia una oscura voce dal cielo per aver risolto il bug relativo l'ordinamento delle carte.

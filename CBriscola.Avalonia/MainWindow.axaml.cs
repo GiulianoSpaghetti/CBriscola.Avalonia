@@ -39,7 +39,7 @@ namespace CBriscola.Avalonia
             m.setNome("Napoletano");
             cartaCpu.Source = new Bitmap(asset);
 
-            carta.inizializza(40, cartaHelperBriscola.getIstanza(e), assets);
+            carta.inizializza(40, cartaHelperBriscola.getIstanza(e), assets, this);
 
             g = new giocatore(new giocatoreHelperUtente(), "numerone", 3);
             cpu = new giocatore(new giocatoreHelperCpu(elaboratoreCarteBriscola.getCartaBriscola()), "Cpu", 3);
@@ -62,23 +62,23 @@ namespace CBriscola.Avalonia
             Cpu0.Source = cartaCpu.Source;
             Cpu1.Source = cartaCpu.Source;
             Cpu2.Source = cartaCpu.Source;
-            PuntiCpu.Content = $"Punti di {cpu.getNome()}: {cpu.getPunteggio()}";
-            PuntiUtente.Content = $"Punti di {g.getNome()}: {g.getPunteggio()}";
-            NelMazzoRimangono.Content = $"Nel mazzo rimangono {m.getNumeroCarte()} carte";
-            CartaBriscola.Content = $"Il seme di Briscola è: {briscola.getSemeStr()}";
-            lbCartaBriscola.Content = "La carta di Briscola può dar punti";
-            lbAvvisaTallone.Content = "Avvisa quando il tallone finisc";
-            opNomeUtente.Content = "Nome Utente: ";
-            opNomeCpu.Content = "Nome Cpu: ";
-            Secondi.Content = "Secondi: ";
-            InfoApplicazione.Content = "Applicazione";
-            OpzioniApplicazione.Content = "Applicazione";
-            OpzioniInformazioni.Content = "Informazioni";
-            AppInformazioni.Content = "Informazioni";
-            AppOpzioni.Content = "Opzioni";
-            fpOk.Content = "Ok";
-            fpCancel.Content = "Annulla";
-            fpShare.Content = "Condividi";
+            PuntiCpu.Content = $"{this.FindResource("PuntiDi")} {cpu.getNome()}: {cpu.getPunteggio()}";
+            PuntiUtente.Content = $"{this.FindResource("PuntiDi")} {g.getNome()}: {g.getPunteggio()}";
+            NelMazzoRimangono.Content = $"{this.FindResource("NelMazzoRimangono")} {m.getNumeroCarte()} {this.FindResource("carte")}";
+            CartaBriscola.Content = $"{this.FindResource("IlSemeDiBriscolaE")}: {briscola.getSemeStr()}";
+            lbCartaBriscola.Content = $"{this.FindResource("BriscolaDaPunti")}";
+            lbAvvisaTallone.Content = $"{this.FindResource("AvvisaTallone")}";
+            opNomeUtente.Content = $"{this.FindResource("NomeUtente")}: ";
+            opNomeCpu.Content = $"{this.FindResource("NomeCpu")}: ";
+            Secondi.Content = $"{this.FindResource("secondi")}: ";
+            InfoApplicazione.Content = $"{this.FindResource("Applicazione")}";
+            OpzioniApplicazione.Content = $"{this.FindResource("Applicazione")}";
+            OpzioniInformazioni.Content = $"{this.FindResource("Informazioni")}";
+            AppInformazioni.Content = $"{this.FindResource("Informazioni")}";
+            AppOpzioni.Content = $"{this.FindResource("Opzioni")}";
+            fpOk.Content = $"{this.FindResource("Ok")}";
+            fpCancel.Content = $"{this.FindResource("Annulla")}";
+            fpShare.Content = $"{this.FindResource("Condividi")}";
             Briscola.Source = briscola.getImmagine();
             t = new DispatcherTimer();
             t.Interval = TimeSpan.FromSeconds(secondi);
@@ -94,12 +94,12 @@ namespace CBriscola.Avalonia
                 }
 
                 primo.aggiornaPunteggio(secondo);
-                PuntiCpu.Content = $"Punti di {cpu.getNome()}: {cpu.getPunteggio()}";
-                PuntiUtente.Content = $"Punti di {g.getNome()}: {g.getPunteggio()}";
+                PuntiCpu.Content = $"{this.FindResource("PuntiDi")} {cpu.getNome()}: {cpu.getPunteggio()}";
+                PuntiUtente.Content = $"{this.FindResource("PuntiDi")} {g.getNome()}: {g.getPunteggio()}";
                 if (aggiungiCarte())
                 {
-                    NelMazzoRimangono.Content = $"Nel mazzo rimangono {m.getNumeroCarte()} carte";
-                    CartaBriscola.Content = $"Il seme di Briscola è: {briscola.getSemeStr()}";
+                    NelMazzoRimangono.Content = $"{this.FindResource("NelMazzoRimangono")} {m.getNumeroCarte()} {this.FindResource("carte")}";
+                    CartaBriscola.Content = $"{this.FindResource("IlSemeDiBriscolaE")}: {briscola.getSemeStr()}";
                     if (Briscola.IsVisible && m.getNumeroCarte() == 0)
                     {
                         NelMazzoRimangono.IsVisible = false;
@@ -132,16 +132,16 @@ namespace CBriscola.Avalonia
                 else
                 {
                     if (g.getPunteggio() == cpu.getPunteggio())
-                        s = "La partita è patta";
+                        s = $"{this.FindResource("PartitaPatta")}";
                     else
                     {
                         if (g.getPunteggio() > cpu.getPunteggio())
-                            s = "Hai vinto";
+                            s = $"{this.FindResource("HaiVinto")}";
                         else
-                            s = $"Hai perso";
-                        s = $"{s} per {Math.Abs(g.getPunteggio() - cpu.getPunteggio())} punti";
+                            s = $"{this.FindResource("HaiPerso")}";
+                        s = $"{s} {this.FindResource("per")} {Math.Abs(g.getPunteggio() - cpu.getPunteggio())} {this.FindResource("punti")}";
                     }
-                    fpRisultrato.Content = $"La partita è finita. {s} Vuoi effettuare una nuova partita?";
+                    fpRisultrato.Content = $"{this.FindResource("PartitaFinita")}. {s} {this.FindResource("NuovaPartita")}?";
                     Applicazione.IsVisible = false;
                     FinePartita.IsVisible = true;
                 }
@@ -225,15 +225,15 @@ namespace CBriscola.Avalonia
             Cpu2.IsVisible = true;
             Giocata0.IsVisible = false;
             Giocata1.IsVisible = false;
-            PuntiCpu.Content = $"Punti di {cpu.getNome()}: {cpu.getPunteggio()}";
-            PuntiUtente.Content = $"Punti di {g.getNome()}: {g.getPunteggio()}";
-            NelMazzoRimangono.Content = $"Nel mazzo rimangono {m.getNumeroCarte()} carte";
+            PuntiCpu.Content = $"{this.FindResource("PuntiDi")} {cpu.getNome()}: {cpu.getPunteggio()}";
+            PuntiUtente.Content = $"{this.FindResource("PuntiDi")} {g.getNome()}: {g.getPunteggio()}";
+            NelMazzoRimangono.Content = $"{this.FindResource("NelMazzoRimangono")} {m.getNumeroCarte()} {this.FindResource("carte")}";
             NelMazzoRimangono.IsVisible = true;
-            CartaBriscola.Content = $"Il seme di Briscola è: {briscola.getSemeStr()}";
+            CartaBriscola.Content = $"{this.FindResource("IlSemeDiBriscolaE")}: {briscola.getSemeStr()}";
             CartaBriscola.IsVisible = true;
-            fpOk.Content = "Ok";
-            fpCancel.Content = "Annulla";
-            fpShare.Content = "Condividi";
+            fpOk.Content = $"{this.FindResource("Ok")}";
+            fpCancel.Content = $"{this.FindResource("Annulla")}";
+            fpShare.Content = $"{this.FindResource("Condividi")}";
             Briscola.Source = briscola.getImmagine();
             Briscola.IsVisible = true;
             primo = g;
@@ -304,7 +304,7 @@ namespace CBriscola.Avalonia
             }
             catch (FormatException ex)
             {
-                txtSecondi.Text = "Valore non valido";
+                txtSecondi.Text = $"{this.FindResource("ValoreNonValido")}";
                 return;
             }
             t.Interval = TimeSpan.FromSeconds(secondi);

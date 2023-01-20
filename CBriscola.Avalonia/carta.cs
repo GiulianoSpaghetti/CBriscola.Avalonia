@@ -10,6 +10,7 @@
 
 using Avalonia.Media.Imaging;
 using Avalonia.Platform;
+using CBriscola.Avalonia;
 using System;
 using System.IO;
 using System.Reflection;
@@ -30,11 +31,11 @@ namespace CBriscola
 			valore = helper.getValore(n);
 			punteggio = helper.getPunteggio(n);
 		}
-		public static void inizializza(UInt16 n, cartaHelperBriscola h ,IAssetLoader asset) {
+		public static void inizializza(UInt16 n, cartaHelperBriscola h ,IAssetLoader asset, MainWindow mw) {
 			for (UInt16 i = 0; i < n; i++) {
 				carte[i] = new carta(i, h);
             }
-            CaricaImmagini(n, h, asset);
+            CaricaImmagini(n, h, asset, mw);
         }
         public static carta getCarta(UInt16 quale) { return carte[quale]; }
 		public UInt16 getSeme() { return seme; }
@@ -64,7 +65,7 @@ namespace CBriscola
 			return img;
 		}
 
-		public static void CaricaImmagini(UInt16 n, cartaHelperBriscola helper, IAssetLoader assets)
+		public static void CaricaImmagini(UInt16 n, cartaHelperBriscola helper, IAssetLoader assets, MainWindow mw)
 		{
 			Stream asset;
 
@@ -73,7 +74,7 @@ namespace CBriscola
                 asset = assets.Open(new Uri($"avares://{Assembly.GetEntryAssembly().GetName().Name}/resources/images/"+i+".png"));
 
 				carte[i].img = new Bitmap(asset);
-                carte[i].semeStr = helper.getSemeStr(i);
+                carte[i].semeStr = helper.getSemeStr(i, mw);
 			}
         }
     }
