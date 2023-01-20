@@ -1,6 +1,14 @@
 # CBriscola.Avalonia
 La Cbriscola con l'intrfaccia in Avalonia
 
+# Screenshots
+
+<img width="1431" alt="2023-01-20 (1)" src="https://user-images.githubusercontent.com/49764967/213634823-276f68c7-e27c-4db6-9168-33355d4661cf.png">
+<img width="1431" alt="2023-01-20 (2)" src="https://user-images.githubusercontent.com/49764967/213634827-699c92c5-0c01-4b07-8f4e-a26f6601af97.png">
+<img width="1431" alt="2023-01-20 (3)" src="https://user-images.githubusercontent.com/49764967/213634828-51a3b695-c427-461f-bbbf-45d9f0e3a8ea.png">
+<img width="1431" alt="2023-01-20 (4)" src="https://user-images.githubusercontent.com/49764967/213635073-ef325dd3-f025-4dea-9104-7532ee3d7e56.png">
+
+
 # Installazione
 
 # Tramite repository
