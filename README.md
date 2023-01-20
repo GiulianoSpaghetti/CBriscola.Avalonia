@@ -1,5 +1,5 @@
 # CBriscola.Avalonia
-Lo so che vi siete scocciati, prò la Cbriscola torna completamente libera con l'intrfaccia in Avalonia, il pezzotto dell'XAML. Una chicca per appassionati.
+Lo so che vi siete scocciati, però la Cbriscola torna completamente libera e multipiattaforma con l'interfaccia in Avalonia, il pezzotto dell'XAML. Una chicca per appassionati.
 
 # Screenshots
 
@@ -7,10 +7,7 @@ Lo so che vi siete scocciati, prò la Cbriscola torna completamente libera con l
 <img width="1431" alt="2023-01-20 (2)" src="https://user-images.githubusercontent.com/49764967/213634827-699c92c5-0c01-4b07-8f4e-a26f6601af97.png">
 <img width="1431" alt="2023-01-20 (3)" src="https://user-images.githubusercontent.com/49764967/213634828-51a3b695-c427-461f-bbbf-45d9f0e3a8ea.png">
 <img width="1431" alt="2023-01-20 (4)" src="https://user-images.githubusercontent.com/49764967/213635073-ef325dd3-f025-4dea-9104-7532ee3d7e56.png">
-![Schermata del 2023-01-20 07-53-42](https://user-images.githubusercontent.com/49764967/213635900-632b9092-cecf-4758-be33-1c79bc5814ac.png)
-![Schermata del 2023-01-20 07-53-53](https://user-images.githubusercontent.com/49764967/213635902-9cf29db2-479c-4d14-84b4-ab7a429599fa.png)
-![Schermata del 2023-01-20 07-54-02](https://user-images.githubusercontent.com/49764967/213635905-c7c730ba-4b0b-4e03-9e89-0d5142fe5bb5.png)
-![Schermata del 2023-01-20 07-55-02](https://user-images.githubusercontent.com/49764967/213635907-27673a33-470b-47e9-91ed-eb4f3f5d36f8.png)
+
 
 
 # Installazione
