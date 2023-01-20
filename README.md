@@ -26,9 +26,8 @@ Poi inserite nel file /etc/apt/sources.list la riga deb http://numeronesoft.ddns
 Infine fate apt update ed apt install cbriscola.avalonia
                                                                                                                                                   
 # Bibliografia
-                                                                                                                                                  
-                                                                                                                                  https://stackoverflow.com/questions/68684968/close-a-window-in-avalonia-gui
-                                                                                                                                                  https://docs.avaloniaui.net/docs/controls/image                                                                                                  
+https://stackoverflow.com/questions/68684968/close-a-window-in-avalonia-gui
+https://docs.avaloniaui.net/docs/controls/image                                                                                                  
 
 # Donazioni
 
