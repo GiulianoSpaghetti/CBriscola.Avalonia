@@ -24,6 +24,11 @@ Installate la nuova chiave del repository tramite il comando sudo apt-key adv --
 Poi inserite nel file /etc/apt/sources.list la riga deb http://numeronesoft.ddns.net/repos/apt/debian bullseye main
 
 Infine fate apt update ed apt install cbriscola.avalonia
+                                                                                                                                                  
+# Bibliografia
+                                                                                                                                                  
+                                                                                                                                  https://stackoverflow.com/questions/68684968/close-a-window-in-avalonia-gui
+                                                                                                                                                  https://docs.avaloniaui.net/docs/controls/image                                                                                                  
 
 # Donazioni
 
