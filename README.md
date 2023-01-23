@@ -7,10 +7,11 @@ Lo so che vi siete scocciati, però la Cbriscola torna completamente libera e mu
 <img width="1431" alt="2023-01-20 (2)" src="https://user-images.githubusercontent.com/49764967/213634827-699c92c5-0c01-4b07-8f4e-a26f6601af97.png">
 <img width="1431" alt="2023-01-20 (3)" src="https://user-images.githubusercontent.com/49764967/213634828-51a3b695-c427-461f-bbbf-45d9f0e3a8ea.png">
 <img width="1431" alt="2023-01-20 (4)" src="https://user-images.githubusercontent.com/49764967/213635073-ef325dd3-f025-4dea-9104-7532ee3d7e56.png">
-<img width="1431" alt="2023-01-20 (4)" src="https://user-images.githubusercontent.com/49764967/213636801-c1bfcf10-38fe-42b8-b07f-256430edcbc2.png)
-<img width="1431" alt="2023-01-20 (4)" src="https://user-images.githubusercontent.com/49764967/213636810-a089b680-0c0a-4673-a635-f91dcf1c52d3.png">
-<img width="1431" alt="2023-01-20 (4)" src="https://user-images.githubusercontent.com/49764967/213636813-5db2dcdb-8231-40b7-b1bf-dd38ed1aa8cd.png">
-<img width="1431" alt="2023-01-20 (4)" src="https://user-images.githubusercontent.com/49764967/213636814-f9a346ad-6a37-4fab-89b4-6b7bd7831b8d.png">
+<img width="1431" alt="2023-01-20 (4)" src="https://user-images.githubusercontent.com/49764967/213666958-d276b526-2a37-4c84-ad80-2fbe5f8ba98d.png">
+<img width="1431" alt="2023-01-20 (4)" src="(https://user-images.githubusercontent.com/49764967/213666967-87ea3448-6c07-4ff4-8f17-fa3a4a642012.png">
+<img width="1431" alt="2023-01-20 (4)" src="https://user-images.githubusercontent.com/49764967/213666970-855b09f3-8001-44ee-991d-a0e60ad5e19c.png">
+<img width="1431" alt="2023-01-20 (4)" src="https://user-images.githubusercontent.com/49764967/213666973-6f382968-8049-47a5-9529-7f107bd570ca.png">
+
 
 
 
@@ -27,7 +28,8 @@ Infine fate apt update ed apt install cbriscola.avalonia
                                                                                                                                                   
 # Bibliografia
 https://stackoverflow.com/questions/68684968/close-a-window-in-avalonia-gui
-https://docs.avaloniaui.net/docs/controls/image                                                                                                  
+                                                                                                                                                  https://docs.avaloniaui.net/docs/controls/image
+                                                                                                                                                  https://docs.avaloniaui.net/docs/styling/resources
 
 # Donazioni
 
