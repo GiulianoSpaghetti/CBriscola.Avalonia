@@ -9,30 +9,30 @@
 
 using System;
 
-namespace CBriscola
+namespace CBriscola.Avalonia
 {
     class giocatoreHelperCpu : giocatoreHelper
     {
         private carta briscola;
-        private UInt16 getBriscola(carta[] mano)
+        private ushort getBriscola(carta[] mano)
         {
-            UInt16 i;
+            ushort i;
             for (i = 0; i < mano.Length; i++)
                 if (briscola.stessoSeme(mano[i]))
                     break;
             return i;
         }
-        public giocatoreHelperCpu(UInt16 b)
+        public giocatoreHelperCpu(ushort b)
         {
             briscola = carta.getCarta(b);
         }
-        private UInt16 getSoprataglio(carta[] mano, carta c, bool maggiore)
+        private ushort getSoprataglio(carta[] mano, carta c, bool maggiore)
         {
             bool trovata = false;
-            UInt16 i;
+            ushort i;
             if (maggiore)
             {
-                for (i = (UInt16)(mano.Length - 1); i > 0; i--)
+                for (i = (ushort)(mano.Length - 1); i > 0; i--)
                     if (c.stessoSeme(mano[i]) && c.CompareTo(mano[i]) > 0)
                     {
                         trovata = true;
@@ -53,20 +53,20 @@ namespace CBriscola
             if (trovata)
                 return i;
             else
-                return (UInt16)mano.Length;
+                return (ushort)mano.Length;
         }
-        public UInt16 gioca(UInt16 x, carta[] mano, UInt16 numeroCarte)
+        public ushort gioca(ushort x, carta[] mano, ushort numeroCarte)
         {
-            UInt16 i;
-            for (i = (UInt16)(numeroCarte - 1); i > 0; i--) ;
-            if ((mano[i].getPunteggio() > 4 || briscola.stessoSeme(mano[i])))
+            ushort i;
+            for (i = (ushort)(numeroCarte - 1); i > 0; i--) ;
+            if (mano[i].getPunteggio() > 4 || briscola.stessoSeme(mano[i]))
                 i = 0;
             return i;
 
         }
-        public UInt16 gioca(UInt16 x, carta[] mano, UInt16 numeroCarte, carta c)
+        public ushort gioca(ushort x, carta[] mano, ushort numeroCarte, carta c)
         {
-            UInt16 i = (UInt16)elaboratoreCarteBriscola.r.Next(0, UInt16.MaxValue);
+            ushort i = (ushort)elaboratoreCarteBriscola.r.Next(0, ushort.MaxValue);
             if (!briscola.stessoSeme(c))
             {
                 if ((i = getSoprataglio(mano, c, true)) < numeroCarte)
@@ -88,6 +88,6 @@ namespace CBriscola
             i = 0;
             return i;
         }
-        public void aggiornaPunteggio(ref UInt16 punteggioAttuale, carta c, carta c1) { punteggioAttuale = (UInt16)(punteggioAttuale + c.getPunteggio() + c1.getPunteggio()); }
+        public void aggiornaPunteggio(ref ushort punteggioAttuale, carta c, carta c1) { punteggioAttuale = (ushort)(punteggioAttuale + c.getPunteggio() + c1.getPunteggio()); }
     }
 }

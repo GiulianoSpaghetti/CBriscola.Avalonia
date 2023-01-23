@@ -9,29 +9,29 @@
 
 using System;
 
-namespace CBriscola
+namespace CBriscola.Avalonia
 {
-	class giocatoreHelperUtente : giocatoreHelper
-	{
-		public giocatoreHelperUtente()
-		{
-			;
-		}
-		public UInt16 gioca(UInt16 i, carta[] v, UInt16 numeroCarte)
-		{
-			if (i < numeroCarte)
-				return i;
-			else
-				throw new ArgumentException("");
-		}
-		public UInt16 gioca(UInt16 i, carta[] v, UInt16 numeroCarte, carta c)
-		{
-			return gioca(i, v, numeroCarte);
-		}
-		public void aggiornaPunteggio(ref UInt16 punteggioAttuale, carta c, carta c1)
-		{
-			punteggioAttuale = (UInt16)(punteggioAttuale + c.getPunteggio() + c1.getPunteggio());
-		}
+    class giocatoreHelperUtente : giocatoreHelper
+    {
+        public giocatoreHelperUtente()
+        {
+            ;
+        }
+        public ushort gioca(ushort i, carta[] v, ushort numeroCarte)
+        {
+            if (i < numeroCarte)
+                return i;
+            else
+                throw new ArgumentException("");
+        }
+        public ushort gioca(ushort i, carta[] v, ushort numeroCarte, carta c)
+        {
+            return gioca(i, v, numeroCarte);
+        }
+        public void aggiornaPunteggio(ref ushort punteggioAttuale, carta c, carta c1)
+        {
+            punteggioAttuale = (ushort)(punteggioAttuale + c.getPunteggio() + c1.getPunteggio());
+        }
 
     };
 }

@@ -8,10 +8,10 @@
  */
 
 using System;
-namespace CBriscola
+namespace CBriscola.Avalonia
 {
     interface elaboratoreCarte
     {
-        UInt16 getCarta();
+        ushort getCarta();
     };
 }

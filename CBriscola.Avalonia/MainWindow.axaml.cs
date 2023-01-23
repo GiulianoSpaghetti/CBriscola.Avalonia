@@ -11,6 +11,7 @@ using Avalonia.Platform;
 using Avalonia;
 using System.Reflection;
 using Avalonia.Media.Imaging;
+using CBriscola;
 
 namespace CBriscola.Avalonia
 {
@@ -104,6 +105,8 @@ namespace CBriscola.Avalonia
                     {
                         NelMazzoRimangono.IsVisible = false;
                         Briscola.IsVisible = false;
+                        if (avvisaTalloneFinito)
+                            Informazioni.Content = "Il tallone è finito";
                     }
                     Utente0.Source = g.getImmagine(0);
                     if (cpu.getNumeroCarte() > 1)
@@ -127,6 +130,10 @@ namespace CBriscola.Avalonia
                     if (primo == cpu)
                     {
                         i1 = giocaCpu();
+                        if (cpu.getCartaGiocata().stessoSeme(briscola))
+                            Informazioni.Content = $"{this.FindResource("LaCPUHaGiocatoIL")} {cpu.getCartaGiocata().getValore() + 1} {this.FindResource("di")} {this.FindResource("Briscola")}";
+                        else if (cpu.getCartaGiocata().getPunteggio() > 0)
+                            Informazioni.Content = $"{this.FindResource("LaCPUHaGiocatoIl")} {cpu.getCartaGiocata().getValore() + 1} {this.FindResource("di")} {cpu.getCartaGiocata().getSemeStr()}";
                     }
                 }
                 else

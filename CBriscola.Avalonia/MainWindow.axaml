@@ -35,6 +35,10 @@
 			<x:String x:Key="coppe">Coppe</x:String>
 			<x:String x:Key="denari">denari</x:String>
 			<x:String x:Key="spade">Spade</x:String>
+			<x:String x:Key="LaCPUHaGiocatoIl">La CPU ha giocato il</x:String>
+			<x:String x:Key="di">di</x:String>
+			<x:String x:Key="Briscola">Briscola</x:String>
+			<x:String x:Key="TalloneFinito">Il tallone è finito</x:String>
 		</ResourceDictionary>
 	</Window.Resources>
 	<Window.Content>
@@ -71,6 +75,7 @@
 				<Image x:Name="Briscola" Grid.Row="4" Grid.Column="4" />
 				<Button x:Name="AppInformazioni" Grid.Row="5" Grid.Column="0" Click="OnInfo_Click">Informazioni</Button>
 				<Button x:Name="AppOpzioni" Grid.Row="5" Grid.Column="1" Click="OnOpzioni_Click">Opzioni</Button>
+				<Label x:Name="Informazioni" Grid.Row="5" Grid.Column="2" />
 			</Grid>
 			<Grid x:Name="Info" IsVisible="False">
 				<Grid.RowDefinitions>

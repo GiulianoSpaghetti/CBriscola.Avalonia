@@ -9,13 +9,13 @@
 
 using System;
 
-namespace CBriscola
+namespace CBriscola.Avalonia
 {
-	interface giocatoreHelper
-	{
-		UInt16 gioca(UInt16 i, carta[] v, UInt16 numeroCarte);
-		UInt16 gioca(UInt16 i, carta[] v, UInt16 numeroCarte, carta c);
-		void aggiornaPunteggio(ref UInt16 punteggio, carta c, carta c1);
+    interface giocatoreHelper
+    {
+        ushort gioca(ushort i, carta[] v, ushort numeroCarte);
+        ushort gioca(ushort i, carta[] v, ushort numeroCarte, carta c);
+        void aggiornaPunteggio(ref ushort punteggio, carta c, carta c1);
 
     };
 }

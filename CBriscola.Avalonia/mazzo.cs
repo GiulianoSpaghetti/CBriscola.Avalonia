@@ -8,14 +8,14 @@
  */
 
 using System;
-namespace CBriscola
+namespace CBriscola.Avalonia
 {
     class mazzo
     {
-        private UInt16[] carte;
-        private UInt16 numeroCarte;
+        private ushort[] carte;
+        private ushort numeroCarte;
         private elaboratoreCarte elaboratore;
-        private String nome;
+        private string nome;
         private void mischia()
         {
             for (numeroCarte = 0; numeroCarte < 40; numeroCarte++)
@@ -25,20 +25,20 @@ namespace CBriscola
         public mazzo(elaboratoreCarte e)
         {
             elaboratore = e;
-            carte = new UInt16[40];
+            carte = new ushort[40];
             nome = "Napoletano";
             mischia();
         }
-        public UInt16 getNumeroCarte() { return numeroCarte; }
-        public UInt16 getCarta()
+        public ushort getNumeroCarte() { return numeroCarte; }
+        public ushort getCarta()
         {
             if (numeroCarte > 40)
                 throw new IndexOutOfRangeException();
-            UInt16 c = carte[--numeroCarte];
+            ushort c = carte[--numeroCarte];
             return c;
         }
 
-        public String getNome() { return nome; }
-        public void setNome(String s) { nome = s; }
+        public string getNome() { return nome; }
+        public void setNome(string s) { nome = s; }
     };
 }

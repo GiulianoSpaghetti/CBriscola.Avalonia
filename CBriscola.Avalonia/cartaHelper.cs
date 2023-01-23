@@ -7,16 +7,15 @@
  *
  */
 
-using CBriscola.Avalonia;
 using System;
-namespace CBriscola
+namespace CBriscola.Avalonia
 {
-	interface cartaHelper
-	{
-		UInt16 getSeme(UInt16 carta);
-		UInt16 getValore(UInt16 carta);
-		UInt16 getPunteggio(UInt16 carta);
-		string getSemeStr(UInt16 carta, MainWindow mw);
-		UInt16 getNumero(UInt16 seme, UInt16 valore);
-	};
+    interface cartaHelper
+    {
+        ushort getSeme(ushort carta);
+        ushort getValore(ushort carta);
+        ushort getPunteggio(ushort carta);
+        string getSemeStr(ushort carta, MainWindow mw);
+        ushort getNumero(ushort seme, ushort valore);
+    };
 }
