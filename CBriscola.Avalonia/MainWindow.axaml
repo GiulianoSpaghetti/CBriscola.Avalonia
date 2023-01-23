@@ -85,7 +85,7 @@
 					<RowDefinition />
 					<RowDefinition />
 				</Grid.RowDefinitions>
-				<Label Grid.Row="0">CBriscola.Avalonia versione 0.5.1</Label>
+				<Label Grid.Row="0">CBriscola.Avalonia versione 0.5.2</Label>
 				<Label Grid.Row="1">Autore: Giulio Sorrentino</Label>
 				<Label Grid.Row="2">Licenza: GPL v3 o, secondo la tua opionione, qualsiasi versione successiva</Label>
 				<Button Click="OnSito_Click" Grid.Row="3">https://github.com/numerunix/CBriscola.Avalonia</Button>

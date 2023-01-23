@@ -11,7 +11,6 @@ using Avalonia.Platform;
 using Avalonia;
 using System.Reflection;
 using Avalonia.Media.Imaging;
-using CBriscola;
 
 namespace CBriscola.Avalonia
 {
