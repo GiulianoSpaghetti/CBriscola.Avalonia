@@ -84,6 +84,7 @@ namespace CBriscola.Avalonia
             t.Interval = TimeSpan.FromSeconds(secondi);
             t.Tick += (s, e) =>
             {
+                Informazioni.Content = "";
                 c = primo.getCartaGiocata();
                 c1 = secondo.getCartaGiocata();
                 if ((c.CompareTo(c1) > 0 && c.stessoSeme(c1)) || (c1.stessoSeme(briscola) && !c.stessoSeme(briscola)))
@@ -105,7 +106,7 @@ namespace CBriscola.Avalonia
                         NelMazzoRimangono.IsVisible = false;
                         Briscola.IsVisible = false;
                         if (avvisaTalloneFinito)
-                            Informazioni.Content = "Il tallone è finito";
+                            Informazioni.Content = this.FindResource("TalloneFinito");
                     }
                     Utente0.Source = g.getImmagine(0);
                     if (cpu.getNumeroCarte() > 1)
@@ -130,7 +131,7 @@ namespace CBriscola.Avalonia
                     {
                         i1 = giocaCpu();
                         if (cpu.getCartaGiocata().stessoSeme(briscola))
-                            Informazioni.Content = $"{this.FindResource("LaCPUHaGiocatoIL")} {cpu.getCartaGiocata().getValore() + 1} {this.FindResource("di")} {this.FindResource("Briscola")}";
+                            Informazioni.Content = $"{this.FindResource("LaCPUHaGiocatoIl")} {cpu.getCartaGiocata().getValore() + 1} {this.FindResource("di")} {this.FindResource("Briscola")}";
                         else if (cpu.getCartaGiocata().getPunteggio() > 0)
                             Informazioni.Content = $"{this.FindResource("LaCPUHaGiocatoIl")} {cpu.getCartaGiocata().getValore() + 1} {this.FindResource("di")} {cpu.getCartaGiocata().getSemeStr()}";
                     }
@@ -150,6 +151,7 @@ namespace CBriscola.Avalonia
                     fpRisultrato.Content = $"{this.FindResource("PartitaFinita")}. {s} {this.FindResource("NuovaPartita")}?";
                     Applicazione.IsVisible = false;
                     FinePartita.IsVisible = true;
+                    fpShare.IsEnabled = true;
                 }
                 t.Stop();
             };
@@ -330,6 +332,7 @@ namespace CBriscola.Avalonia
                 FileName = $"https://twitter.com/intent/tweet?text=Con%20la%20CBriscola%20la%20partita%20{g.getNome()}%20contro%20{cpu.getNome()}%20%C3%A8%20finita%20{g.getPunteggio()}%20a%20{cpu.getPunteggio()}&url=https%3A%2F%2Fgithub.com%2Fnumerunix%2Fcbriscola.Avalonia",
                 UseShellExecute = true
             };
+            fpShare.IsEnabled = false;
             Process.Start(psi);
         }
 
