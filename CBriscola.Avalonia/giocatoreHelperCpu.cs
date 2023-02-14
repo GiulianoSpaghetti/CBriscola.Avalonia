@@ -1,50 +1,50 @@
 /*
   *  This code is distribuited under GPL 3.0 or, at your opinion, any later version
- *  CBriscola 0.1
+ *  CBriscola 1.1.3
  *
- *  Created by numerunix on 22/05/22.
- *  Copyright 2022 Some rights reserved.
+ *  Created by Giulio Sorrentino (numerone) on 29/01/23.
+ *  Copyright 2023 Some rights reserved.
  *
  */
 
 using System;
 
-namespace CBriscola.Avalonia
+namespace org.altervista.numerone.framework
 {
-    class giocatoreHelperCpu : giocatoreHelper
+    public class GiocatoreHelperCpu : GiocatoreHelper
     {
-        private carta briscola;
-        private ushort getBriscola(carta[] mano)
+        private readonly Carta briscola;
+        private UInt16 GetBriscola(Carta[] mano)
         {
-            ushort i;
+            UInt16 i;
             for (i = 0; i < mano.Length; i++)
-                if (briscola.stessoSeme(mano[i]))
+                if (briscola.StessoSeme(mano[i]))
                     break;
             return i;
         }
-        public giocatoreHelperCpu(ushort b)
+        public GiocatoreHelperCpu(UInt16 b)
         {
-            briscola = carta.getCarta(b);
+            briscola = Carta.GetCarta(b);
         }
-        private ushort getSoprataglio(carta[] mano, carta c, bool maggiore)
+        private UInt16 getSoprataglio(Carta[] mano, Carta c, bool maggiore)
         {
             bool trovata = false;
-            ushort i;
+            UInt16 i;
             if (maggiore)
             {
-                for (i = (ushort)(mano.Length - 1); i > 0; i--)
-                    if (c.stessoSeme(mano[i]) && c.CompareTo(mano[i]) > 0)
+                for (i = (UInt16)(mano.Length - 1); i > 0; i--)
+                    if (c.StessoSeme(mano[i]) && c.CompareTo(mano[i]) > 0)
                     {
                         trovata = true;
                         break;
                     }
-                    else if (c.stessoSeme(mano[i]) && mano[i].CompareTo(c) > 0)
+                    else if (c.StessoSeme(mano[i]) && mano[i].CompareTo(c) > 0)
                         break;
             }
             else
             {
                 for (i = 0; i < mano.Length; i++)
-                    if (c.stessoSeme(mano[i]) && c.CompareTo(mano[i]) > 0)
+                    if (c.StessoSeme(mano[i]) && c.CompareTo(mano[i]) > 0)
                     {
                         trovata = true;
                         break;
@@ -53,41 +53,41 @@ namespace CBriscola.Avalonia
             if (trovata)
                 return i;
             else
-                return (ushort)mano.Length;
+                return (UInt16)mano.Length;
         }
-        public ushort gioca(ushort x, carta[] mano, ushort numeroCarte)
+        public UInt16 Gioca(UInt16 x, Carta[] mano, UInt16 numeroCarte)
         {
-            ushort i;
-            for (i = (ushort)(numeroCarte - 1); i > 0; i--) ;
-            if (mano[i].getPunteggio() > 4 || briscola.stessoSeme(mano[i]))
+            UInt16 i;
+            for (i = (UInt16)(numeroCarte - 1); i > 0; i--) ;
+            if ((mano[i].GetPunteggio() > 4 || briscola.StessoSeme(mano[i])))
                 i = 0;
             return i;
 
         }
-        public ushort gioca(ushort x, carta[] mano, ushort numeroCarte, carta c)
+        public UInt16 Gioca(UInt16 x, Carta[] mano, UInt16 numeroCarte, Carta c)
         {
-            ushort i = (ushort)elaboratoreCarteBriscola.r.Next(0, ushort.MaxValue);
-            if (!briscola.stessoSeme(c))
+            UInt16 i = (UInt16)ElaboratoreCarteBriscola.r.Next(0, UInt16.MaxValue);
+            if (!briscola.StessoSeme(c))
             {
                 if ((i = getSoprataglio(mano, c, true)) < numeroCarte)
                     return i;
-                if (c.getPunteggio() > 0 && (i = getBriscola(mano)) < numeroCarte)
+                if (c.GetPunteggio() > 0 && (i = GetBriscola(mano)) < numeroCarte)
                 {
-                    if (c.getPunteggio() > 4)
+                    if (c.GetPunteggio() > 4)
                         return i;
-                    if (mano[i].getPunteggio() > 0)
-                        if (elaboratoreCarteBriscola.r.Next() % 10 < 5)
+                    if (mano[i].GetPunteggio() > 0)
+                        if (ElaboratoreCarteBriscola.r.Next() % 10 < 5)
                             return i;
                 }
             }
             else
             {
-                if (elaboratoreCarteBriscola.r.Next() % 10 < 5 && (i = getSoprataglio(mano, c, false)) < numeroCarte)
+                if (ElaboratoreCarteBriscola.r.Next() % 10 < 5 && (i = getSoprataglio(mano, c, false)) < numeroCarte)
                     return i;
             }
             i = 0;
             return i;
         }
-        public void aggiornaPunteggio(ref ushort punteggioAttuale, carta c, carta c1) { punteggioAttuale = (ushort)(punteggioAttuale + c.getPunteggio() + c1.getPunteggio()); }
+        public void AggiornaPunteggio(ref UInt16 punteggioAttuale, Carta c, Carta c1) { punteggioAttuale = (UInt16)(punteggioAttuale + c.GetPunteggio() + c1.GetPunteggio()); }
     }
 }

@@ -1,21 +1,21 @@
 /*
- *  This code is distribuited under GPL 3.0 or, at your opinion, any later version
- *  CBriscola 0.1
+  *  This code is distribuited under GPL 3.0 or, at your opinion, any later version
+ *  CBriscola 1.1.3
  *
- *  Created by numerunix on 22/05/22.
- *  Copyright 2022 Some rights reserved.
+ *  Created by Giulio Sorrentino (numerone) on 29/01/23.
+ *  Copyright 2023 Some rights reserved.
  *
  */
 
 using System;
 
-namespace CBriscola.Avalonia
+namespace org.altervista.numerone.framework
 {
-    interface giocatoreHelper
-    {
-        ushort gioca(ushort i, carta[] v, ushort numeroCarte);
-        ushort gioca(ushort i, carta[] v, ushort numeroCarte, carta c);
-        void aggiornaPunteggio(ref ushort punteggio, carta c, carta c1);
+    public interface GiocatoreHelper
+	{
+		UInt16 Gioca(UInt16 i, Carta[] v, UInt16 numeroCarte);
+		UInt16 Gioca(UInt16 i, Carta[] v, UInt16 numeroCarte, Carta c);
+		void AggiornaPunteggio(ref UInt16 punteggio, Carta c, Carta c1);
 
     };
 }

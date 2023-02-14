@@ -2,7 +2,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        mc:Ignorable="d" d:DesignWidth="1280" d:DesignHeight="1024"
         x:Class="CBriscola.Avalonia.MainWindow"
         Title="CBriscola.Avalonia">
 	<Window.Resources>
@@ -39,6 +39,10 @@
 			<x:String x:Key="LaCPUHaGiocatoIl">La CPU ha giocato il</x:String>
 			<x:String x:Key="Briscola">Briscola</x:String>
 			<x:String x:Key="di">di</x:String>
+			<x:String x:Key="Cuori">Cuori</x:String>
+			<x:String x:Key="Quadri">Quadri</x:String>
+			<x:String x:Key="Fiori">Fiori</x:String>
+			<x:String x:Key="Picche">Picche</x:String>
 		</ResourceDictionary>
 		<ResourceDictionary x:Key="en">
 			<x:String x:Key="PuntiDiPrefisso">&#160;</x:String>
@@ -69,6 +73,10 @@
 			<x:String x:Key="coppe">Cups</x:String>
 			<x:String x:Key="denari">Denarii</x:String>
 			<x:String x:Key="spade">Sword</x:String>
+			<x:String x:Key="Cuori">Hearts</x:String>
+			<x:String x:Key="Quadri">Diamonds</x:String>
+			<x:String x:Key="Fiori">Clubs</x:String>
+			<x:String x:Key="Picche">Spades</x:String>
 			<x:String x:Key="TalloneFinito">The deck is finished</x:String>
 			<x:String x:Key="LaCPUHaGiocatoIl">The CPU has gamed the</x:String>
 			<x:String x:Key="Briscola">Briscola</x:String>
@@ -107,6 +115,10 @@
 			<x:String x:Key="LaCPUHaGiocatoIl">Die CPU hat die gespielt</x:String>
 			<x:String x:Key="Briscola">Briscola</x:String>
 			<x:String x:Key="di">der</x:String>
+			<x:String x:Key="Cuori">Herz</x:String>
+			<x:String x:Key="Quadri">Karo</x:String>
+			<x:String x:Key="Fiori">Kreuz</x:String>
+			<x:String x:Key="Picche">Pik</x:String>
 		</ResourceDictionary>
 		<ResourceDictionary x:Key="fr">
 			<x:String x:Key="PuntiDiPrefisso">Points de</x:String>
@@ -141,6 +153,10 @@
 			<x:String x:Key="LaCPUHaGiocatoIl">Le CPU a joué lse</x:String>
 			<x:String x:Key="Briscola">atouts</x:String>
 			<x:String x:Key="di">&#160;</x:String>
+			<x:String x:Key="Cuori">Cœur</x:String>
+			<x:String x:Key="Quadri">Carreau</x:String>
+			<x:String x:Key="Fiori">Trèfle</x:String>
+			<x:String x:Key="Picche">Pique</x:String>
 		</ResourceDictionary>
 		<ResourceDictionary x:Key="es">
 			<x:String x:Key="PuntiDiPrefisso">Puntos de</x:String>
@@ -175,6 +191,11 @@
 			<x:String x:Key="LaCPUHaGiocatoIl">The CPU has gamed the</x:String>
 			<x:String x:Key="Briscola">Triunfo</x:String>
 			<x:String x:Key="di">de</x:String>
+			<x:String x:Key="Cuori">Corazon</x:String>
+			<x:String x:Key="Quadri">Diamantes</x:String>
+			<x:String x:Key="Fiori">Tréboles</x:String>
+			<x:String x:Key="Picche">Picas</x:String>
+
 		</ResourceDictionary>
 	</Window.Resources>
 	<Window.Content>
@@ -251,6 +272,8 @@
 				<Label x:Name="lbCartaBriscola" Grid.Row="3" Grid.Column="1" />
 				<CheckBox x:Name="cbAvvisaTallone" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" IsChecked="True" />
 				<Label x:Name="lbAvvisaTallone" Grid.Row="4" Grid.Column="1" />
+                <Label x:Name="lbmazzi" Content="Mazzi" Grid.Row="5" Grid.Column="0" />
+                <ListBox x:Name="lsmazzi" Grid.Row="5" Grid.Column="1"/>
 				<Button Click="OnOk_Click"  Grid.Row="6" Grid.Column="1">OK</Button>
 				<Button x:Name="OpzioniApplicazione" Click="OnApp_Click" Grid.Row="7" Grid.Column="0">Applicazione</Button>
 				<Button x:Name="OpzioniInformazioni" Grid.Row="7" Grid.Column="1" Click="OnInfo_Click">Informazioni</Button>

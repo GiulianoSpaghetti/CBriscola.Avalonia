@@ -1,44 +1,44 @@
 /*
- *  This code is distribuited under GPL 3.0 or, at your opinion, any later version
- *  CBriscola 0.1
+  *  This code is distribuited under GPL 3.0 or, at your opinion, any later version
+ *  CBriscola 1.1.3
  *
- *  Created by numerunix on 22/05/22.
- *  Copyright 2022 Some rights reserved.
+ *  Created by Giulio Sorrentino (numerone) on 29/01/23.
+ *  Copyright 2023 Some rights reserved.
  *
  */
 
 using System;
-namespace CBriscola.Avalonia
+namespace org.altervista.numerone.framework
 {
-    class mazzo
+    public class Mazzo
     {
-        private ushort[] carte;
-        private ushort numeroCarte;
-        private elaboratoreCarte elaboratore;
-        private string nome;
-        private void mischia()
+        private UInt16[] carte;
+        private UInt16 numeroCarte;
+        private readonly ElaboratoreCarte elaboratore;
+        private String nome;
+        private void Mischia()
         {
             for (numeroCarte = 0; numeroCarte < 40; numeroCarte++)
-                carte[numeroCarte] = elaboratore.getCarta();
+                carte[numeroCarte] = elaboratore.GetCarta();
         }
 
-        public mazzo(elaboratoreCarte e)
+
+        public Mazzo(ElaboratoreCarte e)
         {
             elaboratore = e;
-            carte = new ushort[40];
-            nome = "Napoletano";
-            mischia();
+            carte = new UInt16[40];
+            Mischia();
         }
-        public ushort getNumeroCarte() { return numeroCarte; }
-        public ushort getCarta()
+        public UInt16 GetNumeroCarte() { return numeroCarte; }
+        public UInt16 GetCarta()
         {
             if (numeroCarte > 40)
                 throw new IndexOutOfRangeException();
-            ushort c = carte[--numeroCarte];
+            UInt16 c = carte[--numeroCarte];
             return c;
         }
 
-        public string getNome() { return nome; }
-        public void setNome(string s) { nome = s; }
+        public String GetNome() { return nome; }
+        public void SetNome(String s) { nome = s; }
     };
 }

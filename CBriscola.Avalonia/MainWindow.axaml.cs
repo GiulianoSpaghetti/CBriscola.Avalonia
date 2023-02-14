@@ -12,61 +12,64 @@ using Avalonia;
 using System.Reflection;
 using Avalonia.Media.Imaging;
 using System.Globalization;
-
+using org.altervista.numerone.framework;
 namespace CBriscola.Avalonia
 {
     public partial class MainWindow : Window
     {
-        private static giocatore g, cpu, primo, secondo, temp;
-        private static mazzo m;
-        private static carta c, c1, briscola;
+        private static Giocatore g, cpu, primo, secondo, temp;
+        private static Mazzo m;
+        private static Carta c, c1, briscola;
         private static Image cartaCpu = new Image();
         private static Image i, i1;
         private static bool avvisaTalloneFinito = true, briscolaDaPunti = false;
         private ResourceDictionary d;
-        elaboratoreCarteBriscola e;
+        private ElaboratoreCarteBriscola e;
+        private IAssetLoader assets;
+        private Stream asset;
+        private List<ListBoxItem> mazzi;
         public MainWindow()
         {
             this.InitializeComponent();
             d = this.FindResource(CultureInfo.CurrentUICulture.TwoLetterISOLanguageName) as ResourceDictionary;
             if (d==null)
                 d = this.FindResource("it") as ResourceDictionary;
-            e = new elaboratoreCarteBriscola(false);
-            m = new mazzo(e);
+            e = new ElaboratoreCarteBriscola(false);
+            m = new Mazzo(e);
 
-            IAssetLoader assets = AvaloniaLocator.Current.GetService<IAssetLoader>();
-            Stream asset = assets.Open(new Uri($"avares://{Assembly.GetEntryAssembly().GetName().Name}/resources/images/retro_carte_pc.png"));
+            assets = AvaloniaLocator.Current.GetService<IAssetLoader>();
+            asset = assets.Open(new Uri($"avares://{Assembly.GetEntryAssembly().GetName().Name}/resources/images/retro_carte_pc.png"));
 
-            m.setNome("Napoletano");
+            m.SetNome("Napoletano");
             cartaCpu.Source = new Bitmap(asset);
 
-            carta.inizializza(40, cartaHelperBriscola.getIstanza(e), assets, d);
+            Carta.Inizializza(m, 40, CartaHelperBriscola.GetIstanza(e), assets, d);
 
-            g = new giocatore(new giocatoreHelperUtente(), "numerone", 3);
-            cpu = new giocatore(new giocatoreHelperCpu(elaboratoreCarteBriscola.getCartaBriscola()), "Cpu", 3);
+            g = new Giocatore(new GiocatoreHelperUtente(), "numerone", 3);
+            cpu = new Giocatore(new GiocatoreHelperCpu(ElaboratoreCarteBriscola.GetCartaBriscola()), "Cpu", 3);
 
             primo = g;
             secondo = cpu;
-            briscola = carta.getCarta(elaboratoreCarteBriscola.getCartaBriscola());
+            briscola = Carta.GetCarta(ElaboratoreCarteBriscola.GetCartaBriscola());
             Image[] img = new Image[3];
             for (UInt16 i = 0; i < 3; i++)
             {
-                g.addCarta(m);
-                cpu.addCarta(m);
+                g.AddCarta(m);
+                cpu.AddCarta(m);
 
             }
-            NomeUtente.Content = g.getNome();
-            NomeCpu.Content = cpu.getNome();
-            Utente0.Source = g.getImmagine(0);
-            Utente1.Source = g.getImmagine(1);
-            Utente2.Source = g.getImmagine(2);
+            NomeUtente.Content = g.GetNome();
+            NomeCpu.Content = cpu.GetNome();
+            Utente0.Source = g.GetImmagine(0);
+            Utente1.Source = g.GetImmagine(1);
+            Utente2.Source = g.GetImmagine(2);
             Cpu0.Source = cartaCpu.Source;
             Cpu1.Source = cartaCpu.Source;
             Cpu2.Source = cartaCpu.Source;
-            PuntiCpu.Content = $"{d["PuntiDiPrefisso"]} {cpu.getNome()} {d["PuntiDiSuffisso"]}: {cpu.getPunteggio()}";
-            PuntiUtente.Content = $"{d["PuntiDiPrefisso"]} {g.getNome()} {d["PuntiDiSuffisso"]}: {g.getPunteggio()}";
-            NelMazzoRimangono.Content = $"{d["NelMazzoRimangono"]} {m.getNumeroCarte()} {d["carte"]}";
-            CartaBriscola.Content = $"{d["IlSemeDiBriscolaE"]}: {briscola.getSemeStr()}";
+            PuntiCpu.Content = $"{d["PuntiDiPrefisso"]} {cpu.GetNome()} {d["PuntiDiSuffisso"]}: {cpu.GetPunteggio()}";
+            PuntiUtente.Content = $"{d["PuntiDiPrefisso"]} {g.GetNome()} {d["PuntiDiSuffisso"]}: {g.GetPunteggio()}";
+            NelMazzoRimangono.Content = $"{d["NelMazzoRimangono"]} {m.GetNumeroCarte()} {d["carte"]}";
+            CartaBriscola.Content = $"{d["IlSemeDiBriscolaE"]}: {briscola.GetSemeStr()}";
             lbCartaBriscola.Content = $"{d["BriscolaDaPunti"]}";
             lbAvvisaTallone.Content = $"{d["AvvisaTallone"]}";
             opNomeUtente.Content = $"{d["NomeUtente"]}: ";
@@ -79,76 +82,102 @@ namespace CBriscola.Avalonia
             fpOk.Content = $"{d["Si"]}";
             fpCancel.Content = $"{d["No"]}";
             fpShare.Content = $"{d["Condividi"]}";
-            Briscola.Source = briscola.getImmagine();
+            Briscola.Source = briscola.GetImmagine();
             btnGiocata.Content = $"{d["giocataVista"]}";
+            List<String> path;
+            mazzi = new List<ListBoxItem>();
+            ListBoxItem item;
+            String s1;
+            String dirs = Environment.GetFolderPath(Environment.SpecialFolder.ProgramFiles) + "\\wxBriscola\\Mazzi";
+            try
+            {
+                path = new List<String>(Directory.EnumerateDirectories(dirs));
+            }
+            catch (System.IO.DirectoryNotFoundException ex)
+            {
+                path = new List<string>();
+
+            }
+            if (!path.Contains("Napoletano"))
+                path.Add("\\Napoletano");
+            path.Sort();
+            foreach (String s in path)
+            {
+                item = new ListBoxItem();
+                s1 = s.Substring(s.LastIndexOf("\\") + 1);
+                item.Content = s1;
+                mazzi.Add(item);
+            }
+            lsmazzi.Items = mazzi;
+            lbmazzi.Content =$"{d["Mazzo"]}";
         }
 
         private void Gioca_Click(object sender, RoutedEventArgs e)
         {
             Informazioni.Content = "";
-            c = primo.getCartaGiocata();
-            c1 = secondo.getCartaGiocata();
-            if ((c.CompareTo(c1) > 0 && c.stessoSeme(c1)) || (c1.stessoSeme(briscola) && !c.stessoSeme(briscola)))
+            c = primo.GetCartaGiocata();
+            c1 = secondo.GetCartaGiocata();
+            if ((c.CompareTo(c1) > 0 && c.StessoSeme(c1)) || (c1.StessoSeme(briscola) && !c.StessoSeme(briscola)))
             {
                 temp = secondo;
                 secondo = primo;
                 primo = temp;
             }
 
-            primo.aggiornaPunteggio(secondo);
-            PuntiCpu.Content = $"{d["PuntiDiPrefisso"]} {cpu.getNome()} {d["PuntiDiSuffisso"]}: {cpu.getPunteggio()}";
-            PuntiUtente.Content = $"{d["PuntiDiPrefisso"]} {g.getNome()} {d["PuntiDiSuffisso"]}: {g.getPunteggio()}";
-            if (aggiungiCarte())
+            primo.AggiornaPunteggio(secondo);
+            PuntiCpu.Content = $"{d["PuntiDiPrefisso"]} {cpu.GetNome()} {d["PuntiDiSuffisso"]}: {cpu.GetPunteggio()}";
+            PuntiUtente.Content = $"{d["PuntiDiPrefisso"]} {g.GetNome()} {d["PuntiDiSuffisso"]}: {g.GetPunteggio()}";
+            if (AggiungiCarte())
             {
-                NelMazzoRimangono.Content = $"{d["NelMazzoRimangono"]} {m.getNumeroCarte()} {d["carte"]}";
-                CartaBriscola.Content = $"{d["IlSemeDiBriscolaE"]}: {briscola.getSemeStr()}";
-                if (Briscola.IsVisible && m.getNumeroCarte() == 0)
+                NelMazzoRimangono.Content = $"{d["NelMazzoRimangono"]} {m.GetNumeroCarte()} {d["carte"]}";
+                CartaBriscola.Content = $"{d["IlSemeDiBriscolaE"]}: {briscola.GetSemeStr()}";
+                if (Briscola.IsVisible && m.GetNumeroCarte() == 0)
                 {
                     NelMazzoRimangono.IsVisible = false;
                     Briscola.IsVisible = false;
                     if (avvisaTalloneFinito)
                         Informazioni.Content = d["TalloneFinito"] as string;
                 }
-                Utente0.Source = g.getImmagine(0);
-                if (cpu.getNumeroCarte() > 1)
-                    Utente1.Source = g.getImmagine(1);
-                if (cpu.getNumeroCarte() > 2)
-                    Utente2.Source = g.getImmagine(2);
+                Utente0.Source = g.GetImmagine(0);
+                if (cpu.GetNumeroCarte() > 1)
+                    Utente1.Source = g.GetImmagine(1);
+                if (cpu.GetNumeroCarte() > 2)
+                    Utente2.Source = g.GetImmagine(2);
                 i.IsVisible = true;
                 i1.IsVisible = true;
                 Giocata0.IsVisible = false;
                 Giocata1.IsVisible = false;
-                if (cpu.getNumeroCarte() == 2)
+                if (cpu.GetNumeroCarte() == 2)
                 {
                     Utente2.IsVisible = false;
                     Cpu2.IsVisible = false;
                 }
-                if (cpu.getNumeroCarte() == 1)
+                if (cpu.GetNumeroCarte() == 1)
                 {
                     Utente1.IsVisible = false;
                     Cpu1.IsVisible = false;
                 }
                 if (primo == cpu)
                 {
-                    i1 = giocaCpu();
-                    if (cpu.getCartaGiocata().stessoSeme(briscola))
-                        Informazioni.Content = $"{d["LaCPUHaGiocatoIl"]} {cpu.getCartaGiocata().getValore() + 1} {d["di"]} {d["Briscola"]}";
-                    else if (cpu.getCartaGiocata().getPunteggio() > 0)
-                        Informazioni.Content = $"{d["LaCPUHaGiocatoIl"]} {cpu.getCartaGiocata().getValore() + 1} {d["di"]} {cpu.getCartaGiocata().getSemeStr()}";
+                    i1 = GiocaCpu();
+                    if (cpu.GetCartaGiocata().StessoSeme(briscola))
+                        Informazioni.Content = $"{d["LaCPUHaGiocatoIl"]} {cpu.GetCartaGiocata().GetValore() + 1} {d["di"]} {d["Briscola"]}";
+                    else if (cpu.GetCartaGiocata().GetPunteggio() > 0)
+                        Informazioni.Content = $"{d["LaCPUHaGiocatoIl"]} {cpu.GetCartaGiocata().GetValore() + 1} {d["di"]} {cpu.GetCartaGiocata().GetSemeStr()}";
                 }
             }
             else
             {
                 String s;
-                if (g.getPunteggio() == cpu.getPunteggio())
+                if (g.GetPunteggio() == cpu.GetPunteggio())
                     s = $"{d["PartitaPatta"]}";
                 else
                 {
-                    if (g.getPunteggio() > cpu.getPunteggio())
+                    if (g.GetPunteggio() > cpu.GetPunteggio())
                         s = $"{d["HaiVinto"]}";
                     else
                         s = $"{d["HaiPerso"]}";
-                    s = $"{s} {d["per"]} {Math.Abs(g.getPunteggio() - cpu.getPunteggio())} {d["punti"]}";
+                    s = $"{s} {d["per"]} {Math.Abs(g.GetPunteggio() - cpu.GetPunteggio())} {d["punti"]}";
                 }
                 fpRisultrato.Content = $"{d["PartitaFinita"]}. {s} {d["NuovaPartita"]}?";
                 Applicazione.IsVisible = false;
@@ -157,7 +186,7 @@ namespace CBriscola.Avalonia
             }
             btnGiocata.IsVisible = false;
         }
-        private Image giocaUtente(Image img)
+        private Image GiocaUtente(Image img)
         {
             UInt16 quale = 0;
             Image img1 = Utente0;
@@ -174,7 +203,7 @@ namespace CBriscola.Avalonia
             Giocata0.IsVisible = true;
             Giocata0.Source = img1.Source;
             img1.IsVisible = false;
-            g.gioca(quale);
+            g.Gioca(quale);
             return img1;
         }
 
@@ -196,8 +225,8 @@ namespace CBriscola.Avalonia
             Info.IsVisible = false;
             Applicazione.IsVisible = false;
             GOpzioni.IsVisible = true;
-            txtNomeUtente.Text = g.getNome();
-            txtCpu.Text = cpu.getNome();
+            txtNomeUtente.Text = g.GetNome();
+            txtCpu.Text = cpu.GetNome();
             cbCartaBriscola.IsChecked = briscolaDaPunti;
             cbAvvisaTallone.IsChecked = avvisaTalloneFinito;
         }
@@ -208,22 +237,22 @@ namespace CBriscola.Avalonia
             FinePartita.IsVisible = false;
             if (cbCartaBriscola.IsChecked == false)
                 cartaBriscola = false;
-            e = new elaboratoreCarteBriscola(cartaBriscola);
-            m = new mazzo(e);
-            briscola = carta.getCarta(elaboratoreCarteBriscola.getCartaBriscola());
-            g = new giocatore(new giocatoreHelperUtente(), g.getNome(), 3);
-            cpu = new giocatore(new giocatoreHelperCpu(elaboratoreCarteBriscola.getCartaBriscola()), cpu.getNome(), 3);
+            e = new ElaboratoreCarteBriscola(cartaBriscola);
+            m = new Mazzo(e);
+            briscola = Carta.GetCarta(ElaboratoreCarteBriscola.GetCartaBriscola());
+            g = new Giocatore(new GiocatoreHelperUtente(), g.GetNome(), 3);
+            cpu = new Giocatore(new GiocatoreHelperCpu(ElaboratoreCarteBriscola.GetCartaBriscola()), cpu.GetNome(), 3);
             for (UInt16 i = 0; i < 3; i++)
             {
-                g.addCarta(m);
-                cpu.addCarta(m);
+                g.AddCarta(m);
+                cpu.AddCarta(m);
 
             }
-            Utente0.Source = g.getImmagine(0);
+            Utente0.Source = g.GetImmagine(0);
             Utente0.IsVisible = true;
-            Utente1.Source = g.getImmagine(1);
+            Utente1.Source = g.GetImmagine(1);
             Utente1.IsVisible = true;
-            Utente2.Source = g.getImmagine(2);
+            Utente2.Source = g.GetImmagine(2);
             Utente2.IsVisible = true;
             Cpu0.Source = cartaCpu.Source;
             Cpu0.IsVisible = true;
@@ -233,17 +262,17 @@ namespace CBriscola.Avalonia
             Cpu2.IsVisible = true;
             Giocata0.IsVisible = false;
             Giocata1.IsVisible = false;
-            PuntiCpu.Content = $"{d["PuntiDiPrefisso"]} {cpu.getNome()} {d["PuntiDiSuffisso"]}: {cpu.getPunteggio()}";
-            PuntiUtente.Content = $"{d["PuntiDiPrefisso"]} {g.getNome()} {d["PuntiDiSuffisso"]}: {g.getPunteggio()}";
-            NelMazzoRimangono.Content = $"{d["NelMazzoRimangono"]} {m.getNumeroCarte()} {d["carte"]}";
+            PuntiCpu.Content = $"{d["PuntiDiPrefisso"]} {cpu.GetNome()} {d["PuntiDiSuffisso"]}: {cpu.GetPunteggio()}";
+            PuntiUtente.Content = $"{d["PuntiDiPrefisso"]} {g.GetNome()} {d["PuntiDiSuffisso"]}: {g.GetPunteggio()}";
+            NelMazzoRimangono.Content = $"{d["NelMazzoRimangono"]} {m.GetNumeroCarte()} {d["carte"]}";
             NelMazzoRimangono.IsVisible = true;
-            CartaBriscola.Content = $"{d["IlSemeDiBriscolaE"]}: {briscola.getSemeStr()}";
+            CartaBriscola.Content = $"{d["IlSemeDiBriscolaE"]}: {briscola.GetSemeStr()}";
             CartaBriscola.IsVisible = true;
-            Briscola.Source = briscola.getImmagine();
+            Briscola.Source = briscola.GetImmagine();
             Briscola.IsVisible = true;
             primo = g;
             secondo = cpu;
-            Briscola.Source = briscola.getImmagine();
+            Briscola.Source = briscola.GetImmagine();
             Applicazione.IsVisible = true;
         }
         private void OnCancelFp_Click(object sender, RoutedEventArgs e)
@@ -251,30 +280,30 @@ namespace CBriscola.Avalonia
             Close();
         }
 
-        private Image giocaCpu()
+        private Image GiocaCpu()
         {
             UInt16 quale = 0;
             Image img1 = Cpu0;
             if (primo == cpu)
-                cpu.gioca(0);
+                cpu.Gioca(0);
             else
-                cpu.gioca(0, g);
-            quale = cpu.getICartaGiocata();
+                cpu.Gioca(0, g);
+            quale = cpu.GetICartaGiocata();
             if (quale == 1)
                 img1 = Cpu1;
             if (quale == 2)
                 img1 = Cpu2;
             Giocata1.IsVisible = true;
-            Giocata1.Source = cpu.getCartaGiocata().getImmagine();
+            Giocata1.Source = cpu.GetCartaGiocata().GetImmagine();
             img1.IsVisible = false;
             return img1;
         }
-        private static bool aggiungiCarte()
+        private static bool AggiungiCarte()
         {
             try
             {
-                primo.addCarta(m);
-                secondo.addCarta(m);
+                primo.AddCarta(m);
+                secondo.AddCarta(m);
             }
             catch (IndexOutOfRangeException e)
             {
@@ -286,15 +315,15 @@ namespace CBriscola.Avalonia
         private void Image_Tapped(object Sender, RoutedEventArgs arg)
         {
             Image img = (Image)Sender;
-            i = giocaUtente(img);
+            i = GiocaUtente(img);
             if (secondo == cpu)
-                i1 = giocaCpu();
+                i1 = GiocaCpu();
             btnGiocata.IsVisible= true;
         }
         public void OnOk_Click(Object source, RoutedEventArgs evt)
         {
-            g.setNome(txtNomeUtente.Text);
-            cpu.setNome(txtCpu.Text);
+            g.SetNome(txtNomeUtente.Text);
+            cpu.SetNome(txtCpu.Text);
             if (cbCartaBriscola.IsChecked == false)
                 briscolaDaPunti = false;
             else
@@ -303,10 +332,31 @@ namespace CBriscola.Avalonia
                 avvisaTalloneFinito = false;
             else
                 avvisaTalloneFinito = true;
-            NomeUtente.Content = g.getNome();
-            NomeCpu.Content = cpu.getNome();
+            NomeUtente.Content = g.GetNome();
+            NomeCpu.Content = cpu.GetNome();
+            ListBoxItem i = (ListBoxItem) lsmazzi.SelectedItem;
+            if (i != null)
+            {
+                m.SetNome((string)i.Content);
+                Carta.CaricaImmagini(m, 40, CartaHelperBriscola.GetIstanza(e), assets, d);
+                Utente0.Source = g.GetImmagine(0);
+                Utente1.Source = g.GetImmagine(1);
+                Utente2.Source = g.GetImmagine(2);
 
-
+                briscola = Carta.GetCarta(ElaboratoreCarteBriscola.GetCartaBriscola());
+                Briscola.Source = briscola.GetImmagine();
+                if (m.GetNome() != "Napoletano")
+                    cartaCpu.Source = new Bitmap("C:\\Program Files\\wxBriscola\\Mazzi\\" + m.GetNome() + "\\retro carte pc.png");
+                else
+                {
+                    asset = assets.Open(new Uri($"avares://{Assembly.GetEntryAssembly().GetName().Name}/resources/images/retro_carte_pc.png"));
+                    cartaCpu.Source = new Bitmap(asset);
+                }
+                Cpu0.Source = cartaCpu.Source;
+                Cpu1.Source = cartaCpu.Source;
+                Cpu2.Source = cartaCpu.Source;
+                CartaBriscola.Content = $"{d["IlSemeDiBriscolaE"]}: {briscola.GetSemeStr()}";
+            }
             GOpzioni.IsVisible = false;
             Applicazione.IsVisible = true;
 
@@ -316,7 +366,7 @@ namespace CBriscola.Avalonia
         {
             var psi = new ProcessStartInfo
             {
-                FileName = $"https://twitter.com/intent/tweet?text=Con%20la%20CBriscola%20la%20partita%20{g.getNome()}%20contro%20{cpu.getNome()}%20%C3%A8%20finita%20{g.getPunteggio()}%20a%20{cpu.getPunteggio()}&url=https%3A%2F%2Fgithub.com%2Fnumerunix%2Fcbriscola.Avalonia",
+                FileName = $"https://twitter.com/intent/tweet?text=Con%20la%20CBriscola%20la%20partita%20{g.GetNome()}%20contro%20{cpu.GetNome()}%20%C3%A8%20finita%20{g.GetPunteggio()}%20a%20{cpu.GetPunteggio()}&url=https%3A%2F%2Fgithub.com%2Fnumerunix%2Fcbriscola.Avalonia",
                 UseShellExecute = true
             };
             fpShare.IsEnabled = false;

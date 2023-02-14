@@ -1,9 +1,9 @@
 /*
- *  This code is distribuited under GPL 3.0 or, at your opinion, any later version
- *  CBriscola 0.1
+  *  This code is distribuited under GPL 3.0 or, at your opinion, any later version
+ *  CBriscola 1.1.3
  *
- *  Created by numerunix on 22/05/22.
- *  Copyright 2022 Some rights reserved.
+ *  Created by Giulio Sorrentino (numerone) on 29/01/23.
+ *  Copyright 2023 Some rights reserved.
  *
  */
 
@@ -16,71 +16,86 @@ using System.IO;
 using System.Reflection;
 using System.Resources;
 
-namespace CBriscola.Avalonia
+namespace org.altervista.numerone.framework
 {
-    class carta
+    public class Carta
     {
-        private ushort seme,
+        private readonly UInt16 seme,
                    valore,
                    punteggio;
         private string semeStr;
-        private cartaHelperBriscola helper;
-        private static carta[] carte = new carta[40];
+        private readonly CartaHelperBriscola helper;
+        private readonly static Carta[] carte = new Carta[40];
         private Bitmap img;
-        private carta(ushort n, cartaHelperBriscola h)
+
+        private Carta(UInt16 n, CartaHelperBriscola h)
         {
             helper = h;
-            seme = helper.getSeme(n);
-            valore = helper.getValore(n);
-            punteggio = helper.getPunteggio(n);
+            seme = helper.GetSeme(n);
+            valore = helper.GetValore(n);
+            punteggio = helper.GetPunteggio(n);
         }
-        public static void inizializza(ushort n, cartaHelperBriscola h, IAssetLoader asset, ResourceDictionary d)
+        public static void Inizializza(Mazzo m, ushort n, CartaHelperBriscola h, IAssetLoader asset, ResourceDictionary d)
         {
-            for (ushort i = 0; i < n; i++)
+            for (UInt16 i = 0; i < n; i++)
             {
-                carte[i] = new carta(i, h);
+                carte[i] = new Carta(i, h);
+
             }
-            CaricaImmagini(n, h, asset, d);
+            CaricaImmagini(m, n, h, asset, d);
         }
-        public static carta getCarta(ushort quale) { return carte[quale]; }
-        public ushort getSeme() { return seme; }
-        public ushort getValore() { return valore; }
-        public ushort getPunteggio() { return punteggio; }
-        public string getSemeStr() { return semeStr; }
-        public bool stessoSeme(carta c1) { if (c1 == null) return false; else return seme == c1.getSeme(); }
-        public int CompareTo(carta c1)
+        public static Carta GetCarta(UInt16 quale) { return carte[quale]; }
+        public UInt16 GetSeme() { return seme; }
+        public UInt16 GetValore() { return valore; }
+        public UInt16 GetPunteggio() { return punteggio; }
+        public string GetSemeStr() { return semeStr; }
+        public bool StessoSeme(Carta c1) { if (c1 == null) return false; else return seme == c1.GetSeme(); }
+        public int CompareTo(Carta c1)
         {
             if (c1 == null)
                 return 1;
             else
-                return helper.CompareTo(helper.getNumero(getSeme(), getValore()), helper.getNumero(c1.getSeme(), c1.getValore()));
+                return helper.CompareTo(helper.GetNumero(GetSeme(), GetValore()), helper.GetNumero(c1.GetSeme(), c1.GetValore()));
         }
 
         public override string ToString()
         {
-            return $"{valore + 1} di {semeStr}{(stessoSeme(helper.getCartaBriscola()) ? "*" : " ")} ";
+            return $"{valore + 1} di {semeStr}{(StessoSeme(helper.GetCartaBriscola()) ? "*" : " ")} ";
         }
 
-        public static Bitmap getImmagine(ushort quale)
+        public static Bitmap GetImmagine(UInt16 quale)
         {
             return carte[quale].img;
         }
 
-        public Bitmap getImmagine()
+        public Bitmap GetImmagine()
         {
             return img;
         }
 
-        public static void CaricaImmagini(ushort n, cartaHelperBriscola helper, IAssetLoader assets, ResourceDictionary d)
+        public static void CaricaImmagini(Mazzo m, ushort n, CartaHelperBriscola helper, IAssetLoader assets, ResourceDictionary d)
         {
-            Stream asset;
-
-            for (ushort i = 0; i < n; i++)
+            String s = "C:\\Program Files\\wxBriscola\\Mazzi\\";
+            for (UInt16 i = 0; i < n; i++)
             {
-                asset = assets.Open(new Uri($"avares://{Assembly.GetEntryAssembly().GetName().Name}/resources/images/" + i + ".png"));
-
-                carte[i].img = new Bitmap(asset);
-                carte[i].semeStr = helper.getSemeStr(i, d);
+                Stream asset;
+                if (m.GetNome() != "Napoletano")
+                    try
+                    {
+                        carte[i].img = new Bitmap(s + m.GetNome() + "\\" + i + ".png");
+                    }
+                    catch (System.IO.FileNotFoundException ex)
+                    {
+                        m.SetNome("Napoletano");
+                        CaricaImmagini(m, n, helper, assets, d);
+                        return;
+                    }
+                else
+                {
+                    asset = assets.Open(new Uri($"avares://{Assembly.GetEntryAssembly().GetName().Name}/resources/images/" + i + ".png"));
+                    carte[i].img = new Bitmap(asset);
+                }
+                carte[i].semeStr = helper.GetSemeStr(i, m.GetNome(), d);
             }
         }
     }
