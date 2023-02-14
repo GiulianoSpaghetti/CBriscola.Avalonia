@@ -3,16 +3,10 @@ Lo so che vi siete scocciati, però la Cbriscola torna completamente libera e mu
 
 # Screenshots
 
-<img width="1431" alt="2023-01-20 (1)" src="https://user-images.githubusercontent.com/49764967/213634823-276f68c7-e27c-4db6-9168-33355d4661cf.png">
-<img width="1431" alt="2023-01-20 (2)" src="https://user-images.githubusercontent.com/49764967/213634827-699c92c5-0c01-4b07-8f4e-a26f6601af97.png">
-<img width="1431" alt="2023-01-20 (3)" src="https://user-images.githubusercontent.com/49764967/213634828-51a3b695-c427-461f-bbbf-45d9f0e3a8ea.png">
-<img width="1431" alt="2023-01-20 (4)" src="https://user-images.githubusercontent.com/49764967/213635073-ef325dd3-f025-4dea-9104-7532ee3d7e56.png">
-<img width="1431" alt="2023-01-20 (4)" src="https://user-images.githubusercontent.com/49764967/213666958-d276b526-2a37-4c84-ad80-2fbe5f8ba98d.png">
-<img width="1431" alt="2023-01-20 (4)" src="(https://user-images.githubusercontent.com/49764967/213666967-87ea3448-6c07-4ff4-8f17-fa3a4a642012.png">
-<img width="1431" alt="2023-01-20 (4)" src="https://user-images.githubusercontent.com/49764967/213666970-855b09f3-8001-44ee-991d-a0e60ad5e19c.png">
-<img width="1431" alt="2023-01-20 (4)" src="https://user-images.githubusercontent.com/49764967/213666973-6f382968-8049-47a5-9529-7f107bd570ca.png">
-
-
+<img src="https://user-images.githubusercontent.com/49764967/218878980-06ba97d9-d9d1-4310-b5bb-19e6e6d4bf8b.png" />
+<img src="https://user-images.githubusercontent.com/49764967/218878990-ded5b136-ec69-4690-8632-8beda01a7c9b.png" />
+<img src="https://user-images.githubusercontent.com/49764967/218878994-2d9d5306-ebfa-4f34-972c-ee95de84abf9.png" />
+<img src="https://user-images.githubusercontent.com/49764967/218879000-5becb59c-fe3f-4804-88ec-cbc6ded9d685.png" />
 
 
 # Installazione
