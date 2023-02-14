@@ -4,9 +4,7 @@ Lo so che vi siete scocciati, però la Cbriscola torna completamente libera e mu
 # Screenshots
 
 <img src="https://user-images.githubusercontent.com/49764967/218878980-06ba97d9-d9d1-4310-b5bb-19e6e6d4bf8b.png" />
-<img src="https://user-images.githubusercontent.com/49764967/218878990-ded5b136-ec69-4690-8632-8beda01a7c9b.png" />
 <img src="https://user-images.githubusercontent.com/49764967/218878994-2d9d5306-ebfa-4f34-972c-ee95de84abf9.png" />
-<img src="https://user-images.githubusercontent.com/49764967/218879000-5becb59c-fe3f-4804-88ec-cbc6ded9d685.png" />
 
 
 # Installazione
