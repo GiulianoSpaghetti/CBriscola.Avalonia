@@ -1,0 +1,298 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="1280" d:DesignHeight="1024"
+        x:Class="CBriscola.Avalonia.MainWindow"
+        Title="CBriscola.Avalonia">
+	<Window.Resources>
+		<ResourceDictionary x:Key="it">
+			<x:String x:Key="PuntiDiPrefisso">Punti di</x:String>
+			<x:String x:Key="PuntiDiSuffisso">&#160;</x:String>
+			<x:String x:Key="NelMazzoRimangono">Nel mazzo rimangono</x:String>
+			<x:String x:Key="carte">carte</x:String>
+			<x:String x:Key="IlSemeDiBriscolaE">Il seme di briscola è</x:String>
+			<x:String x:Key="BriscolaDaPunti">Il seme di briscola può dar punti</x:String>
+			<x:String x:Key="AvvisaTallone">Avvisa quando il tallone finisce</x:String>
+			<x:String x:Key="NomeUtente">Nome Utente</x:String>
+			<x:String x:Key="NomeCpu">Nome Cpu</x:String>
+			<x:String x:Key="giocataVista">Ho visto la giocata</x:String>
+			<x:String x:Key="Applicazione">Applicazione</x:String>
+			<x:String x:Key="Informazioni">Informazioni</x:String>
+			<x:String x:Key="Opzioni">Opzioni</x:String>
+			<x:String x:Key="PartitaPatta">La partita è patta</x:String>
+			<x:String x:Key="HaiVinto">Hai vinto</x:String>
+			<x:String x:Key="HaiPerso">Hai perso</x:String>
+			<x:String x:Key="per">per</x:String>
+			<x:String x:Key="punti">punti</x:String>
+			<x:String x:Key="PartitaFinita">La partita è finita</x:String>
+			<x:String x:Key="NuovaPartita">Vuoi effettuare una nuova partita</x:String>
+			<x:String x:Key="Mazzo">Mazzo</x:String>
+			<x:String x:Key="Si">Si</x:String>
+			<x:String x:Key="No">No</x:String>
+			<x:String x:Key="Condividi">Condividi</x:String>
+			<x:String x:Key="bastoni">Bastoni</x:String>
+			<x:String x:Key="coppe">Coppe</x:String>
+			<x:String x:Key="denari">denari</x:String>
+			<x:String x:Key="spade">Spade</x:String>
+			<x:String x:Key="TalloneFinito">Il tallone è finito</x:String>
+			<x:String x:Key="LaCPUHaGiocatoIl">La CPU ha giocato il</x:String>
+			<x:String x:Key="Briscola">Briscola</x:String>
+			<x:String x:Key="di">di</x:String>
+			<x:String x:Key="Cuori">Cuori</x:String>
+			<x:String x:Key="Quadri">Quadri</x:String>
+			<x:String x:Key="Fiori">Fiori</x:String>
+			<x:String x:Key="Picche">Picche</x:String>
+		</ResourceDictionary>
+		<ResourceDictionary x:Key="en">
+			<x:String x:Key="PuntiDiPrefisso">&#160;</x:String>
+			<x:String x:Key="PuntiDiSuffisso">points</x:String>
+			<x:String x:Key="NelMazzoRimangono">There are</x:String>
+			<x:String x:Key="carte">cards left in the deck</x:String>
+			<x:String x:Key="IlSemeDiBriscolaE">The trump seed is</x:String>
+			<x:String x:Key="BriscolaDaPunti">The card deisgnating the trump seed can score points</x:String>
+			<x:String x:Key="AvvisaTallone">Alert when the deck ends</x:String>
+			<x:String x:Key="NomeUtente">User name</x:String>
+			<x:String x:Key="NomeCpu">Cpu name</x:String>
+			<x:String x:Key="giocataVista">I've seen the plays</x:String>
+			<x:String x:Key="Applicazione">Application</x:String>
+			<x:String x:Key="Informazioni">Informations</x:String>
+			<x:String x:Key="Opzioni">Options</x:String>
+			<x:String x:Key="PartitaPatta">The game is drown</x:String>
+			<x:String x:Key="HaiVinto">You win</x:String>
+			<x:String x:Key="HaiPerso">Yo losy</x:String>
+			<x:String x:Key="per">for</x:String>
+			<x:String x:Key="punti">points</x:String>
+			<x:String x:Key="PartitaFinita">Game over</x:String>
+			<x:String x:Key="NuovaPartita">Do you want to play again</x:String>
+			<x:String x:Key="Mazzo">Deck</x:String>
+			<x:String x:Key="Si">Yes</x:String>
+			<x:String x:Key="No">No</x:String>
+			<x:String x:Key="Condividi">Share</x:String>
+			<x:String x:Key="bastoni">Batons</x:String>
+			<x:String x:Key="coppe">Cups</x:String>
+			<x:String x:Key="denari">Denarii</x:String>
+			<x:String x:Key="spade">Sword</x:String>
+			<x:String x:Key="Cuori">Hearts</x:String>
+			<x:String x:Key="Quadri">Diamonds</x:String>
+			<x:String x:Key="Fiori">Clubs</x:String>
+			<x:String x:Key="Picche">Spades</x:String>
+			<x:String x:Key="TalloneFinito">The deck is finished</x:String>
+			<x:String x:Key="LaCPUHaGiocatoIl">The CPU has gamed the</x:String>
+			<x:String x:Key="Briscola">Briscola</x:String>
+			<x:String x:Key="di">of</x:String>
+		</ResourceDictionary>
+		<ResourceDictionary x:Key="de">
+			<x:String x:Key="PuntiDiPrefisso">&#160;</x:String>
+			<x:String x:Key="PuntiDiSuffisso">-Puntke</x:String>
+			<x:String x:Key="NelMazzoRimangono">Es sind noch</x:String>
+			<x:String x:Key="carte">Karten im Deck übrig</x:String>
+			<x:String x:Key="IlSemeDiBriscolaE">Der Trumpf ist</x:String>
+			<x:String x:Key="BriscolaDaPunti">Die Trumpfkarte kann Punkte bringen</x:String>
+			<x:String x:Key="AvvisaTallone">Warnung, wenn das Deck endet</x:String>
+			<x:String x:Key="NomeUtente">Nutzername</x:String>
+			<x:String x:Key="NomeCpu">CPU-Name</x:String>
+			<x:String x:Key="giocataVista">Ich habe die Theaterstücke gesehen</x:String>
+			<x:String x:Key="Applicazione">Anwendung</x:String>
+			<x:String x:Key="Informazioni">Informationen</x:String>
+			<x:String x:Key="Opzioni">Optionen</x:String>
+			<x:String x:Key="PartitaPatta">Das Spiel ist ertränkt</x:String>
+			<x:String x:Key="HaiVinto">Du gewinnst</x:String>
+			<x:String x:Key="HaiPerso">Du verlierst</x:String>
+			<x:String x:Key="per">nach</x:String>
+			<x:String x:Key="punti">puntken</x:String>
+			<x:String x:Key="PartitaFinita">Spiel ist aus</x:String>
+			<x:String x:Key="NuovaPartita">Willst du wieder spielenn</x:String>
+			<x:String x:Key="Mazzo">Deck</x:String>
+			<x:String x:Key="Si">Ya</x:String>
+			<x:String x:Key="No">Nein</x:String>
+			<x:String x:Key="Condividi">Aktie</x:String>
+			<x:String x:Key="bastoni">Schlagstöcke</x:String>
+			<x:String x:Key="coppe">Tassen</x:String>
+			<x:String x:Key="denari">Denare</x:String>
+			<x:String x:Key="spade">Schwert</x:String>
+			<x:String x:Key="TalloneFinito">Das Deck ist fertig</x:String>
+			<x:String x:Key="LaCPUHaGiocatoIl">Die CPU hat die gespielt</x:String>
+			<x:String x:Key="Briscola">Briscola</x:String>
+			<x:String x:Key="di">der</x:String>
+			<x:String x:Key="Cuori">Herz</x:String>
+			<x:String x:Key="Quadri">Karo</x:String>
+			<x:String x:Key="Fiori">Kreuz</x:String>
+			<x:String x:Key="Picche">Pik</x:String>
+		</ResourceDictionary>
+		<ResourceDictionary x:Key="fr">
+			<x:String x:Key="PuntiDiPrefisso">Points de</x:String>
+			<x:String x:Key="PuntiDiSuffisso">&#160;</x:String>
+			<x:String x:Key="NelMazzoRimangono">Il y a</x:String>
+			<x:String x:Key="carte">cartes restantes dans le jeu</x:String>
+			<x:String x:Key="IlSemeDiBriscolaE">La graine d'atout est</x:String>
+			<x:String x:Key="BriscolaDaPunti">La carte désignant la graine d'atout peut marquer des points</x:String>
+			<x:String x:Key="AvvisaTallone">Alerte lorsque le jeu se termine</x:String>
+			<x:String x:Key="NomeUtente">Nom d'utilisateur</x:String>
+			<x:String x:Key="NomeCpu">CNom du processeur</x:String>
+			<x:String x:Key="giocataVista">J'ai vu les pièces</x:String>
+			<x:String x:Key="Applicazione">Application</x:String>
+			<x:String x:Key="Informazioni">Informations</x:String>
+			<x:String x:Key="Opzioni">Choix</x:String>
+			<x:String x:Key="PartitaPatta">Le jeu est noyé</x:String>
+			<x:String x:Key="HaiVinto">Vous gagnez</x:String>
+			<x:String x:Key="HaiPerso">Vous perdez</x:String>
+			<x:String x:Key="per">far</x:String>
+			<x:String x:Key="punti">points</x:String>
+			<x:String x:Key="PartitaFinita">Game over</x:String>
+			<x:String x:Key="NuovaPartita">Voulez-vous rejouer</x:String>
+			<x:String x:Key="Mazzo">Plateau</x:String>
+			<x:String x:Key="Si">Oui</x:String>
+			<x:String x:Key="No">Non</x:String>
+			<x:String x:Key="Condividi">Partager</x:String>
+			<x:String x:Key="bastoni">Batons</x:String>
+			<x:String x:Key="coppe">Tasses</x:String>
+			<x:String x:Key="denari">Deniers</x:String>
+			<x:String x:Key="spade">épées</x:String>
+			<x:String x:Key="TalloneFinito">Le plateau est terminé</x:String>
+			<x:String x:Key="LaCPUHaGiocatoIl">Le CPU a joué lse</x:String>
+			<x:String x:Key="Briscola">atouts</x:String>
+			<x:String x:Key="di">&#160;</x:String>
+			<x:String x:Key="Cuori">Cœur</x:String>
+			<x:String x:Key="Quadri">Carreau</x:String>
+			<x:String x:Key="Fiori">Trèfle</x:String>
+			<x:String x:Key="Picche">Pique</x:String>
+		</ResourceDictionary>
+		<ResourceDictionary x:Key="es">
+			<x:String x:Key="PuntiDiPrefisso">Puntos de</x:String>
+			<x:String x:Key="PuntiDiSuffisso">&#160;</x:String>
+			<x:String x:Key="NelMazzoRimangono">Quedan</x:String>
+			<x:String x:Key="carte">cartas en la baraja</x:String>
+			<x:String x:Key="IlSemeDiBriscolaE">La semilla de triunfo es</x:String>
+			<x:String x:Key="BriscolaDaPunti">La carta que designa la semilla de triunfo puede sumar puntos</x:String>
+			<x:String x:Key="AvvisaTallone">Alert when the deck ends</x:String>
+			<x:String x:Key="NomeUtente">Nombre de usuario</x:String>
+			<x:String x:Key="NomeCpu">Nombre de la CPU</x:String>
+			<x:String x:Key="giocataVista">He visto los juegos</x:String>
+			<x:String x:Key="Applicazione">Solicitud</x:String>
+			<x:String x:Key="Informazioni">Informaciones</x:String>
+			<x:String x:Key="Opzioni">Opciones</x:String>
+			<x:String x:Key="PartitaPatta">El juego se ahoga</x:String>
+			<x:String x:Key="HaiVinto">Tú ganas</x:String>
+			<x:String x:Key="HaiPerso">Yo perdido</x:String>
+			<x:String x:Key="per">Yo perdido por</x:String>
+			<x:String x:Key="punti">puntos</x:String>
+			<x:String x:Key="PartitaFinita">Juego terminado</x:String>
+			<x:String x:Key="NuovaPartita">¿Quieres jugar de nuevo</x:String>
+			<x:String x:Key="Mazzo">baraja</x:String>
+			<x:String x:Key="Si">Sí</x:String>
+			<x:String x:Key="No">No</x:String>
+			<x:String x:Key="Condividi">Compartir</x:String>
+			<x:String x:Key="bastoni">Palos</x:String>
+			<x:String x:Key="coppe">Copas</x:String>
+			<x:String x:Key="denari">Dinero</x:String>
+			<x:String x:Key="spade">Espadas</x:String>
+			<x:String x:Key="TalloneFinito">La baraja está terminada</x:String>
+			<x:String x:Key="LaCPUHaGiocatoIl">The CPU has gamed the</x:String>
+			<x:String x:Key="Briscola">Triunfo</x:String>
+			<x:String x:Key="di">de</x:String>
+			<x:String x:Key="Cuori">Corazon</x:String>
+			<x:String x:Key="Quadri">Diamantes</x:String>
+			<x:String x:Key="Fiori">Tréboles</x:String>
+			<x:String x:Key="Picche">Picas</x:String>
+
+		</ResourceDictionary>
+	</Window.Resources>
+	<Window.Content>
+		<Grid>
+			<Grid x:Name="Applicazione">
+				<Grid.RowDefinitions>
+					<RowDefinition />
+					<RowDefinition />
+					<RowDefinition />
+					<RowDefinition />
+					<RowDefinition />
+					<RowDefinition />
+				</Grid.RowDefinitions>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition />
+					<ColumnDefinition />
+					<ColumnDefinition />
+					<ColumnDefinition Width="auto" />
+				</Grid.ColumnDefinitions>
+				<Label x:Name="NomeUtente" Grid.Row="0" Grid.Column="0" Grid.RowSpan="3">Nome Utente</Label>
+				<Image x:Name="Utente0" Grid.Row="1" Grid.Column="0" Tapped="Image_Tapped"/>
+				<Image x:Name="Utente1" Grid.Row="1"  Grid.Column="1" Tapped="Image_Tapped" />
+				<Image x:Name="Utente2" Grid.Row="1"  Grid.Column="2" Tapped="Image_Tapped" />
+				<Image x:Name="Giocata0" Grid.Row="2" Grid.Column="0" />
+				<Image x:Name="Giocata1" Grid.Row="2" Grid.Column="1" />
+				<Image x:Name="Cpu0" Grid.Row="3" Grid.Column="0" />
+				<Image x:Name="Cpu1" Grid.Row="3" Grid.Column="1" />
+				<Image x:Name="Cpu2" Grid.Row="3" Grid.Column="2" />
+				<Label x:Name="NomeCpu" Grid.Row="4" Grid.Column="0" Grid.RowSpan="3">Nome Cpu</Label>
+				<Label x:Name="PuntiUtente" Grid.Row="0" Grid.Column="4">Punti dell'utente</Label>
+				<Label x:Name="PuntiCpu" Grid.Row="1" Grid.Column="4">Punti della Cpu</Label>
+				<Label x:Name="NelMazzoRimangono" Grid.Row="2" Grid.Column="4">Nel Mazzo Rimangono</Label>
+				<Label x:Name="CartaBriscola" Grid.Row="3" Grid.Column="4">Il seme di briscola è</Label>
+				<Image x:Name="Briscola" Grid.Row="4" Grid.Column="4" />
+				<Button x:Name="AppInformazioni" Grid.Row="5" Grid.Column="0" Click="OnInfo_Click">Informazioni</Button>
+				<Button x:Name="AppOpzioni" Grid.Row="5" Grid.Column="1" Click="OnOpzioni_Click">Opzioni</Button>
+				<Label x:Name="Informazioni" Grid.Row="5" Grid.Column="2" />
+				<Button x:Name="btnGiocata" Grid.Row="5" Grid.Column="3" IsVisible="false" Click="Gioca_Click" />
+			</Grid>
+			<Grid x:Name="Info" IsVisible="False">
+				<Grid.RowDefinitions>
+					<RowDefinition />
+					<RowDefinition />
+					<RowDefinition />
+					<RowDefinition />
+					<RowDefinition />
+				</Grid.RowDefinitions>
+				<Label Grid.Row="0">CBriscola.Avalonia versione 0.6</Label>
+				<Label Grid.Row="1">ⓒ Giulio Sorrentino 2023</Label>
+				<Label Grid.Row="2">Licenza: GPL v3 o, secondo la tua opionione, qualsiasi versione successiva</Label>
+				<Button Click="OnSito_Click" Grid.Row="3">https://github.com/numerunix/CBriscola.Avalonia</Button>
+				<Button x:Name="InfoApplicazione" Click="OnApp_Click" Grid.Row="4">Applicazione</Button>
+			</Grid>
+			<Grid x:Name="GOpzioni" IsVisible="False">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition />
+					<ColumnDefinition />
+				</Grid.ColumnDefinitions>
+				<Grid.RowDefinitions>
+					<RowDefinition />
+					<RowDefinition />
+					<RowDefinition />
+					<RowDefinition />
+					<RowDefinition />
+					<RowDefinition />
+					<RowDefinition />
+					<RowDefinition />
+				</Grid.RowDefinitions>
+				<Label x:Name="opNomeUtente" Grid.Row="0" Grid.Column="0"/>
+				<TextBox x:Name="txtNomeUtente" Grid.Row="0" Grid.Column="1" />
+				<Label x:Name="opNomeCpu" Grid.Row="1" Grid.Column="0" />
+				<TextBox x:Name="txtCpu" Grid.Row="1" Grid.Column="1" />
+				<CheckBox x:Name="cbCartaBriscola" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" IsChecked="True" />
+				<Label x:Name="lbCartaBriscola" Grid.Row="3" Grid.Column="1" />
+				<CheckBox x:Name="cbAvvisaTallone" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" IsChecked="True" />
+				<Label x:Name="lbAvvisaTallone" Grid.Row="4" Grid.Column="1" />
+                <Label x:Name="lbmazzi" Content="Mazzi" Grid.Row="5" Grid.Column="0" />
+                <ListBox x:Name="lsmazzi" Grid.Row="5" Grid.Column="1"/>
+				<Button Click="OnOk_Click"  Grid.Row="6" Grid.Column="1">OK</Button>
+				<Button x:Name="OpzioniApplicazione" Click="OnApp_Click" Grid.Row="7" Grid.Column="0">Applicazione</Button>
+				<Button x:Name="OpzioniInformazioni" Grid.Row="7" Grid.Column="1" Click="OnInfo_Click">Informazioni</Button>
+			</Grid>
+			<Grid x:Name="FinePartita" IsVisible="False">
+				<Grid.RowDefinitions>
+					<RowDefinition />
+					<RowDefinition />
+				</Grid.RowDefinitions>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition />
+					<ColumnDefinition />
+					<ColumnDefinition />
+				</Grid.ColumnDefinitions>
+				<Label x:Name="fpRisultrato" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" />
+				<Button x:Name="fpOk" Click="OnOkFp_Click" Grid.Row="1" Grid.Column="0">Ok</Button>
+				<Button x:Name="fpCancel" Click="OnCancelFp_Click" Grid.Row="1" Grid.Column="1">Annulla</Button>
+				<Button x:Name="fpShare" Click="OnFPShare_Click" Grid.Row="1" Grid.Column="2">Condividi</Button>
+			</Grid>
+		</Grid>
+	</Window.Content>
+</Window>
