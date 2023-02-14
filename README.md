@@ -2,9 +2,10 @@
 Lo so che vi siete scocciati, però la Cbriscola torna completamente libera e multipiattaforma con l'interfaccia in Avalonia, il pezzotto dell'XAML. Una chicca per appassionati.
 
 # Screenshots
-
-<img src="https://user-images.githubusercontent.com/49764967/218878980-06ba97d9-d9d1-4310-b5bb-19e6e6d4bf8b.png" />
-<img src="https://user-images.githubusercontent.com/49764967/218878994-2d9d5306-ebfa-4f34-972c-ee95de84abf9.png" />
+<img src="https://user-images.githubusercontent.com/49764967/218879403-0f3586ce-21b5-4765-ad62-d3b6b04b15ac.png" />
+<img src="https://user-images.githubusercontent.com/49764967/218879409-295fff5c-8556-4c61-9f0c-8bfd7b7ad980.png" />
+<img src="https://user-images.githubusercontent.com/49764967/218879412-15fcd966-26af-4eb9-9370-be739c444f3c.png" />
+<img src="https://user-images.githubusercontent.com/49764967/218879414-3e3d4fa5-f378-46fc-a084-c062377b9769.png" />
 
 
 # Installazione
@@ -29,3 +30,4 @@ https://stackoverflow.com/questions/68684968/close-a-window-in-avalonia-gui
 
 Puoi donare anche tramite carta Hype a patto di avere il mio numero di cellulare nella rubrica. Sai dove lo puoi trovare? Sul mio curriculum.
 Apri l'app Hype, fai il login, seleziona PAGAMENTI, INVIA DENARO, seleziona il mio numero nella rubrica, imposta l'importo, INSERISCI LA CAUSALE e segui le istruzioni a video.
+
