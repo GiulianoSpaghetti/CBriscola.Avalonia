@@ -75,7 +75,8 @@ namespace org.altervista.numerone.framework
 
         public static void CaricaImmagini(Mazzo m, ushort n, CartaHelperBriscola helper, IAssetLoader assets, ResourceDictionary d)
         {
-            String s = "C:\\Program Files\\wxBriscola\\Mazzi\\";
+            String s = Environment.GetFolderPath(Environment.SpecialFolder.ProgramFiles) + "\\wxBriscola\\Mazzi\\";
+//            String s = "/usr/share/wxBriscola/Mazzi";
             for (UInt16 i = 0; i < n; i++)
             {
                 Stream asset;

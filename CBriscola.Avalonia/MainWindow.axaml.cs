@@ -88,6 +88,7 @@ namespace CBriscola.Avalonia
             mazzi = new List<ListBoxItem>();
             ListBoxItem item;
             String s1;
+//            String dirs = "/usr/share/wxBriscola/Mazzi"
             String dirs = Environment.GetFolderPath(Environment.SpecialFolder.ProgramFiles) + "\\wxBriscola\\Mazzi";
             try
             {
@@ -346,7 +347,8 @@ namespace CBriscola.Avalonia
                 briscola = Carta.GetCarta(ElaboratoreCarteBriscola.GetCartaBriscola());
                 Briscola.Source = briscola.GetImmagine();
                 if (m.GetNome() != "Napoletano")
-                    cartaCpu.Source = new Bitmap("C:\\Program Files\\wxBriscola\\Mazzi\\" + m.GetNome() + "\\retro carte pc.png");
+                    //cartaCpu.Source = new Bitmap("/usr/share/wxBriscola/Mazzi/" + m.GetNome + "/retro carte pc.png");
+                    cartaCpu.Source = new Bitmap(Environment.GetFolderPath(Environment.SpecialFolder.ProgramFiles) + "\\wxBriscola\\Mazzi\\" + m.GetNome() + "\\retro carte pc.png");
                 else
                 {
                     asset = assets.Open(new Uri($"avares://{Assembly.GetEntryAssembly().GetName().Name}/resources/images/retro_carte_pc.png"));
