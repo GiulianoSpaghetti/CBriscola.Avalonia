@@ -9,6 +9,7 @@
 
 using Avalonia.Controls;
 using System;
+using System.Resources;
 
 namespace CBriscola.Avalonia
 {
@@ -48,15 +49,15 @@ namespace CBriscola.Avalonia
             }
             return valore;
         }
-        public string getSemeStr(ushort carta, MainWindow mw)
+        public string getSemeStr(ushort carta,ResourceDictionary d)
         {
             string s = "a";
             switch (carta / 10)
             {
-                case 0: s = (string)mw.FindResource("bastoni") as string; break;
-                case 1: s = (string)mw.FindResource("coppe") as string; break;
-                case 2: s = (string)mw.FindResource("denari") as string; break;
-                case 3: s = (string)mw.FindResource("spade") as string; break;
+                case 0: s = d["bastoni"] as string; break;
+                case 1: s = d["coppe"] as string; break;
+                case 2: s = d["denari"] as string; break;
+                case 3: s = d["spade"] as string; break;
             }
             return s;
         }

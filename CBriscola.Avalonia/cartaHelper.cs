@@ -7,7 +7,10 @@
  *
  */
 
+using Avalonia.Controls;
 using System;
+using System.Resources;
+
 namespace CBriscola.Avalonia
 {
     interface cartaHelper
@@ -15,7 +18,7 @@ namespace CBriscola.Avalonia
         ushort getSeme(ushort carta);
         ushort getValore(ushort carta);
         ushort getPunteggio(ushort carta);
-        string getSemeStr(ushort carta, MainWindow mw);
+        string getSemeStr(ushort carta, ResourceDictionary d);
         ushort getNumero(ushort seme, ushort valore);
     };
 }
