@@ -50,9 +50,17 @@ namespace CBriscola.Avalonia
                 asset = assets.Open(new Uri($"avares://{Assembly.GetEntryAssembly().GetName().Name}/resources/images/retro_carte_pc.png"));
                 cartaCpu.Source = new Bitmap(asset);
 
-            } 
+            }
             else
-                cartaCpu.Source = new Bitmap(Environment.GetFolderPath(Environment.SpecialFolder.ProgramFiles) + "\\wxBriscola\\Mazzi\\" + m.GetNome() + "\\retro carte pc.png");
+                try
+                {
+                    cartaCpu.Source = new Bitmap(Environment.GetFolderPath(Environment.SpecialFolder.ProgramFiles) + "\\wxBriscola\\Mazzi\\" + m.GetNome() + "\\retro carte pc.png");
+                } catch (System.IO.FileNotFoundException ex)
+                {
+                    asset = assets.Open(new Uri($"avares://{Assembly.GetEntryAssembly().GetName().Name}/resources/images/retro_carte_pc.png"));
+                    cartaCpu.Source = new Bitmap(asset);
+
+                }
 
             g = new Giocatore(new GiocatoreHelperUtente(), o.NomeUtente, 3);
             cpu = new Giocatore(new GiocatoreHelperCpu(ElaboratoreCarteBriscola.GetCartaBriscola()), o.NomeCpu, 3);
@@ -400,7 +408,16 @@ namespace CBriscola.Avalonia
                 Briscola.Source = briscola.GetImmagine();
                 if (m.GetNome() != "Napoletano")
                     //cartaCpu.Source = new Bitmap("/usr/share/wxBriscola/Mazzi/" + m.GetNome + "/retro carte pc.png");
-                    cartaCpu.Source = new Bitmap(Environment.GetFolderPath(Environment.SpecialFolder.ProgramFiles) + "\\wxBriscola\\Mazzi\\" + m.GetNome() + "\\retro carte pc.png");
+                    try
+                    {
+                        cartaCpu.Source = new Bitmap(Environment.GetFolderPath(Environment.SpecialFolder.ProgramFiles) + "\\wxBriscola\\Mazzi\\" + m.GetNome() + "\\retro carte pc.png");
+                    }
+                    catch (System.IO.FileNotFoundException ex)
+                    {
+                        asset = assets.Open(new Uri($"avares://{Assembly.GetEntryAssembly().GetName().Name}/resources/images/retro_carte_pc.png"));
+                        cartaCpu.Source = new Bitmap(asset);
+
+                    }
                 else
                 {
                     asset = assets.Open(new Uri($"avares://{Assembly.GetEntryAssembly().GetName().Name}/resources/images/retro_carte_pc.png"));
