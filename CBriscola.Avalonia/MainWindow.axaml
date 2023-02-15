@@ -243,7 +243,7 @@
 					<RowDefinition />
 					<RowDefinition />
 				</Grid.RowDefinitions>
-				<Label Grid.Row="0">CBriscola.Avalonia versione 0.6</Label>
+				<Label Grid.Row="0">CBriscola.Avalonia versione 0.6.5</Label>
 				<Label Grid.Row="1">ⓒ Giulio Sorrentino 2023</Label>
 				<Label Grid.Row="2">Licenza: GPL v3 o, secondo la tua opionione, qualsiasi versione successiva</Label>
 				<Button Click="OnSito_Click" Grid.Row="3">https://github.com/numerunix/CBriscola.Avalonia</Button>
@@ -260,7 +260,7 @@
 					<RowDefinition />
 					<RowDefinition />
 					<RowDefinition />
-					<RowDefinition />
+					<RowDefinition Height="200"/>
 					<RowDefinition />
 					<RowDefinition />
 				</Grid.RowDefinitions>

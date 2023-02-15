@@ -13,6 +13,9 @@ using System.Reflection;
 using Avalonia.Media.Imaging;
 using System.Globalization;
 using org.altervista.numerone.framework;
+using static System.Net.WebRequestMethods;
+using System.Threading.Tasks;
+
 namespace CBriscola.Avalonia
 {
     public partial class MainWindow : Window
@@ -36,18 +39,25 @@ namespace CBriscola.Avalonia
                 d = this.FindResource("it") as ResourceDictionary;
             e = new ElaboratoreCarteBriscola(false);
             m = new Mazzo(e);
-
+            Task<Opzioni> o1 = CaricaOpzioni();
+            Opzioni o = o1.Result;
             assets = AvaloniaLocator.Current.GetService<IAssetLoader>();
-            asset = assets.Open(new Uri($"avares://{Assembly.GetEntryAssembly().GetName().Name}/resources/images/retro_carte_pc.png"));
-
-            m.SetNome("Napoletano");
-            cartaCpu.Source = new Bitmap(asset);
+            m.SetNome(o.nomeMazzo);
 
             Carta.Inizializza(m, 40, CartaHelperBriscola.GetIstanza(e), assets, d);
+            if (o.nomeMazzo == "Napoletano")
+            {
+                asset = assets.Open(new Uri($"avares://{Assembly.GetEntryAssembly().GetName().Name}/resources/images/retro_carte_pc.png"));
+                cartaCpu.Source = new Bitmap(asset);
 
-            g = new Giocatore(new GiocatoreHelperUtente(), "numerone", 3);
-            cpu = new Giocatore(new GiocatoreHelperCpu(ElaboratoreCarteBriscola.GetCartaBriscola()), "Cpu", 3);
+            } 
+            else
+                cartaCpu.Source = new Bitmap("/usr/share/wxBriscola/Mazzi/" + m.GetNome() + "/retro carte pc.png");
 
+            g = new Giocatore(new GiocatoreHelperUtente(), o.NomeUtente, 3);
+            cpu = new Giocatore(new GiocatoreHelperCpu(ElaboratoreCarteBriscola.GetCartaBriscola()), o.NomeCpu, 3);
+            briscolaDaPunti = o.briscolaDaPunti;
+            avvisaTalloneFinito = o.avvisaTalloneFinito;
             primo = g;
             secondo = cpu;
             briscola = Carta.GetCarta(ElaboratoreCarteBriscola.GetCartaBriscola());
@@ -88,7 +98,8 @@ namespace CBriscola.Avalonia
             mazzi = new List<ListBoxItem>();
             ListBoxItem item;
             String s1;
-            String dirs = Environment.GetFolderPath(Environment.SpecialFolder.ProgramFiles) + "\\wxBriscola\\Mazzi";
+            String dirs = "/usr/share/wxBriscola/Mazzi";
+//            String dirs = Environment.GetFolderPath(Environment.SpecialFolder.ProgramFiles) + "\\wxBriscola\\Mazzi";
             try
             {
                 path = new List<String>(Directory.EnumerateDirectories(dirs));
@@ -99,18 +110,60 @@ namespace CBriscola.Avalonia
 
             }
             if (!path.Contains("Napoletano"))
-                path.Add("\\Napoletano");
+                path.Add("/Napoletano");
             path.Sort();
             foreach (String s in path)
             {
                 item = new ListBoxItem();
-                s1 = s.Substring(s.LastIndexOf("\\") + 1);
+                s1 = s.Substring(s.LastIndexOf("/") + 1);
                 item.Content = s1;
                 mazzi.Add(item);
             }
             lsmazzi.Items = mazzi;
             lbmazzi.Content =$"{d["Mazzo"]}";
         }
+
+        private async Task<Opzioni> CaricaOpzioni()
+        {
+            Opzioni o;
+            string dir = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+            o = await LeggiOpzioni(dir);
+            return o;
+        }
+        private async Task<Opzioni> LeggiOpzioni(String folder)
+        {
+            Opzioni o;
+            if (!Directory.Exists(folder + "/CBriscola.Avalonia"))
+               Directory.CreateDirectory(folder + "/CBriscola.Avalonia");
+            StreamReader file;
+            try
+            {
+                file = new StreamReader(folder + "/CBriscola.Avalonia/opzioni.json");
+            }
+            catch (FileNotFoundException ex)
+            {
+                o = new Opzioni();
+                o.NomeUtente = "numerone";
+                o.NomeCpu = "Cpu";
+                o.briscolaDaPunti = false;
+                o.avvisaTalloneFinito = true;
+                o.nomeMazzo = "Napoletano";
+                SalvaOpzioni(folder, o);
+                return o;
+            }
+            string s = file.ReadToEnd();
+            file.Close();
+            o = Newtonsoft.Json.JsonConvert.DeserializeObject<Opzioni>(s);
+            return o;
+        }
+
+        private async void SalvaOpzioni(String folder, Opzioni o)
+        {
+            StreamWriter w = new StreamWriter(folder + "/CBriscola.Avalonia/opzioni.json");
+            w.Write(Newtonsoft.Json.JsonConvert.SerializeObject(o));
+            w.Close();
+        }
+
 
         private void Gioca_Click(object sender, RoutedEventArgs e)
         {
@@ -346,7 +399,8 @@ namespace CBriscola.Avalonia
                 briscola = Carta.GetCarta(ElaboratoreCarteBriscola.GetCartaBriscola());
                 Briscola.Source = briscola.GetImmagine();
                 if (m.GetNome() != "Napoletano")
-                    cartaCpu.Source = new Bitmap("C:\\Program Files\\wxBriscola\\Mazzi\\" + m.GetNome() + "\\retro carte pc.png");
+                    cartaCpu.Source = new Bitmap("/usr/share/wxBriscola/Mazzi/" + m.GetNome() + "/retro carte pc.png");
+ //                   cartaCpu.Source = new Bitmap(Environment.GetFolderPath(Environment.SpecialFolder.ProgramFiles) + "\\wxBriscola\\Mazzi\\" + m.GetNome() + "\\retro carte pc.png");
                 else
                 {
                     asset = assets.Open(new Uri($"avares://{Assembly.GetEntryAssembly().GetName().Name}/resources/images/retro_carte_pc.png"));
@@ -357,6 +411,13 @@ namespace CBriscola.Avalonia
                 Cpu2.Source = cartaCpu.Source;
                 CartaBriscola.Content = $"{d["IlSemeDiBriscolaE"]}: {briscola.GetSemeStr()}";
             }
+            Opzioni o=new Opzioni();
+            o.nomeMazzo= m.GetNome();
+            o.NomeCpu = cpu.GetNome();
+            o.NomeUtente=g.GetNome();
+            o.briscolaDaPunti = briscolaDaPunti;
+            o.avvisaTalloneFinito = avvisaTalloneFinito;
+            SalvaOpzioni(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), o);
             GOpzioni.IsVisible = false;
             Applicazione.IsVisible = true;
 
@@ -366,7 +427,7 @@ namespace CBriscola.Avalonia
         {
             var psi = new ProcessStartInfo
             {
-                FileName = $"https://twitter.com/intent/tweet?text=Con%20la%20CBriscola%20la%20partita%20{g.GetNome()}%20contro%20{cpu.GetNome()}%20%C3%A8%20finita%20{g.GetPunteggio()}%20a%20{cpu.GetPunteggio()}&url=https%3A%2F%2Fgithub.com%2Fnumerunix%2Fcbriscola.Avalonia",
+                FileName = $"https://twitter.com/intent/tweet?text=Con%20la%20CBriscola%20la%20partita%20{g.GetNome()}%20contro%20{cpu.GetNome()}%20%C3%A8%20finita%20{g.GetPunteggio()}%20a%20{cpu.GetPunteggio()}%%20con%20mazzo%20{m.GetNome()}&url=https%3A%2F%2Fgithub.com%2Fnumerunix%2Fcbriscola.Avalonia",
                 UseShellExecute = true
             };
             fpShare.IsEnabled = false;
