@@ -13,6 +13,9 @@ using System.Reflection;
 using Avalonia.Media.Imaging;
 using System.Globalization;
 using org.altervista.numerone.framework;
+using static System.Net.WebRequestMethods;
+using System.Threading.Tasks;
+
 namespace CBriscola.Avalonia
 {
     public partial class MainWindow : Window
@@ -36,18 +39,25 @@ namespace CBriscola.Avalonia
                 d = this.FindResource("it") as ResourceDictionary;
             e = new ElaboratoreCarteBriscola(false);
             m = new Mazzo(e);
-
+            Task<Opzioni> o1 = LeggiOpzioni(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData));
+            Opzioni o = o1.Result;
             assets = AvaloniaLocator.Current.GetService<IAssetLoader>();
-            asset = assets.Open(new Uri($"avares://{Assembly.GetEntryAssembly().GetName().Name}/resources/images/retro_carte_pc.png"));
-
-            m.SetNome("Napoletano");
-            cartaCpu.Source = new Bitmap(asset);
+            m.SetNome(o.nomeMazzo);
 
             Carta.Inizializza(m, 40, CartaHelperBriscola.GetIstanza(e), assets, d);
+            if (o.nomeMazzo == "Napoletano")
+            {
+                asset = assets.Open(new Uri($"avares://{Assembly.GetEntryAssembly().GetName().Name}/resources/images/retro_carte_pc.png"));
+                cartaCpu.Source = new Bitmap(asset);
 
-            g = new Giocatore(new GiocatoreHelperUtente(), "numerone", 3);
-            cpu = new Giocatore(new GiocatoreHelperCpu(ElaboratoreCarteBriscola.GetCartaBriscola()), "Cpu", 3);
+            } 
+            else
+                cartaCpu.Source = new Bitmap(Environment.GetFolderPath(Environment.SpecialFolder.ProgramFiles) + "\\wxBriscola\\Mazzi\\" + m.GetNome() + "\\retro carte pc.png");
 
+            g = new Giocatore(new GiocatoreHelperUtente(), o.NomeUtente, 3);
+            cpu = new Giocatore(new GiocatoreHelperCpu(ElaboratoreCarteBriscola.GetCartaBriscola()), o.NomeCpu, 3);
+            briscolaDaPunti = o.briscolaDaPunti;
+            avvisaTalloneFinito = o.avvisaTalloneFinito;
             primo = g;
             secondo = cpu;
             briscola = Carta.GetCarta(ElaboratoreCarteBriscola.GetCartaBriscola());
@@ -112,6 +122,48 @@ namespace CBriscola.Avalonia
             lsmazzi.Items = mazzi;
             lbmazzi.Content =$"{d["Mazzo"]}";
         }
+
+        private async Task<Opzioni> CaricaOpzioni()
+        {
+            Opzioni o;
+            string dir = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
+            o = await LeggiOpzioni(dir);
+            return o;
+        }
+        private async Task<Opzioni> LeggiOpzioni(String folder)
+        {
+            Opzioni o;
+            if (!Directory.Exists(folder + "\\CBriscola.Avalonia"))
+               Directory.CreateDirectory(folder + "\\CBriscola.Avalonia");
+            StreamReader file;
+            try
+            {
+                file = new StreamReader(folder + "\\CBriscola.Avalonia\\opzioni.json");
+            }
+            catch (FileNotFoundException ex)
+            {
+                o = new Opzioni();
+                o.NomeUtente = "numerone";
+                o.NomeCpu = "Cpu";
+                o.briscolaDaPunti = false;
+                o.avvisaTalloneFinito = true;
+                o.nomeMazzo = "Napoletano";
+                SalvaOpzioni(folder, o);
+                return o;
+            }
+            string s = file.ReadToEnd();
+            file.Close();
+            o = Newtonsoft.Json.JsonConvert.DeserializeObject<Opzioni>(s);
+            return o;
+        }
+
+        private async void SalvaOpzioni(String folder, Opzioni o)
+        {
+            StreamWriter w = new StreamWriter(folder + "\\CBriscola.Avalonia\\opzioni.json");
+            w.Write(Newtonsoft.Json.JsonConvert.SerializeObject(o));
+            w.Close();
+        }
+
 
         private void Gioca_Click(object sender, RoutedEventArgs e)
         {
@@ -359,6 +411,13 @@ namespace CBriscola.Avalonia
                 Cpu2.Source = cartaCpu.Source;
                 CartaBriscola.Content = $"{d["IlSemeDiBriscolaE"]}: {briscola.GetSemeStr()}";
             }
+            Opzioni o=new Opzioni();
+            o.nomeMazzo= m.GetNome();
+            o.NomeCpu = cpu.GetNome();
+            o.NomeUtente=g.GetNome();
+            o.briscolaDaPunti = briscolaDaPunti;
+            o.avvisaTalloneFinito = avvisaTalloneFinito;
+            SalvaOpzioni(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), o);
             GOpzioni.IsVisible = false;
             Applicazione.IsVisible = true;
 
