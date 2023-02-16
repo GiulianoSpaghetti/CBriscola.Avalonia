@@ -190,7 +190,7 @@ namespace CBriscola.Avalonia
 
         private void SalvaOpzioni(String folder, Opzioni o)
         {
-            StreamWriter w = new StreamWriter(folder + "CBriscola.Avalonia" + App.separator + "opzioni.json");
+            StreamWriter w = new StreamWriter(folder + App.separator + "CBriscola.Avalonia" + App.separator + "opzioni.json");
             w.Write(Newtonsoft.Json.JsonConvert.SerializeObject(o));
             w.Close();
         }
