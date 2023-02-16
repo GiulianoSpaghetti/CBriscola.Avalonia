@@ -37,7 +37,7 @@
 			<x:String x:Key="spade">Spade</x:String>
 			<x:String x:Key="TalloneFinitoIntestazione">Tallone finito</x:String>
 			<x:String x:Key="TalloneFinito">Il tallone è finito</x:String>
-			<x:String x:Ky="GiocataCarta">Giocata carta di valore</x:String>
+			<x:String x:Key="GiocataCarta">Giocata carta di valore</x:String>
 			<x:String x:Key="LaCPUHaGiocatoIl">La CPU ha giocato il</x:String>
 			<x:String x:Key="Briscola">Briscola</x:String>
 			<x:String x:Key="di">di</x:String>
@@ -84,7 +84,7 @@
 			<x:String x:Key="Briscola">Briscola</x:String>
 			<x:String x:Key="di">of</x:String>
 			<x:String x:Key="TalloneFinitoIntestazione">Deck Finished</x:String>
-			<x:String x:Ky="GiocataCarta">Value card played</x:String>
+			<x:String x:Key="GiocataCarta">Value card played</x:String>
 		</ResourceDictionary>
 		<ResourceDictionary x:Key="de">
 			<x:String x:Key="PuntiDiPrefisso">&#160;</x:String>
@@ -124,7 +124,7 @@
 			<x:String x:Key="Fiori">Kreuz</x:String>
 			<x:String x:Key="Picche">Pik</x:String>
 			<x:String x:Key="TalloneFinitoIntestazione">fertiges Kartenspiel</x:String>
-			<x:String x:Ky="GiocataCarta">Wertkarte gespielt</x:String>
+			<x:String x:Key="GiocataCarta">Wertkarte gespielt</x:String>
 		</ResourceDictionary>
 		<ResourceDictionary x:Key="fr">
 			<x:String x:Key="PuntiDiPrefisso">Points de</x:String>
@@ -164,7 +164,7 @@
 			<x:String x:Key="Fiori">Trèfle</x:String>
 			<x:String x:Key="Picche">Pique</x:String>
 			<x:String x:Key="TalloneFinitoIntestazione">Plateau terminé</x:String>
-			<x:String x:Ky="GiocataCarta">Carte de valeur jouée</x:String>
+			<x:String x:Key="GiocataCarta">Carte de valeur jouée</x:String>
 
 		</ResourceDictionary>
 		<ResourceDictionary x:Key="es">
@@ -205,9 +205,7 @@
 			<x:String x:Key="Fiori">Tréboles</x:String>
 			<x:String x:Key="Picche">Picas</x:String>
 			<x:String x:Key="TalloneFinitoIntestazione">Deck Finished</x:String>
-			<x:String x:Ky="GiocataCarta">Carta de valor jugada</x:String>
-
-
+			<x:String x:Key="GiocataCarta">Carta de valor jugada</x:String>
 		</ResourceDictionary>
 	</Window.Resources>
 	<Window.Content>

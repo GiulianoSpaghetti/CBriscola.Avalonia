@@ -179,7 +179,6 @@ namespace CBriscola.Avalonia
 
         private void Gioca_Click(object sender, RoutedEventArgs e)
         {
-            Informazioni.Content = "";
             c = primo.GetCartaGiocata();
             c1 = secondo.GetCartaGiocata();
             if ((c.CompareTo(c1) > 0 && c.StessoSeme(c1)) || (c1.StessoSeme(briscola) && !c.StessoSeme(briscola)))
