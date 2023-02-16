@@ -15,6 +15,8 @@ using System.Globalization;
 using org.altervista.numerone.framework;
 using static System.Net.WebRequestMethods;
 using System.Threading.Tasks;
+using Avalonia.Controls.Notifications;
+
 
 namespace CBriscola.Avalonia
 {
@@ -31,6 +33,8 @@ namespace CBriscola.Avalonia
         private IAssetLoader assets;
         private Stream asset;
         private List<ListBoxItem> mazzi;
+        private WindowNotificationManager notification;
+
         public MainWindow()
         {
             this.InitializeComponent();
@@ -127,6 +131,7 @@ namespace CBriscola.Avalonia
             }
             lsmazzi.Items = mazzi;
             lbmazzi.Content =$"{d["Mazzo"]}";
+            notification = new WindowNotificationManager(this);
         }
 
         private async Task<Opzioni> CaricaOpzioni()
@@ -173,7 +178,6 @@ namespace CBriscola.Avalonia
 
         private void Gioca_Click(object sender, RoutedEventArgs e)
         {
-            Informazioni.Content = "";
             c = primo.GetCartaGiocata();
             c1 = secondo.GetCartaGiocata();
             if ((c.CompareTo(c1) > 0 && c.StessoSeme(c1)) || (c1.StessoSeme(briscola) && !c.StessoSeme(briscola)))
@@ -195,7 +199,7 @@ namespace CBriscola.Avalonia
                     NelMazzoRimangono.IsVisible = false;
                     Briscola.IsVisible = false;
                     if (avvisaTalloneFinito)
-                        Informazioni.Content = d["TalloneFinito"] as string;
+                        notification.Show(new Notification($"{d["TalloneFinitoIntestazione"]}", d["TalloneFinito"] as string));
                 }
                 Utente0.Source = g.GetImmagine(0);
                 if (cpu.GetNumeroCarte() > 1)
@@ -220,9 +224,9 @@ namespace CBriscola.Avalonia
                 {
                     i1 = GiocaCpu();
                     if (cpu.GetCartaGiocata().StessoSeme(briscola))
-                        Informazioni.Content = $"{d["LaCPUHaGiocatoIl"]} {cpu.GetCartaGiocata().GetValore() + 1} {d["di"]} {d["Briscola"]}";
-                    else if (cpu.GetCartaGiocata().GetPunteggio() > 0)
-                        Informazioni.Content = $"{d["LaCPUHaGiocatoIl"]} {cpu.GetCartaGiocata().GetValore() + 1} {d["di"]} {cpu.GetCartaGiocata().GetSemeStr()}";
+ notification.Show(new Notification($"{d["GiocataCarta"]}", $"{d["LaCPUHaGiocatoIl"]} {cpu.GetCartaGiocata().GetValore() + 1} {d["di"]} {d["Briscola"]}"));
+                     else if (cpu.GetCartaGiocata().GetPunteggio() > 0)
+                        notification.Show(new Notification($"{d["GiocataCarta"]}", $"{d["LaCPUHaGiocatoIl"]} {cpu.GetCartaGiocata().GetValore() + 1} {d["di"]} {cpu.GetCartaGiocata().GetSemeStr()}"));
                 }
             }
             else
