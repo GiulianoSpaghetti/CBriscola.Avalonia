@@ -6,6 +6,7 @@ Lo so che vi siete scocciati, però la Cbriscola torna completamente libera e mu
 <img src="https://user-images.githubusercontent.com/49764967/218879409-295fff5c-8556-4c61-9f0c-8bfd7b7ad980.png" />
 <img src="https://user-images.githubusercontent.com/49764967/218879412-15fcd966-26af-4eb9-9370-be739c444f3c.png" />
 <img src="https://user-images.githubusercontent.com/49764967/218879414-3e3d4fa5-f378-46fc-a084-c062377b9769.png" />
+<img src="https://user-images.githubusercontent.com/49764967/219301533-e73f8a4b-c285-4f9e-976d-8cbf5c3d88f6.png" />
 
 
 # Installazione
@@ -23,6 +24,7 @@ Infine fate apt update ed apt install cbriscola.avalonia
 https://stackoverflow.com/questions/68684968/close-a-window-in-avalonia-gui
                                                                                                                                                   https://docs.avaloniaui.net/docs/controls/image
                                                                                                                                                   https://docs.avaloniaui.net/docs/styling/resources
+                                                                                                                                                  https://github.com/AvaloniaUI/Avalonia/issues/5442
 
 # Donazioni
 
