@@ -35,7 +35,9 @@
 			<x:String x:Key="coppe">Coppe</x:String>
 			<x:String x:Key="denari">denari</x:String>
 			<x:String x:Key="spade">Spade</x:String>
+			<x:String x:Key="TalloneFinitoIntestazione">Tallone finito</x:String>
 			<x:String x:Key="TalloneFinito">Il tallone è finito</x:String>
+			<x:String x:Ky="GiocataCarta">Giocata carta di valore</x:String>
 			<x:String x:Key="LaCPUHaGiocatoIl">La CPU ha giocato il</x:String>
 			<x:String x:Key="Briscola">Briscola</x:String>
 			<x:String x:Key="di">di</x:String>
@@ -81,6 +83,8 @@
 			<x:String x:Key="LaCPUHaGiocatoIl">The CPU has gamed the</x:String>
 			<x:String x:Key="Briscola">Briscola</x:String>
 			<x:String x:Key="di">of</x:String>
+			<x:String x:Key="TalloneFinitoIntestazione">Deck Finished</x:String>
+			<x:String x:Ky="GiocataCarta">Value card played</x:String>
 		</ResourceDictionary>
 		<ResourceDictionary x:Key="de">
 			<x:String x:Key="PuntiDiPrefisso">&#160;</x:String>
@@ -119,6 +123,8 @@
 			<x:String x:Key="Quadri">Karo</x:String>
 			<x:String x:Key="Fiori">Kreuz</x:String>
 			<x:String x:Key="Picche">Pik</x:String>
+			<x:String x:Key="TalloneFinitoIntestazione">fertiges Kartenspiel</x:String>
+			<x:String x:Ky="GiocataCarta">Wertkarte gespielt</x:String>
 		</ResourceDictionary>
 		<ResourceDictionary x:Key="fr">
 			<x:String x:Key="PuntiDiPrefisso">Points de</x:String>
@@ -157,6 +163,9 @@
 			<x:String x:Key="Quadri">Carreau</x:String>
 			<x:String x:Key="Fiori">Trèfle</x:String>
 			<x:String x:Key="Picche">Pique</x:String>
+			<x:String x:Key="TalloneFinitoIntestazione">Plateau terminé</x:String>
+			<x:String x:Ky="GiocataCarta">Carte de valeur jouée</x:String>
+
 		</ResourceDictionary>
 		<ResourceDictionary x:Key="es">
 			<x:String x:Key="PuntiDiPrefisso">Puntos de</x:String>
@@ -195,6 +204,9 @@
 			<x:String x:Key="Quadri">Diamantes</x:String>
 			<x:String x:Key="Fiori">Tréboles</x:String>
 			<x:String x:Key="Picche">Picas</x:String>
+			<x:String x:Key="TalloneFinitoIntestazione">Deck Finished</x:String>
+			<x:String x:Ky="GiocataCarta">Carta de valor jugada</x:String>
+
 
 		</ResourceDictionary>
 	</Window.Resources>
@@ -232,8 +244,7 @@
 				<Image x:Name="Briscola" Grid.Row="4" Grid.Column="4" />
 				<Button x:Name="AppInformazioni" Grid.Row="5" Grid.Column="0" Click="OnInfo_Click">Informazioni</Button>
 				<Button x:Name="AppOpzioni" Grid.Row="5" Grid.Column="1" Click="OnOpzioni_Click">Opzioni</Button>
-				<Label x:Name="Informazioni" Grid.Row="5" Grid.Column="2" />
-				<Button x:Name="btnGiocata" Grid.Row="5" Grid.Column="3" IsVisible="false" Click="Gioca_Click" />
+				<Button x:Name="btnGiocata" Grid.Row="5" Grid.Column="2" IsVisible="false" Click="Gioca_Click" />
 			</Grid>
 			<Grid x:Name="Info" IsVisible="False">
 				<Grid.RowDefinitions>
@@ -243,7 +254,7 @@
 					<RowDefinition />
 					<RowDefinition />
 				</Grid.RowDefinitions>
-				<Label Grid.Row="0">CBriscola.Avalonia versione 0.6.5</Label>
+				<Label Grid.Row="0">CBriscola.Avalonia versione 0.6.6</Label>
 				<Label Grid.Row="1">ⓒ Giulio Sorrentino 2023</Label>
 				<Label Grid.Row="2">Licenza: GPL v3 o, secondo la tua opionione, qualsiasi versione successiva</Label>
 				<Button Click="OnSito_Click" Grid.Row="3">https://github.com/numerunix/CBriscola.Avalonia</Button>
