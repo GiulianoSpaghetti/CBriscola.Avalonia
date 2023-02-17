@@ -282,7 +282,7 @@
 				<CheckBox x:Name="cbAvvisaTallone" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" IsChecked="True" />
 				<Label x:Name="lbAvvisaTallone" Grid.Row="4" Grid.Column="1" />
                 <Label x:Name="lbmazzi" Content="Mazzi" Grid.Row="5" Grid.Column="0" />
-                <ListBox x:Name="lsmazzi" Grid.Row="5" Grid.Column="1"/>
+                <ListBox x:Name="lsmazzi" Grid.Row="5" Grid.Column="1"  VirtualizationMode="None"/>
 				<Button Click="OnOk_Click"  Grid.Row="6" Grid.Column="1">OK</Button>
 				<Button x:Name="OpzioniApplicazione" Click="OnApp_Click" Grid.Row="7" Grid.Column="0">Applicazione</Button>
 				<Button x:Name="OpzioniInformazioni" Grid.Row="7" Grid.Column="1" Click="OnInfo_Click">Informazioni</Button>
