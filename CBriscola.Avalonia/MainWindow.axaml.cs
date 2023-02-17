@@ -16,6 +16,7 @@ using org.altervista.numerone.framework;
 using static System.Net.WebRequestMethods;
 using System.Threading.Tasks;
 using Avalonia.Controls.Notifications;
+using Avalonia.Controls.Shapes;
 
 namespace CBriscola.Avalonia
 {
@@ -31,7 +32,6 @@ namespace CBriscola.Avalonia
         private ElaboratoreCarteBriscola e;
         private IAssetLoader assets;
         private Stream asset;
-        private List<ListBoxItem> mazzi;
         private WindowNotificationManager notification;
         private Opzioni o;
         public MainWindow()
@@ -108,43 +108,6 @@ namespace CBriscola.Avalonia
             fpShare.Content = $"{d["Condividi"]}";
             Briscola.Source = briscola.GetImmagine();
             btnGiocata.Content = $"{d["giocataVista"]}";
-            List<String> path;
-            mazzi = new List<ListBoxItem>();
-            ListBoxItem item;
-            String s1="";
-            string dirs;
-            if (App.t == OperatingSystemType.WinNT)
-                dirs = Environment.GetFolderPath(Environment.SpecialFolder.ProgramFiles) + "\\wxBriscola\\Mazzi";
-            else
-                dirs = "/usr/share/wxBriscola/Mazzi";
-
-                try
-                {
-                path = new List<String>(Directory.EnumerateDirectories(dirs));
-            }
-            catch (System.IO.DirectoryNotFoundException ex)
-            {
-                path = new List<string>();
-
-            }
-            if (!path.Contains("Napoletano"))
-
-                if (App.t == OperatingSystemType.WinNT)
-                    path.Add("\\Napoletano");
-                else if (App.t == OperatingSystemType.Linux)
-                    path.Add("/Napoletano");
-                path.Sort();
-            foreach (String s in path)
-            {
-                item = new ListBoxItem();
-                if (App.t == OperatingSystemType.WinNT)
-                    s1 = s.Substring(s.LastIndexOf("\\") + 1);
-                else if (App.t == OperatingSystemType.Linux)
-                    s1 = s.Substring(s.LastIndexOf("/") + 1);
-                item.Content = s1;
-                mazzi.Add(item);
-            }
-            lsmazzi.Items = mazzi;
             lbmazzi.Content =$"{d["Mazzo"]}";
 
         }
@@ -312,6 +275,45 @@ namespace CBriscola.Avalonia
             txtCpu.Text = cpu.GetNome();
             cbCartaBriscola.IsChecked = briscolaDaPunti;
             cbAvvisaTallone.IsChecked = avvisaTalloneFinito;
+            List<ListBoxItem> mazzi;
+            List<String> path;
+            mazzi = new List<ListBoxItem>();
+            ListBoxItem item;
+            String s1 = "";
+            string dirs;
+            if (App.t == OperatingSystemType.WinNT)
+                dirs = Environment.GetFolderPath(Environment.SpecialFolder.ProgramFiles) + "\\wxBriscola\\Mazzi";
+            else
+                dirs = "/usr/share/wxBriscola/Mazzi";
+
+            try
+            {
+                path = new List<String>(Directory.EnumerateDirectories(dirs));
+            }
+            catch (System.IO.DirectoryNotFoundException ex)
+            {
+                path = new List<string>();
+
+            }
+            if (!path.Contains("Napoletano"))
+
+                if (App.t == OperatingSystemType.WinNT)
+                    path.Add("\\Napoletano");
+                else if (App.t == OperatingSystemType.Linux)
+                    path.Add("/Napoletano");
+            path.Sort();
+            foreach (String s in path)
+            {
+                item = new ListBoxItem();
+                if (App.t == OperatingSystemType.WinNT)
+                    s1 = s.Substring(s.LastIndexOf("\\") + 1);
+                else if (App.t == OperatingSystemType.Linux)
+                    s1 = s.Substring(s.LastIndexOf("/") + 1);
+                item.Content = s1;
+                mazzi.Add(item);
+            }
+            lsmazzi.Items = mazzi;
+
         }
 
         private void OnOkFp_Click(object sender, RoutedEventArgs evt)
