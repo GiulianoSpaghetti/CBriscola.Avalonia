@@ -22,11 +22,16 @@ Infine fate apt update ed apt install cbriscola.avalonia
                                                                                                                                                   
 # Bibliografia
 https://stackoverflow.com/questions/68684968/close-a-window-in-avalonia-gui
-                                                                                                                                                  https://docs.avaloniaui.net/docs/controls/image
-                                                                                                                                                  https://docs.avaloniaui.net/docs/styling/resources
-                                                                                                                                                  https://github.com/AvaloniaUI/Avalonia/issues/5442
-                                                                                                                                                  https://stackoverflow.com/questions/44243167/how-to-define-a-separate-set-of-styles-for-each-platform-os-in-avalonia
-                                                                                                                                                              https://github.com/AvaloniaUI/Avalonia/issues/54411
+
+https://docs.avaloniaui.net/docs/controls/image
+
+https://docs.avaloniaui.net/docs/styling/resources
+
+https://github.com/AvaloniaUI/Avalonia/issues/5442
+
+https://stackoverflow.com/questions/44243167/how-to-define-a-separate-set-of-styles-for-each-platform-os-in-avalonia
+
+https://github.com/AvaloniaUI/Avalonia/issues/54411
 
 # Donazioni
 
