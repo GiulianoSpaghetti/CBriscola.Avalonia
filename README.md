@@ -11,6 +11,10 @@ Lo so che vi siete scocciati, però la Cbriscola torna completamente libera e mu
 
 # Installazione
 
+# Su windows
+
+https://youtu.be/auXFlDdNdaA
+
 # Tramite repository
 Seguite prima la guida all'indirizzo https://learn.microsoft.com/it-it/dotnet/core/install/linux-debian
 
@@ -19,10 +23,6 @@ Installate la nuova chiave del repository tramite il comando sudo apt-key adv --
 Poi inserite nel file /etc/apt/sources.list la riga deb http://numeronesoft.ddns.net/repos/apt/debian bullseye main
 
 Infine fate apt update ed apt install cbriscola.avalonia
-
-# Bug noti
-
-I mazzi nuovi vanno installati a programma chiuso.
                                                                                                                                                   
 # Bibliografia
 https://stackoverflow.com/questions/68684968/close-a-window-in-avalonia-gui
@@ -36,6 +36,17 @@ https://github.com/AvaloniaUI/Avalonia/issues/5442
 https://stackoverflow.com/questions/44243167/how-to-define-a-separate-set-of-styles-for-each-platform-os-in-avalonia
 
 https://github.com/AvaloniaUI/Avalonia/issues/54411
+
+# Internazionalizzazione
+Aprire il file MainWindows.axaml, all'interno del tag MainWindow.Resources ci sono qulli che vengono chiamati dizionari.
+BIsogna copiare un dizioario ed aggiungrlo alla fine dei dizionari, chiamarlo con la denominazione internazionale a due carattri ella lingua (it per italiano, pt per portoghese, es per spagnolo e via dicendo) e bisogna traurre tutto qullo che è il contnuto del tag x:string, non il parametro.
+
+Infine compilare.
+
+# Dove recuperare i mazzi aggiuntivi
+
+I mazzi aggiuntivi sono quelli della wxbriscola, si possono scaricare sulle relative home page dei progetti, per windows e linux.
+Tenete presente che il mazzo fable 3 ha un bug: bisogna rinominare le immagini da 0 a 9 aggiungendo un 2 e bisogna togliere il 2 nelle immagini da 20 a 29.
 
 # Donazioni
 
