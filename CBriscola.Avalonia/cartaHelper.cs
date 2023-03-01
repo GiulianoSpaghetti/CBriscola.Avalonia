@@ -18,7 +18,7 @@ namespace org.altervista.numerone.framework
 		UInt16 GetSeme(UInt16 Carta);
 		UInt16 GetValore(UInt16 Carta);
 		UInt16 GetPunteggio(UInt16 Carta);
-		string GetSemeStr(UInt16 carta, String mazzo, ResourceDictionary d);
+		string GetSemeStr(UInt16 carta, String mazzo, Avalonia.Controls.ResourceDictionary d);
 		UInt16 GetNumero(UInt16 seme, UInt16 valore);
 	};
 }

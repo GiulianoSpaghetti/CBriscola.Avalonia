@@ -2,7 +2,7 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "CBriscola.Avalonia"
-#define MyAppVersion "0.6.6-2"
+#define MyAppVersion "0.6.6-3"
 #define MyAppPublisher "numeroneosft"
 #define MyAppURL "https://github.com/numerunix/cbriscola.avalonia"
 #define MyAppExeName "CBriscola.Avalonia.exe"
@@ -25,7 +25,7 @@ InfoAfterFile=C:\Users\numer\source\repos\CBriscola.Avalonia\postinstall.txt
 ; Uncomment the following line to run in non administrative install mode (install for current user only.)
 ;PrivilegesRequired=lowest
 OutputDir=C:\Users\numer\OneDrive\Desktop
-OutputBaseFilename=CBriscola.Avalonia-0.6.6-2-winx64
+OutputBaseFilename=CBriscola.Avalonia-0.6.6-3-winx64
 Compression=lzma
 SolidCompression=yes
 WizardStyle=modern

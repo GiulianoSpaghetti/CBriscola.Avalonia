@@ -42,7 +42,7 @@ namespace org.altervista.numerone.framework
 			}
 			return valore;
 		}
-        public string GetSemeStr(UInt16 carta, String mazzo, ResourceDictionary d)
+        public string GetSemeStr(UInt16 carta, String mazzo, Avalonia.Controls.ResourceDictionary d)
         {
             string s = "a";
             if (mazzo == "Bergamasco" || mazzo == "Bolognese" || mazzo == "Bresciano" || mazzo == "Napoletano" || mazzo == "Romagnolo" || mazzo == "Sardo" || mazzo == "Siciliano" || mazzo == "Trientino" || mazzo == "Trevigiano" || mazzo == "Trentino" || mazzo == "Triestino")
