@@ -11,6 +11,10 @@ Lo so che vi siete scocciati, però la Cbriscola torna completamente libera e mu
 
 # Installazione
 
+# Su windows
+
+https://youtu.be/auXFlDdNdaA
+
 # Tramite repository
 Seguite prima la guida all'indirizzo https://learn.microsoft.com/it-it/dotnet/core/install/linux-debian
 
