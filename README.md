@@ -48,6 +48,9 @@ Infine compilare.
 I mazzi aggiuntivi sono quelli della wxbriscola, si possono scaricare sulle relative home page dei progetti, per windows e linux.
 Tenete presente che il mazzo fable 3 ha un bug: bisogna rinominare le immagini da 0 a 9 aggiungendo un 2 e bisogna togliere il 2 nelle immagini da 20 a 29.
 
+# Dedica
+Voglio dedicare l'intero progetto non a Francesca la barista, ma a quella gentil donzella che resterà un mistero che mi ha aiutato a rivisondoli.
+
 # Donazioni
 
 [![paypal](https://www.paypalobjects.com/it_IT/IT/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=H4ZHTFRCETWXG)
