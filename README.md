@@ -49,7 +49,7 @@ I mazzi aggiuntivi sono quelli della wxbriscola, si possono scaricare sulle rela
 Tenete presente che il mazzo fable 3 ha un bug: bisogna rinominare le immagini da 0 a 9 aggiungendo un 2 e bisogna togliere il 2 nelle immagini da 20 a 29.
 
 # Dedica
-Voglio dedicare l'intero progetto non a Francesca la barista, ma a quella gentil donzella che resterà un mistero che mi ha aiutato a rivisondoli.
+Voglio dedicare l'intero progetto non a Francesca la barista, ma a Francesca, quella gentil donzella in quel di Rivisondoli che mi ha aiutato quando ero una povera anima in pena ed ora mi rende sia felice che "felice".
 
 # Donazioni
 
