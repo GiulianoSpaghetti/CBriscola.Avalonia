@@ -5,6 +5,14 @@
         mc:Ignorable="d" d:DesignWidth="1280" d:DesignHeight="800"
         x:Class="CBriscola.Avalonia.MainWindow"
         Title="CBriscola.Avalonia">
+	<Window.Styles>
+		<Style Selector="Label">
+			<Setter Property="Foreground" Value="White" />
+		</Style>
+		<Style Selector="Button">
+			<Setter Property="Foreground" Value="White" />
+		</Style>
+	</Window.Styles>
 	<Window.Resources>
 		<ResourceDictionary x:Key="it">
 			<x:String x:Key="PuntiDiPrefisso">Punti di</x:String>
@@ -225,6 +233,7 @@
 					<ColumnDefinition />
 					<ColumnDefinition Width="auto" />
 				</Grid.ColumnDefinitions>
+				<Image Source="/resources/images/background.jpg" Grid.Row="0" Grid.Column="0" Grid.RowSpan="6" Grid.ColumnSpan="4" Stretch="Fill" />
 				<Label x:Name="NomeUtente" Grid.Row="0" Grid.Column="0" Grid.RowSpan="3">Nome Utente</Label>
 				<Image x:Name="Utente0" Grid.Row="1" Grid.Column="0" Tapped="Image_Tapped"/>
 				<Image x:Name="Utente1" Grid.Row="1"  Grid.Column="1" Tapped="Image_Tapped" />
@@ -251,12 +260,15 @@
 					<RowDefinition />
 					<RowDefinition />
 					<RowDefinition />
+					<RowDefinition />
 				</Grid.RowDefinitions>
+				<Image Source="/resources/images/background.jpg" Grid.Row="0" Grid.Column="0" Grid.RowSpan="6" Stretch="Fill" />
 				<Label Grid.Row="0">CBriscola.Avalonia versione 0.6.6</Label>
 				<Label Grid.Row="1">ⓒ Giulio Sorrentino 2023</Label>
 				<Label Grid.Row="2">Licenza: GPL v3 o, secondo la tua opionione, qualsiasi versione successiva</Label>
-				<Button Click="OnSito_Click" Grid.Row="3">https://github.com/numerunix/CBriscola.Avalonia</Button>
-				<Button x:Name="InfoApplicazione" Click="OnApp_Click" Grid.Row="4">Applicazione</Button>
+				<Label Grid.Row="3">Dedicato a Francesca, ossia "Quella".</Label>
+				<Button Click="OnSito_Click" Grid.Row="4">https://github.com/numerunix/CBriscola.Avalonia</Button>
+				<Button x:Name="InfoApplicazione" Click="OnApp_Click" Grid.Row="5">Applicazione</Button>
 			</Grid>
 			<Grid x:Name="GOpzioni" IsVisible="False">
 				<Grid.ColumnDefinitions>
@@ -273,6 +285,7 @@
 					<RowDefinition />
 					<RowDefinition />
 				</Grid.RowDefinitions>
+				<Image Source="/resources/images/background.jpg" Grid.Row="0" Grid.Column="0" Grid.RowSpan="8" Grid.ColumnSpan="2" Stretch="Fill" />
 				<Label x:Name="opNomeUtente" Grid.Row="0" Grid.Column="0"/>
 				<TextBox x:Name="txtNomeUtente" Grid.Row="0" Grid.Column="1" />
 				<Label x:Name="opNomeCpu" Grid.Row="1" Grid.Column="0" />
@@ -297,6 +310,7 @@
 					<ColumnDefinition />
 					<ColumnDefinition />
 				</Grid.ColumnDefinitions>
+				<Image Source="/resources/images/background.jpg" Grid.Row="0" Grid.Column="0" Grid.RowSpan="2" Grid.ColumnSpan="3" Stretch="Fill" />
 				<Label x:Name="fpRisultrato" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" />
 				<Button x:Name="fpOk" Click="OnOkFp_Click" Grid.Row="1" Grid.Column="0">Ok</Button>
 				<Button x:Name="fpCancel" Click="OnCancelFp_Click" Grid.Row="1" Grid.Column="1">Annulla</Button>
