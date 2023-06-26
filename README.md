@@ -24,12 +24,8 @@ basandosi solo sui carichi si rischia di perdere, perché
 
 Per cui non metto i livelli, ma vi lascio imparare la teoria delle carte a lungo, da me inventata a 18 anni, con la wxbriscola, che mi ha portato l'amore di Francesca.
 
-# Screenshots
-<img src="https://user-images.githubusercontent.com/49764967/218879403-0f3586ce-21b5-4765-ad62-d3b6b04b15ac.png" />
-<img src="https://user-images.githubusercontent.com/49764967/218879409-295fff5c-8556-4c61-9f0c-8bfd7b7ad980.png" />
-<img src="https://user-images.githubusercontent.com/49764967/218879412-15fcd966-26af-4eb9-9370-be739c444f3c.png" />
-<img src="https://user-images.githubusercontent.com/49764967/218879414-3e3d4fa5-f378-46fc-a084-c062377b9769.png" />
-<img src="https://user-images.githubusercontent.com/49764967/219301533-e73f8a4b-c285-4f9e-976d-8cbf5c3d88f6.png" />
+# Video
+https://www.twitch.tv/videos/1856276989
                                                                                                                                                   
 # Bibliografia
 https://stackoverflow.com/questions/68684968/close-a-window-in-avalonia-gui
