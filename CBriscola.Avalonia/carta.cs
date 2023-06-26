@@ -11,6 +11,7 @@
 using Avalonia.Controls;
 using Avalonia.Media.Imaging;
 using Avalonia.Platform;
+using CBriscola.Avalonia;
 using System;
 using System.IO;
 using System.Reflection;
@@ -75,14 +76,18 @@ namespace org.altervista.numerone.framework
 
         public static void CaricaImmagini(Mazzo m, ushort n, CartaHelperBriscola helper, IAssetLoader assets, ResourceDictionary d)
         {
-            String s = "C:\\Program Files\\wxBriscola\\Mazzi\\";
+            String s = "";
+            if (App.t==OperatingSystemType.WinNT)
+                s = Environment.GetFolderPath(Environment.SpecialFolder.ProgramFiles) + "\\wxBriscola\\Mazzi\\";
+            else if (App.t==OperatingSystemType.Linux)
+                s = "/usr/share/wxBriscola/Mazzi";
             for (UInt16 i = 0; i < n; i++)
             {
                 Stream asset;
                 if (m.GetNome() != "Napoletano")
                     try
                     {
-                        carte[i].img = new Bitmap(s + m.GetNome() + "\\" + i + ".png");
+                        carte[i].img = new Bitmap(s + App.separator + m.GetNome() + App.separator + i + ".png");
                     }
                     catch (System.IO.FileNotFoundException ex)
                     {

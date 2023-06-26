@@ -2,9 +2,17 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        mc:Ignorable="d" d:DesignWidth="1280" d:DesignHeight="1024"
+        mc:Ignorable="d" d:DesignWidth="1280" d:DesignHeight="800"
         x:Class="CBriscola.Avalonia.MainWindow"
         Title="CBriscola.Avalonia">
+	<Window.Styles>
+		<Style Selector="Label">
+			<Setter Property="Foreground" Value="White" />
+		</Style>
+		<Style Selector="Button">
+			<Setter Property="Foreground" Value="White" />
+		</Style>
+	</Window.Styles>
 	<Window.Resources>
 		<ResourceDictionary x:Key="it">
 			<x:String x:Key="PuntiDiPrefisso">Punti di</x:String>
@@ -35,7 +43,9 @@
 			<x:String x:Key="coppe">Coppe</x:String>
 			<x:String x:Key="denari">denari</x:String>
 			<x:String x:Key="spade">Spade</x:String>
+			<x:String x:Key="TalloneFinitoIntestazione">Tallone finito</x:String>
 			<x:String x:Key="TalloneFinito">Il tallone è finito</x:String>
+			<x:String x:Key="GiocataCarta">Giocata carta di valore</x:String>
 			<x:String x:Key="LaCPUHaGiocatoIl">La CPU ha giocato il</x:String>
 			<x:String x:Key="Briscola">Briscola</x:String>
 			<x:String x:Key="di">di</x:String>
@@ -43,8 +53,6 @@
 			<x:String x:Key="Quadri">Quadri</x:String>
 			<x:String x:Key="Fiori">Fiori</x:String>
 			<x:String x:Key="Picche">Picche</x:String>
-			<x:String x:Key="TalloneFinitoIntestazione">Tallone finito</x:String>
-			<x:String x:Key="GiocataCarta">Giocata carta di valore</x:String>
 		</ResourceDictionary>
 		<ResourceDictionary x:Key="en">
 			<x:String x:Key="PuntiDiPrefisso">&#160;</x:String>
@@ -165,6 +173,7 @@
 			<x:String x:Key="Picche">Pique</x:String>
 			<x:String x:Key="TalloneFinitoIntestazione">Plateau terminé</x:String>
 			<x:String x:Key="GiocataCarta">Carte de valeur jouée</x:String>
+
 		</ResourceDictionary>
 		<ResourceDictionary x:Key="es">
 			<x:String x:Key="PuntiDiPrefisso">Puntos de</x:String>
@@ -224,6 +233,7 @@
 					<ColumnDefinition />
 					<ColumnDefinition Width="auto" />
 				</Grid.ColumnDefinitions>
+				<Image Source="/resources/images/background.jpg" Grid.Row="0" Grid.Column="0" Grid.RowSpan="6" Grid.ColumnSpan="4" Stretch="Fill" />
 				<Label x:Name="NomeUtente" Grid.Row="0" Grid.Column="0" Grid.RowSpan="3">Nome Utente</Label>
 				<Image x:Name="Utente0" Grid.Row="1" Grid.Column="0" Tapped="Image_Tapped"/>
 				<Image x:Name="Utente1" Grid.Row="1"  Grid.Column="1" Tapped="Image_Tapped" />
@@ -250,12 +260,17 @@
 					<RowDefinition />
 					<RowDefinition />
 					<RowDefinition />
+					<RowDefinition />
+					<RowDefinition />
 				</Grid.RowDefinitions>
+				<Image Source="/resources/images/background.jpg" Grid.Row="0" Grid.Column="0" Grid.RowSpan="7" Stretch="Fill" />
 				<Label Grid.Row="0">CBriscola.Avalonia versione 0.6.6</Label>
 				<Label Grid.Row="1">ⓒ Giulio Sorrentino 2023</Label>
-				<Label Grid.Row="2">Licenza: GPL v3 o, secondo la tua opionione, qualsiasi versione successiva</Label>
-				<Button Click="OnSito_Click" Grid.Row="3">https://github.com/numerunix/CBriscola.Avalonia</Button>
-				<Button x:Name="InfoApplicazione" Click="OnApp_Click" Grid.Row="4">Applicazione</Button>
+				<Label Grid.Row="2">License: GPL v3 or, in your humble opinion, any later version</Label>
+				<Label Grid.Row="3">This trump wins because it scores more points not because it deals the cards, therefore also taking the 8s, 9s and 10s</Label>
+				<Label Grid.Row="4">Dedicato a Francesca, ossia "Quella".</Label>
+				<Button Click="OnSito_Click" Grid.Row="5">https://github.com/numerunix/CBriscola.Avalonia</Button>
+				<Button x:Name="InfoApplicazione" Click="OnApp_Click" Grid.Row="6">Applicazione</Button>
 			</Grid>
 			<Grid x:Name="GOpzioni" IsVisible="False">
 				<Grid.ColumnDefinitions>
@@ -268,10 +283,11 @@
 					<RowDefinition />
 					<RowDefinition />
 					<RowDefinition />
-					<RowDefinition Height="200"/>
+					<RowDefinition Height="300"/>
 					<RowDefinition />
 					<RowDefinition />
 				</Grid.RowDefinitions>
+				<Image Source="/resources/images/background.jpg" Grid.Row="0" Grid.Column="0" Grid.RowSpan="8" Grid.ColumnSpan="2" Stretch="Fill" />
 				<Label x:Name="opNomeUtente" Grid.Row="0" Grid.Column="0"/>
 				<TextBox x:Name="txtNomeUtente" Grid.Row="0" Grid.Column="1" />
 				<Label x:Name="opNomeCpu" Grid.Row="1" Grid.Column="0" />
@@ -281,7 +297,7 @@
 				<CheckBox x:Name="cbAvvisaTallone" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" IsChecked="True" />
 				<Label x:Name="lbAvvisaTallone" Grid.Row="4" Grid.Column="1" />
                 <Label x:Name="lbmazzi" Content="Mazzi" Grid.Row="5" Grid.Column="0" />
-                <ListBox x:Name="lsmazzi" Grid.Row="5" Grid.Column="1"/>
+                <ListBox x:Name="lsmazzi" Grid.Row="5" Grid.Column="1"  VirtualizationMode="None"/>
 				<Button Click="OnOk_Click"  Grid.Row="6" Grid.Column="1">OK</Button>
 				<Button x:Name="OpzioniApplicazione" Click="OnApp_Click" Grid.Row="7" Grid.Column="0">Applicazione</Button>
 				<Button x:Name="OpzioniInformazioni" Grid.Row="7" Grid.Column="1" Click="OnInfo_Click">Informazioni</Button>
@@ -296,6 +312,7 @@
 					<ColumnDefinition />
 					<ColumnDefinition />
 				</Grid.ColumnDefinitions>
+				<Image Source="/resources/images/background.jpg" Grid.Row="0" Grid.Column="0" Grid.RowSpan="2" Grid.ColumnSpan="3" Stretch="Fill" />
 				<Label x:Name="fpRisultrato" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" />
 				<Button x:Name="fpOk" Click="OnOkFp_Click" Grid.Row="1" Grid.Column="0">Ok</Button>
 				<Button x:Name="fpCancel" Click="OnCancelFp_Click" Grid.Row="1" Grid.Column="1">Annulla</Button>
