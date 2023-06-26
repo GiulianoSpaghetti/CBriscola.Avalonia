@@ -293,24 +293,24 @@ namespace CBriscola.Avalonia
             catch (System.IO.DirectoryNotFoundException ex)
             {
                 path = new List<string>();
+            }
+            for (UInt16 i=0; i<path.Count; i++)
+            {
+                if (App.t == OperatingSystemType.WinNT)
+                    path[i] = path[i].Substring(path[i].LastIndexOf("\\") + 1);
+                else if (App.t == OperatingSystemType.Linux)
+                    path[i] = path[i].Substring(path[i].LastIndexOf("/") + 1);
 
             }
             if (!path.Contains("Napoletano"))
-
-                if (App.t == OperatingSystemType.WinNT)
-                    path.Add("\\Napoletano");
-                else if (App.t == OperatingSystemType.Linux)
-                    path.Add("/Napoletano");
+                    path.Add("Napoletano");
             path.Sort();
             foreach (String s in path)
             {
                 item = new ListBoxItem();
-                if (App.t == OperatingSystemType.WinNT)
-                    s1 = s.Substring(s.LastIndexOf("\\") + 1);
-                else if (App.t == OperatingSystemType.Linux)
-                    s1 = s.Substring(s.LastIndexOf("/") + 1);
-                item.Content = s1;
+                item.Content = s;
                 mazzi.Add(item);
+
             }
             lsmazzi.Items = mazzi;
 
