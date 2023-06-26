@@ -30,22 +30,6 @@ Per cui non metto i livelli, ma vi lascio imparare la teoria delle carte a lungo
 <img src="https://user-images.githubusercontent.com/49764967/218879412-15fcd966-26af-4eb9-9370-be739c444f3c.png" />
 <img src="https://user-images.githubusercontent.com/49764967/218879414-3e3d4fa5-f378-46fc-a084-c062377b9769.png" />
 <img src="https://user-images.githubusercontent.com/49764967/219301533-e73f8a4b-c285-4f9e-976d-8cbf5c3d88f6.png" />
-
-
-# Installazione
-
-# Su windows
-
-https://youtu.be/auXFlDdNdaA
-
-# Tramite repository
-Seguite prima la guida all'indirizzo https://learn.microsoft.com/it-it/dotnet/core/install/linux-debian
-
-Installate la nuova chiave del repository tramite il comando sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 52B68EEB
-
-Poi inserite nel file /etc/apt/sources.list la riga deb http://numeronesoft.ddns.net/repos/apt/debian bullseye main
-
-Infine fate apt update ed apt install cbriscola.avalonia
                                                                                                                                                   
 # Bibliografia
 https://stackoverflow.com/questions/68684968/close-a-window-in-avalonia-gui
