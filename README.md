@@ -26,8 +26,9 @@ Per cui non metto i livelli, ma vi lascio imparare la teoria delle carte a lungo
 
 # Video
 https://www.twitch.tv/videos/1856276989
-https://youtu.be/Zcbq0DwYcW8
-                                                                                                                                                  
+
+[https://youtu.be/Zcbq0DwYcW8
+](https://www.youtube.com/watch?v=nUHb5jiKbxk)                                                                                                                                                  
 # Internazionalizzazione
 Aprire il file MainWindows.axaml, all'interno del tag MainWindow.Resources ci sono qulli che vengono chiamati dizionari.
 BIsogna copiare un dizioario ed aggiungrlo alla fine dei dizionari, chiamarlo con la denominazione internazionale a due carattri ella lingua (it per italiano, pt per portoghese, es per spagnolo e via dicendo) e bisogna tradurre tutto qullo che è il contenuto del tag x:string, non il parametro.
