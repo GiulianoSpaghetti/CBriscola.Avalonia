@@ -35,6 +35,9 @@ https://numeronesoft.ddns.net
 
 Seguite le istruzioni per bullseye e poi installate il package cbriscola.avalonia. E' fatto con alien, ma è self-contained, ossia non necessita del dotnet installato.
 
+# Come Compilare
+dotnet build -c release -a amd64 --self-contained -p:Version=0.7
+
 # Internazionalizzazione
 Aprire il file MainWindows.axaml, all'interno del tag MainWindow.Resources ci sono qulli che vengono chiamati dizionari.
 BIsogna copiare un dizioario ed aggiungrlo alla fine dei dizionari, chiamarlo con la denominazione internazionale a due carattri ella lingua (it per italiano, pt per portoghese, es per spagnolo e via dicendo) e bisogna tradurre tutto qullo che è il contenuto del tag x:string, non il parametro.
