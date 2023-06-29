@@ -33,7 +33,7 @@ https://www.twitch.tv/videos/1856276989
 # Come installare
 https://numeronesoft.ddns.net
 
-Seguite le istruzioni per bullseye e poi installate il package cbriscola.avalonia. E' fatto con alien, ma è self-contained, ossia non necessita deldotnet installato.
+Seguite le istruzioni per bullseye e poi installate il package cbriscola.avalonia. E' fatto con alien, ma è self-contained, ossia non necessita del dotnet installato.
 
 # Internazionalizzazione
 Aprire il file MainWindows.axaml, all'interno del tag MainWindow.Resources ci sono qulli che vengono chiamati dizionari.
