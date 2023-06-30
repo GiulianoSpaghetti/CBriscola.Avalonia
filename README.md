@@ -9,8 +9,8 @@ Voglio dedicare l'intero progetto non a Francesca la barista, ma a Francesca, qu
 Per festeggiare, vi spiego come funziona il mio algoritmo brevettato:
 i punti in totale sono 120, ossia 4 assi che valgono 11 punti ciascuno, 4 3 che valgono 10 punti ciascuno, 4 10 che valgono 4 punti ciascuno, 4 9 che valgono 3 punti ciascuno, 4 8 che valgono 2 punti ciascuno.
 Dal momento che la matematica non è una opinione:
-4*11+4*10=84.
-4*4+4*3+4*2=16+12+8=36
+4 * 11+4 * 10=84.
+4 * 4+4 * 3+4 * 2=16+12+8=36
 
 84+36=120 punti totali
 
