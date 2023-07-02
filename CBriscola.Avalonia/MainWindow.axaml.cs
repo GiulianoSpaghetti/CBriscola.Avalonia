@@ -28,6 +28,7 @@ namespace CBriscola.Avalonia
         private static Image cartaCpu = new Image();
         private static Image i, i1;
         private static bool avvisaTalloneFinito = true, briscolaDaPunti = false;
+        private static GiocatoreHelperCpu helper;
         private ResourceDictionary d;
         private ElaboratoreCarteBriscola e;
         private IAssetLoader assets;
@@ -69,7 +70,13 @@ namespace CBriscola.Avalonia
 
                 }
             g = new Giocatore(new GiocatoreHelperUtente(), o.NomeUtente, 3);
-            cpu = new Giocatore(new GiocatoreHelperCpu(ElaboratoreCarteBriscola.GetCartaBriscola()), o.NomeCpu, 3);
+            switch (o.livello) {
+                case 1: helper = new GiocatoreHelperCpu0(ElaboratoreCarteBriscola.GetCartaBriscola()); break;
+                case 2: helper = new GiocatoreHelperCpu1(ElaboratoreCarteBriscola.GetCartaBriscola()); break;
+                default: helper = new GiocatoreHelperCpu2(ElaboratoreCarteBriscola.GetCartaBriscola()); break;
+
+            }
+            cpu = new Giocatore(helper, o.NomeCpu, 3);
             briscolaDaPunti = o.briscolaDaPunti;
             avvisaTalloneFinito = o.avvisaTalloneFinito;
             primo = g;
@@ -138,10 +145,11 @@ namespace CBriscola.Avalonia
             {
                 o = new Opzioni();
                 o.NomeUtente = "numerone";
-                o.NomeCpu = "Cpu";
+                o.NomeCpu = "sory";
                 o.briscolaDaPunti = false;
                 o.avvisaTalloneFinito = true;
                 o.nomeMazzo = "Napoletano";
+                o.livello = 3;
                 SalvaOpzioni(folder, o);
                 return o;
             }
@@ -228,7 +236,7 @@ namespace CBriscola.Avalonia
                 fpRisultrato.Content = $"{d["PartitaFinita"]}. {s} {d["NuovaPartita"]}?";
                 Applicazione.IsVisible = false;
                 FinePartita.IsVisible = true;
-                fpShare.IsEnabled = true;
+                fpShare.IsEnabled = helper.GetLivello()==3;
             }
             btnGiocata.IsVisible = false;
         }
@@ -277,6 +285,7 @@ namespace CBriscola.Avalonia
             cbAvvisaTallone.IsChecked = avvisaTalloneFinito;
             List<ListBoxItem> mazzi;
             List<String> path;
+            cbLivello.SelectedIndex = helper.GetLivello() - 1;
             mazzi = new List<ListBoxItem>();
             ListBoxItem item;
             String s1 = "";
@@ -316,17 +325,27 @@ namespace CBriscola.Avalonia
 
         }
 
-        private void OnOkFp_Click(object sender, RoutedEventArgs evt)
+        private void NuovaPartita()
         {
+            bool primaUtente = primo == g;
+            if (o.livello!=helper.GetLivello())
+                notification.Show(new Notification("Livello cambiato", "Il livello è cambiato. La partita verrà riavviata"));
             bool cartaBriscola = true;
-            FinePartita.IsVisible = false;
             if (cbCartaBriscola.IsChecked == false)
                 cartaBriscola = false;
             e = new ElaboratoreCarteBriscola(cartaBriscola);
             m = new Mazzo(e);
+            m.SetNome(o.nomeMazzo);
             briscola = Carta.GetCarta(ElaboratoreCarteBriscola.GetCartaBriscola());
             g = new Giocatore(new GiocatoreHelperUtente(), g.GetNome(), 3);
-            cpu = new Giocatore(new GiocatoreHelperCpu(ElaboratoreCarteBriscola.GetCartaBriscola()), cpu.GetNome(), 3);
+            switch (o.livello)
+            {
+                case 1: helper = new GiocatoreHelperCpu0(ElaboratoreCarteBriscola.GetCartaBriscola()); break;
+                case 2: helper = new GiocatoreHelperCpu1(ElaboratoreCarteBriscola.GetCartaBriscola()); break;
+                default: helper = new GiocatoreHelperCpu2(ElaboratoreCarteBriscola.GetCartaBriscola()); break;
+
+            }
+            cpu = new Giocatore(helper, cpu.GetNome(), 3);
             for (UInt16 i = 0; i < 3; i++)
             {
                 g.AddCarta(m);
@@ -355,10 +374,26 @@ namespace CBriscola.Avalonia
             CartaBriscola.IsVisible = true;
             Briscola.Source = briscola.GetImmagine();
             Briscola.IsVisible = true;
-            primo = g;
-            secondo = cpu;
+            primaUtente = !primaUtente;
+            if (primaUtente)
+            {
+                primo = g;
+                secondo = cpu;
+            }
+            else {
+                primo = cpu;
+                secondo = g;
+                i1=GiocaCpu();
+            }
             Briscola.Source = briscola.GetImmagine();
+
+        }
+        private void OnOkFp_Click(object sender, RoutedEventArgs evt)
+        {
+            FinePartita.IsVisible = false;
+            NuovaPartita();
             Applicazione.IsVisible = true;
+
         }
         private void OnCancelFp_Click(object sender, RoutedEventArgs e)
         {
@@ -455,15 +490,18 @@ namespace CBriscola.Avalonia
                 Cpu2.Source = cartaCpu.Source;
                 CartaBriscola.Content = $"{d["IlSemeDiBriscolaE"]}: {briscola.GetSemeStr()}";
             }
-            Opzioni o=new Opzioni();
+            o=new Opzioni();
             o.nomeMazzo= m.GetNome();
             o.NomeCpu = cpu.GetNome();
             o.NomeUtente=g.GetNome();
             o.briscolaDaPunti = briscolaDaPunti;
             o.avvisaTalloneFinito = avvisaTalloneFinito;
+            o.livello = (UInt16) (cbLivello.SelectedIndex+1);
             SalvaOpzioni(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), o);
             GOpzioni.IsVisible = false;
             Applicazione.IsVisible = true;
+            if (o.livello != helper.GetLivello())
+                NuovaPartita();
 
         }
 

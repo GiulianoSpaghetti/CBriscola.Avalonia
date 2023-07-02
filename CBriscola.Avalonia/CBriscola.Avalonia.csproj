@@ -8,6 +8,7 @@
     <BuiltInComInteropSupport>true</BuiltInComInteropSupport>
     <ApplicationIcon>icon.ico</ApplicationIcon>
     <SupportedOSPlatformVersion>10.0.17763.0</SupportedOSPlatformVersion>
+	<SelfContained>true</SelfContained>
   </PropertyGroup>
   <ItemGroup>
     <AvaloniaResource Include="resources\images\**" />

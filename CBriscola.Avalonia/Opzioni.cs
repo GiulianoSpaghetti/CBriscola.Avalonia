@@ -13,5 +13,6 @@ namespace CBriscola.Avalonia
         public bool briscolaDaPunti { get; set; }
         public bool avvisaTalloneFinito { get; set; }
         public string nomeMazzo { get; set;}
+        public UInt16 livello { get; set; }
     }
 }

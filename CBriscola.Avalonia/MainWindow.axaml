@@ -283,11 +283,12 @@
 					<RowDefinition />
 					<RowDefinition />
 					<RowDefinition />
+					<RowDefinition />
 					<RowDefinition Height="300"/>
 					<RowDefinition />
 					<RowDefinition />
 				</Grid.RowDefinitions>
-				<Image Source="/resources/images/background.jpg" Grid.Row="0" Grid.Column="0" Grid.RowSpan="8" Grid.ColumnSpan="2" Stretch="Fill" />
+				<Image Source="/resources/images/background.jpg" Grid.Row="0" Grid.Column="0" Grid.RowSpan="9" Grid.ColumnSpan="2" Stretch="Fill" />
 				<Label x:Name="opNomeUtente" Grid.Row="0" Grid.Column="0"/>
 				<TextBox x:Name="txtNomeUtente" Grid.Row="0" Grid.Column="1" />
 				<Label x:Name="opNomeCpu" Grid.Row="1" Grid.Column="0" />
@@ -296,11 +297,17 @@
 				<Label x:Name="lbCartaBriscola" Grid.Row="3" Grid.Column="1" />
 				<CheckBox x:Name="cbAvvisaTallone" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" IsChecked="True" />
 				<Label x:Name="lbAvvisaTallone" Grid.Row="4" Grid.Column="1" />
-                <Label x:Name="lbmazzi" Content="Mazzi" Grid.Row="5" Grid.Column="0" />
-                <ListBox x:Name="lsmazzi" Grid.Row="5" Grid.Column="1"  VirtualizationMode="None"/>
-				<Button Click="OnOk_Click"  Grid.Row="6" Grid.Column="1">OK</Button>
-				<Button x:Name="OpzioniApplicazione" Click="OnApp_Click" Grid.Row="7" Grid.Column="0">Applicazione</Button>
-				<Button x:Name="OpzioniInformazioni" Grid.Row="7" Grid.Column="1" Click="OnInfo_Click">Informazioni</Button>
+				<Label x:Name="lbLivello" Grid.Row="5" Grid.Column="0" />
+				<ComboBox x:Name="cbLivello" Grid.Row="5" Grid.Column="1">
+					<ComboBoxItem>1</ComboBoxItem>
+					<ComboBoxItem>2</ComboBoxItem>
+					<ComboBoxItem>3</ComboBoxItem>
+				</ComboBox>
+                <Label x:Name="lbmazzi" Content="Mazzi" Grid.Row="6" Grid.Column="0" />
+                <ListBox x:Name="lsmazzi" Grid.Row="6" Grid.Column="1"  VirtualizationMode="None"/>
+				<Button Click="OnOk_Click"  Grid.Row="7" Grid.Column="1">OK</Button>
+				<Button x:Name="OpzioniApplicazione" Click="OnApp_Click" Grid.Row="8" Grid.Column="0">Applicazione</Button>
+				<Button x:Name="OpzioniInformazioni" Grid.Row="8" Grid.Column="1" Click="OnInfo_Click">Informazioni</Button>
 			</Grid>
 			<Grid x:Name="FinePartita" IsVisible="False">
 				<Grid.RowDefinitions>

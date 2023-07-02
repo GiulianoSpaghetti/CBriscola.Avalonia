@@ -11,10 +11,10 @@ using System;
 
 namespace org.altervista.numerone.framework
 {
-    public class GiocatoreHelperCpu : GiocatoreHelper
+    public abstract class GiocatoreHelperCpu : GiocatoreHelper
     {
-        private readonly Carta briscola;
-        private UInt16 GetBriscola(Carta[] mano)
+        protected readonly Carta briscola;
+        protected UInt16 GetBriscola(Carta[] mano)
         {
             UInt16 i;
             for (i = 0; i < mano.Length; i++)
@@ -26,7 +26,7 @@ namespace org.altervista.numerone.framework
         {
             briscola = Carta.GetCarta(b);
         }
-        private UInt16 getSoprataglio(Carta[] mano, Carta c, bool maggiore)
+        protected UInt16 getSoprataglio(Carta[] mano, Carta c, bool maggiore)
         {
             bool trovata = false;
             UInt16 i;
@@ -64,30 +64,9 @@ namespace org.altervista.numerone.framework
             return i;
 
         }
-        public UInt16 Gioca(UInt16 x, Carta[] mano, UInt16 numeroCarte, Carta c)
-        {
-            UInt16 i = (UInt16)ElaboratoreCarteBriscola.r.Next(0, UInt16.MaxValue);
-            if (!briscola.StessoSeme(c))
-            {
-                if ((i = getSoprataglio(mano, c, true)) < numeroCarte)
-                    return i;
-                if (c.GetPunteggio() > 0 && (i = GetBriscola(mano)) < numeroCarte)
-                {
-                    if (c.GetPunteggio() > 4)
-                        return i;
-                    if (mano[i].GetPunteggio() > 0)
-                        if (ElaboratoreCarteBriscola.r.Next() % 10 < 5)
-                            return i;
-                }
-            }
-            else
-            {
-                if (ElaboratoreCarteBriscola.r.Next() % 10 < 5 && (i = getSoprataglio(mano, c, false)) < numeroCarte)
-                    return i;
-            }
-            i = 0;
-            return i;
-        }
+        public abstract UInt16 Gioca(UInt16 x, Carta[] mano, UInt16 numeroCarte, Carta c);
         public void AggiornaPunteggio(ref UInt16 punteggioAttuale, Carta c, Carta c1) { punteggioAttuale = (UInt16)(punteggioAttuale + c.GetPunteggio() + c1.GetPunteggio()); }
+
+        public abstract UInt16 GetLivello();
     }
 }
