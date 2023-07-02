@@ -53,6 +53,9 @@
 			<x:String x:Key="Quadri">Quadri</x:String>
 			<x:String x:Key="Fiori">Fiori</x:String>
 			<x:String x:Key="Picche">Picche</x:String>
+			<x:String x:Key="Livello">Livello della CPU</x:String>
+			<x:String x:Key="LivelloCambiato">Il Livello è cambiato</x:String>
+			<x:String x:Key="PartitaRiavviata">Comincerà una nuova partita</x:String>
 		</ResourceDictionary>
 		<ResourceDictionary x:Key="en">
 			<x:String x:Key="PuntiDiPrefisso">&#160;</x:String>
@@ -93,6 +96,9 @@
 			<x:String x:Key="di">of</x:String>
 			<x:String x:Key="TalloneFinitoIntestazione">Deck Finished</x:String>
 			<x:String x:Key="GiocataCarta">Value card played</x:String>
+			<x:String x:Key="Livello">CPU Level</x:String>
+			<x:String x:Key="LivelloCambiato">The level has changed</x:String>
+			<x:String x:Key="PartitaRiavviata">A new game will start</x:String>
 		</ResourceDictionary>
 		<ResourceDictionary x:Key="de">
 			<x:String x:Key="PuntiDiPrefisso">&#160;</x:String>
@@ -133,6 +139,9 @@
 			<x:String x:Key="Picche">Pik</x:String>
 			<x:String x:Key="TalloneFinitoIntestazione">fertiges Kartenspiel</x:String>
 			<x:String x:Key="GiocataCarta">Wertkarte gespielt</x:String>
+			<x:String x:Key="Livello">CPU-Ebene</x:String>
+			<x:String x:Key="LivelloCambiato">Level hat sich geändert</x:String>
+			<x:String x:Key="PartitaRiavviata">Ein neues Spiel beginnt</x:String>
 		</ResourceDictionary>
 		<ResourceDictionary x:Key="fr">
 			<x:String x:Key="PuntiDiPrefisso">Points de</x:String>
@@ -173,7 +182,9 @@
 			<x:String x:Key="Picche">Pique</x:String>
 			<x:String x:Key="TalloneFinitoIntestazione">Plateau terminé</x:String>
 			<x:String x:Key="GiocataCarta">Carte de valeur jouée</x:String>
-
+			<x:String x:Key="Livello">niveau processeur</x:String>
+			<x:String x:Key="LivelloCambiato">Le niveau a changé</x:String>
+			<x:String x:Key="PartitaRiavviata">Un nouveau jeu va commencer</x:String>
 		</ResourceDictionary>
 		<ResourceDictionary x:Key="es">
 			<x:String x:Key="PuntiDiPrefisso">Puntos de</x:String>
@@ -214,6 +225,9 @@
 			<x:String x:Key="Picche">Picas</x:String>
 			<x:String x:Key="TalloneFinitoIntestazione">Deck Finished</x:String>
 			<x:String x:Key="GiocataCarta">Carta de valor jugada</x:String>
+			<x:String x:Key="Livello">Nnivel de la CPU</x:String>
+			<x:String x:Key="LivelloCambiato">El nivel ha cambiado</x:String>
+			<x:String x:Key="PartitaRiavviata">Comenzará un nuevo juego</x:String>
 		</ResourceDictionary>
 	</Window.Resources>
 	<Window.Content>

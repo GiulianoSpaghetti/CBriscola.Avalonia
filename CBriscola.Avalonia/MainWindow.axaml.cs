@@ -116,6 +116,7 @@ namespace CBriscola.Avalonia
             Briscola.Source = briscola.GetImmagine();
             btnGiocata.Content = $"{d["giocataVista"]}";
             lbmazzi.Content =$"{d["Mazzo"]}";
+            lbLivello.Content = $"{d["Livello"]}";
 
         }
 
@@ -329,7 +330,7 @@ namespace CBriscola.Avalonia
         {
             bool primaUtente = primo == g;
             if (o.livello!=helper.GetLivello())
-                notification.Show(new Notification("Livello cambiato", "Il livello è cambiato. La partita verrà riavviata"));
+                notification.Show(new Notification($"{d["LivelloCambiato"]}",$"{d["PartitaRiavviata"]}"));
             bool cartaBriscola = true;
             if (cbCartaBriscola.IsChecked == false)
                 cartaBriscola = false;
