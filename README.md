@@ -4,6 +4,17 @@ Lo so che vi siete scocciati, però la Cbriscola torna completamente libera e mu
 # Dedica
 Voglio dedicare l'intero progetto non a Francesca la barista, ma a sory, quella gentil donzella in quel di rivisondoli che mi ha aiutato quando ero una povera anima in pena ed ora mi rende sia felice che "felice"..
 
+# Come installare
+
+# Su windows
+
+winget install GiulioSorrentino.CBriscola.Avalonia
+oppure scaricatevi il 0.7.1 self contained, tanto o lo fa winget o lo fate voi è la stessa cosa
+
+# Su GNU/linux
+Sweguite le istruzioni su http://numeronesoft.ddns.net
+
+Poi installate cbriscola.avalonia
 
 # Come funziona
 Per festeggiare, vi spiego come funziona il mio algoritmo brevettato:
