@@ -57,6 +57,9 @@ Oggi i file di visual studio non sono più binari, ma sono xml. Provate ad aprir
 
 Poi ditemi perché il .net framework é diventato mit.
 
+# Usare il .net 8 con visual studio
+
+Per usare il .net 8 preview col visul studio serve il visual studio preview. Potete provare a vedere su winget...
 # Bibliografia
 https://stackoverflow.com/questions/68684968/close-a-window-in-avalonia-gui
 
