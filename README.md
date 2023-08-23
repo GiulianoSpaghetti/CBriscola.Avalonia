@@ -55,6 +55,8 @@ Tenete presente che il mazzo fable 3 ha un bug: bisogna rinominare le immagini d
 
 Oggi i file di visual studio non sono più binari, ma sono xml. Provate ad aprire il file csproj col blocco note, può darsi che vi piaccia...
 
+Poi ditemi perché il .net framework é diventato mit.
+
 # Bibliografia
 https://stackoverflow.com/questions/68684968/close-a-window-in-avalonia-gui
 
