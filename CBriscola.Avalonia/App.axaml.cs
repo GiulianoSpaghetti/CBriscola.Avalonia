@@ -7,9 +7,9 @@ namespace CBriscola.Avalonia
 {
     public partial class App : Application
     {
-        public static string separator;
-        public static OperatingSystemType t;
-        public static string SistemaOperativo;
+        public static string separator="\\";
+        public static string SistemaOperativo="Windows";
+        public static string path = "C:\\Program Files\\wxBriscola";
 
         public override void Initialize()
         {
@@ -18,17 +18,6 @@ namespace CBriscola.Avalonia
 
         public override void OnFrameworkInitializationCompleted()
         {
-            t = AvaloniaLocator.Current.GetService<IRuntimePlatform>().GetRuntimeInfo().OperatingSystem;
-            if (t == OperatingSystemType.WinNT)
-            {
-                separator = "\\";
-                SistemaOperativo = "Windows";
-            }
-            else if (t == OperatingSystemType.Linux)
-            {
-                separator = "/";
-                SistemaOperativo = "Linux";
-            }
             if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
             {
                 desktop.MainWindow = new MainWindow();

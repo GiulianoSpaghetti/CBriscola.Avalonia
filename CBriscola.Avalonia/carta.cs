@@ -36,14 +36,14 @@ namespace org.altervista.numerone.framework
             valore = helper.GetValore(n);
             punteggio = helper.GetPunteggio(n);
         }
-        public static void Inizializza(Mazzo m, ushort n, CartaHelperBriscola h, IAssetLoader asset, ResourceDictionary d)
+        public static void Inizializza(Mazzo m, ushort n, CartaHelperBriscola h, ResourceDictionary d)
         {
             for (UInt16 i = 0; i < n; i++)
             {
                 carte[i] = new Carta(i, h);
 
             }
-            CaricaImmagini(m, n, h, asset, d);
+            CaricaImmagini(m, n, h, d);
         }
         public static Carta GetCarta(UInt16 quale) { return carte[quale]; }
         public UInt16 GetSeme() { return seme; }
@@ -74,13 +74,9 @@ namespace org.altervista.numerone.framework
             return img;
         }
 
-        public static void CaricaImmagini(Mazzo m, ushort n, CartaHelperBriscola helper, IAssetLoader assets, ResourceDictionary d)
+        public static void CaricaImmagini(Mazzo m, ushort n, CartaHelperBriscola helper, ResourceDictionary d)
         {
-            String s = "";
-            if (App.t==OperatingSystemType.WinNT)
-                s = Environment.GetFolderPath(Environment.SpecialFolder.ProgramFiles) + "\\wxBriscola\\Mazzi\\";
-            else if (App.t==OperatingSystemType.Linux)
-                s = "/usr/share/wxBriscola/Mazzi";
+            String s = $"{App.path}{App.separator}Mazzi{App.separator}";
             for (UInt16 i = 0; i < n; i++)
             {
                 Stream asset;
@@ -92,13 +88,12 @@ namespace org.altervista.numerone.framework
                     catch (System.IO.FileNotFoundException ex)
                     {
                         m.SetNome("Napoletano");
-                        CaricaImmagini(m, n, helper, assets, d);
+                        CaricaImmagini(m, n, helper, d);
                         return;
                     }
                 else
                 {
-                    asset = assets.Open(new Uri($"avares://{Assembly.GetEntryAssembly().GetName().Name}/resources/images/" + i + ".png"));
-                    carte[i].img = new Bitmap(asset);
+                    carte[i].img = new Bitmap(AssetLoader.Open(new Uri($"avares://{Assembly.GetEntryAssembly().GetName().Name}/Assets/{i}.png")));
                 }
                 carte[i].semeStr = helper.GetSemeStr(i, m.GetNome(), d);
             }

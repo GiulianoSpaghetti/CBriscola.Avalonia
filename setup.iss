@@ -2,7 +2,7 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "CBriscola.Avalonia"
-#define MyAppVersion "0.7"
+#define MyAppVersion "0.7.2"
 #define MyAppPublisher "Giulio Sorrentino"
 #define MyAppURL "https://github.com/numerunix/cbriscola.avalonia"
 #define MyAppExeName "CBriscola.Avalonia.exe"
@@ -24,7 +24,7 @@ LicenseFile=C:\Users\numer\source\repos\CBriscola.Avalonia\LICENSE.txt
 ; Uncomment the following line to run in non administrative install mode (install for current user only.)
 ;PrivilegesRequired=lowest
 OutputDir=C:\Users\numer
-OutputBaseFilename=cbriscola.avalonia-0.7
+OutputBaseFilename=cbriscola.avalonia-0.7.2-net8
 Compression=lzma
 SolidCompression=yes
 WizardStyle=modern
@@ -62,8 +62,8 @@ Name: "ukrainian"; MessagesFile: "compiler:Languages\Ukrainian.isl"
 Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked
 
 [Files]
-Source: "C:\Users\numer\source\repos\CBriscola.Avalonia\CBriscola.Avalonia\bin\Release\net7.0-windows10.0.22621.0\{#MyAppExeName}"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Users\numer\source\repos\CBriscola.Avalonia\CBriscola.Avalonia\bin\Release\net7.0-windows10.0.22621.0\win-x64\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "C:\Users\numer\source\repos\CBriscola.Avalonia\CBriscola.Avalonia\bin\Release\net8.0\{#MyAppExeName}"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\Users\numer\source\repos\CBriscola.Avalonia\CBriscola.Avalonia\bin\Release\net8.0\win-x64\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
 [Icons]

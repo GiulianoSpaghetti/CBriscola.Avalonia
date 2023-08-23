@@ -247,11 +247,17 @@
 					<ColumnDefinition />
 					<ColumnDefinition Width="auto" />
 				</Grid.ColumnDefinitions>
-				<Image Source="/resources/images/background.jpg" Grid.Row="0" Grid.Column="0" Grid.RowSpan="6" Grid.ColumnSpan="4" Stretch="Fill" />
+				<Image Source="avares://CBriscola.Avalonia/Assets/background.jpg" Grid.Row="0" Grid.Column="0" Grid.RowSpan="6" Grid.ColumnSpan="4" Stretch="Fill" />
 				<Label x:Name="NomeUtente" Grid.Row="0" Grid.Column="0" Grid.RowSpan="3">Nome Utente</Label>
-				<Image x:Name="Utente0" Grid.Row="1" Grid.Column="0" Tapped="Image_Tapped"/>
-				<Image x:Name="Utente1" Grid.Row="1"  Grid.Column="1" Tapped="Image_Tapped" />
-				<Image x:Name="Utente2" Grid.Row="1"  Grid.Column="2" Tapped="Image_Tapped" />
+							<Button x:Name="Btn0" Grid.Row="1" Grid.Column="0" Click="Image_Tapped">
+				<Image x:Name="Utente0"/>
+			</Button>
+			<Button x:Name="Btn1" Grid.Row="1" Grid.Column="1" Click="Image_Tapped">
+				<Image x:Name="Utente1"/>
+			</Button>
+			<Button x:Name="Btn2" Grid.Row="1" Grid.Column="2" Click="Image_Tapped">
+				<Image x:Name="Utente2"/>
+			</Button>
 				<Image x:Name="Giocata0" Grid.Row="2" Grid.Column="0" />
 				<Image x:Name="Giocata1" Grid.Row="2" Grid.Column="1" />
 				<Image x:Name="Cpu0" Grid.Row="3" Grid.Column="0" />
@@ -277,8 +283,8 @@
 					<RowDefinition />
 					<RowDefinition />
 				</Grid.RowDefinitions>
-				<Image Source="/resources/images/background.jpg" Grid.Row="0" Grid.Column="0" Grid.RowSpan="7" Stretch="Fill" />
-				<Label Grid.Row="0">CBriscola.Avalonia versione 0.7</Label>
+				<Image Source="avares://CBriscola.Avalonia/Assets/background.jpg" Grid.Row="0" Grid.Column="0" Grid.RowSpan="7" Stretch="Fill" />
+				<Label Grid.Row="0">CBriscola.Avalonia versione 0.7.2</Label>
 				<Label Grid.Row="1">ⓒ Giulio Sorrentino 2023</Label>
 				<Label Grid.Row="2">License: GPL v3 or, in your humble opinion, any later version</Label>
 				<Label Grid.Row="3">This trump wins because it scores more points not because it deals the cards, therefore also taking the 8s, 9s and 10s</Label>
@@ -302,7 +308,7 @@
 					<RowDefinition />
 					<RowDefinition />
 				</Grid.RowDefinitions>
-				<Image Source="/resources/images/background.jpg" Grid.Row="0" Grid.Column="0" Grid.RowSpan="9" Grid.ColumnSpan="2" Stretch="Fill" />
+				<Image Source="avares://CBriscola.Avalonia/Assets/background.jpg" Grid.Row="0" Grid.Column="0" Grid.RowSpan="9" Grid.ColumnSpan="2" Stretch="Fill" />
 				<Label x:Name="opNomeUtente" Grid.Row="0" Grid.Column="0"/>
 				<TextBox x:Name="txtNomeUtente" Grid.Row="0" Grid.Column="1" />
 				<Label x:Name="opNomeCpu" Grid.Row="1" Grid.Column="0" />
@@ -318,7 +324,7 @@
 					<ComboBoxItem>3</ComboBoxItem>
 				</ComboBox>
                 <Label x:Name="lbmazzi" Content="Mazzi" Grid.Row="6" Grid.Column="0" />
-                <ListBox x:Name="lsmazzi" Grid.Row="6" Grid.Column="1"  VirtualizationMode="None"/>
+                <ListBox x:Name="lsmazzi" Grid.Row="6" Grid.Column="1" />
 				<Button Click="OnOk_Click"  Grid.Row="7" Grid.Column="1">OK</Button>
 				<Button x:Name="OpzioniApplicazione" Click="OnApp_Click" Grid.Row="8" Grid.Column="0">Applicazione</Button>
 				<Button x:Name="OpzioniInformazioni" Grid.Row="8" Grid.Column="1" Click="OnInfo_Click">Informazioni</Button>
@@ -333,7 +339,7 @@
 					<ColumnDefinition />
 					<ColumnDefinition />
 				</Grid.ColumnDefinitions>
-				<Image Source="/resources/images/background.jpg" Grid.Row="0" Grid.Column="0" Grid.RowSpan="2" Grid.ColumnSpan="3" Stretch="Fill" />
+				<Image Source="avares://CBriscola.Avalonia/Assets/background.jpg" Grid.Row="0" Grid.Column="0" Grid.RowSpan="2" Grid.ColumnSpan="3" Stretch="Fill" />
 				<Label x:Name="fpRisultrato" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" />
 				<Button x:Name="fpOk" Click="OnOkFp_Click" Grid.Row="1" Grid.Column="0">Ok</Button>
 				<Button x:Name="fpCancel" Click="OnCancelFp_Click" Grid.Row="1" Grid.Column="1">Annulla</Button>

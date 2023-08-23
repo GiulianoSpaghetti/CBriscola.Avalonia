@@ -31,7 +31,6 @@ namespace CBriscola.Avalonia
         private static GiocatoreHelperCpu helper;
         private ResourceDictionary d;
         private ElaboratoreCarteBriscola e;
-        private IAssetLoader assets;
         private Stream asset;
         private WindowNotificationManager notification;
         private Opzioni o;
@@ -45,27 +44,23 @@ namespace CBriscola.Avalonia
             e = new ElaboratoreCarteBriscola(false);
             m = new Mazzo(e);
             o = LeggiOpzioni(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData));
-            assets = AvaloniaLocator.Current.GetService<IAssetLoader>();
             m.SetNome(o.nomeMazzo);
 
-            Carta.Inizializza(m, 40, CartaHelperBriscola.GetIstanza(e), assets, d);
+            Carta.Inizializza(m, 40, CartaHelperBriscola.GetIstanza(e), d);
             if (o.nomeMazzo == "Napoletano")
             {
-                asset = assets.Open(new Uri($"avares://{Assembly.GetEntryAssembly().GetName().Name}/resources/images/retro_carte_pc.png"));
+                asset = AssetLoader.Open(new Uri($"avares://{Assembly.GetEntryAssembly().GetName().Name}/Assets/retro_carte_pc.png"));
                 cartaCpu.Source = new Bitmap(asset);
 
             }
             else
                 try
                 {  
-                    if (App.t==OperatingSystemType.WinNT)
-                        cartaCpu.Source = new Bitmap(Environment.GetFolderPath(Environment.SpecialFolder.ProgramFiles) + "\\wxBriscola\\Mazzi\\" + m.GetNome() + "\\retro carte pc.png");
-                    else if (App.t==OperatingSystemType.Linux)
-                        cartaCpu.Source = new Bitmap("/usr/share/wxBriscola/Mazzi/" + m.GetNome() + "/retro carte pc.png");
+                        cartaCpu.Source = new Bitmap($"{App.path}{App.separator}Mazzi{App.separator}{m.GetNome()}{App.separator}retro carte pc.png");
                 }
                 catch (System.IO.FileNotFoundException ex)
                 {
-                    asset = assets.Open(new Uri($"avares://{Assembly.GetEntryAssembly().GetName().Name}/resources/images/retro_carte_pc.png"));
+                    asset = AssetLoader.Open(new Uri($"avares://{Assembly.GetEntryAssembly().GetName().Name}/Assets/retro_carte_pc.png"));
                     cartaCpu.Source = new Bitmap(asset);
 
                 }
@@ -123,11 +118,7 @@ namespace CBriscola.Avalonia
         private Opzioni CaricaOpzioni()
         {
             Opzioni o;
-            string dir="";
-            if (App.t == OperatingSystemType.WinNT)
-                dir = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
-            else if (App.t == OperatingSystemType.Linux)
-                dir = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+            string dir = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
 
             o = LeggiOpzioni(dir);
             return o;
@@ -135,18 +126,18 @@ namespace CBriscola.Avalonia
         private Opzioni LeggiOpzioni(String folder)
         {
             Opzioni o;
-                if (!Directory.Exists(folder + App.separator +"CBriscola.Avalonia"))
-               Directory.CreateDirectory(folder + App.separator + "CBriscola.Avalonia");
+                if (!Directory.Exists($"{folder}{App.separator}CBriscola.Avalonia"))
+               Directory.CreateDirectory($"{folder}{App.separator}CBriscola.Avalonia");
             StreamReader file;
             try
             {
-                file = new StreamReader(folder + App.separator + "CBriscola.Avalonia" +App.separator +"opzioni.json");
+                file = new StreamReader($"{folder}{App.separator}CBriscola.Avalonia{App.separator}opzioni.json");
             }
             catch (FileNotFoundException ex)
             {
                 o = new Opzioni();
                 o.NomeUtente = "numerone";
-                o.NomeCpu = "sory";
+                o.NomeCpu = "numerona";
                 o.briscolaDaPunti = false;
                 o.avvisaTalloneFinito = true;
                 o.nomeMazzo = "Napoletano";
@@ -162,7 +153,7 @@ namespace CBriscola.Avalonia
 
         private void SalvaOpzioni(String folder, Opzioni o)
         {
-            StreamWriter w = new StreamWriter(folder + App.separator + "CBriscola.Avalonia" + App.separator + "opzioni.json");
+            StreamWriter w = new StreamWriter($"{folder}{App.separator}CBriscola.Avalonia{App.separator}opzioni.json");
             w.Write(Newtonsoft.Json.JsonConvert.SerializeObject(o));
             w.Close();
         }
@@ -277,6 +268,7 @@ namespace CBriscola.Avalonia
         }
         private void OnOpzioni_Click(object sender, RoutedEventArgs e)
         {
+            lsmazzi.Items.Clear();
             Info.IsVisible = false;
             Applicazione.IsVisible = false;
             GOpzioni.IsVisible = true;
@@ -287,14 +279,9 @@ namespace CBriscola.Avalonia
             List<ListBoxItem> mazzi;
             List<String> path;
             cbLivello.SelectedIndex = helper.GetLivello() - 1;
-            mazzi = new List<ListBoxItem>();
             ListBoxItem item;
             String s1 = "";
-            string dirs;
-            if (App.t == OperatingSystemType.WinNT)
-                dirs = Environment.GetFolderPath(Environment.SpecialFolder.ProgramFiles) + "\\wxBriscola\\Mazzi";
-            else
-                dirs = "/usr/share/wxBriscola/Mazzi";
+            string dirs = $"{App.path}{App.separator}Mazzi";
 
             try
             {
@@ -306,10 +293,7 @@ namespace CBriscola.Avalonia
             }
             for (UInt16 i=0; i<path.Count; i++)
             {
-                if (App.t == OperatingSystemType.WinNT)
-                    path[i] = path[i].Substring(path[i].LastIndexOf("\\") + 1);
-                else if (App.t == OperatingSystemType.Linux)
-                    path[i] = path[i].Substring(path[i].LastIndexOf("/") + 1);
+                    path[i] = path[i].Substring(path[i].LastIndexOf(App.separator) + 1);
 
             }
             if (!path.Contains("Napoletano"))
@@ -319,10 +303,10 @@ namespace CBriscola.Avalonia
             {
                 item = new ListBoxItem();
                 item.Content = s;
-                mazzi.Add(item);
+                lsmazzi.Items.Add(item);
 
             }
-            lsmazzi.Items = mazzi;
+            
 
         }
 
@@ -435,7 +419,9 @@ namespace CBriscola.Avalonia
 
         private void Image_Tapped(object Sender, RoutedEventArgs arg)
         {
-            Image img = (Image)Sender;
+	    if (btnGiocata.IsVisible)
+            	return;
+            Image img = (Image) ((Button)Sender).Content;
             i = GiocaUtente(img);
             if (secondo == cpu)
                 i1 = GiocaCpu();
@@ -459,7 +445,7 @@ namespace CBriscola.Avalonia
             if (i != null)
             {
                 m.SetNome((string)i.Content);
-                Carta.CaricaImmagini(m, 40, CartaHelperBriscola.GetIstanza(e), assets, d);
+                Carta.CaricaImmagini(m, 40, CartaHelperBriscola.GetIstanza(e), d);
                 Utente0.Source = g.GetImmagine(0);
                 Utente1.Source = g.GetImmagine(1);
                 Utente2.Source = g.GetImmagine(2);
@@ -467,23 +453,19 @@ namespace CBriscola.Avalonia
                 briscola = Carta.GetCarta(ElaboratoreCarteBriscola.GetCartaBriscola());
                 Briscola.Source = briscola.GetImmagine();
                 if (m.GetNome() != "Napoletano")
-                    //cartaCpu.Source = new Bitmap("/usr/share/wxBriscola/Mazzi/" + m.GetNome + "/retro carte pc.png");
                     try
                     {
-                        if (App.t == OperatingSystemType.WinNT)
-                            cartaCpu.Source = new Bitmap(Environment.GetFolderPath(Environment.SpecialFolder.ProgramFiles) + "\\wxBriscola\\Mazzi\\" + m.GetNome() + "\\retro carte pc.png");
-                        else if (App.t == OperatingSystemType.Linux)
-                            cartaCpu.Source = new Bitmap("/usr/share/wxBriscola/Mazzi/" + m.GetNome() + "/retro carte pc.png");
+                        cartaCpu.Source = new Bitmap($"{App.path}{App.separator}Mazzi{App.separator}{m.GetNome()}{App.separator}retro carte pc.png");
                     }
                     catch (System.IO.FileNotFoundException ex)
                     {
-                        asset = assets.Open(new Uri($"avares://{Assembly.GetEntryAssembly().GetName().Name}/resources/images/retro_carte_pc.png"));
+                        asset = AssetLoader.Open(new Uri($"avares://{Assembly.GetEntryAssembly().GetName().Name}/Assets/retro_carte_pc.png"));
                         cartaCpu.Source = new Bitmap(asset);
 
                     }
                 else
                 {
-                    asset = assets.Open(new Uri($"avares://{Assembly.GetEntryAssembly().GetName().Name}/resources/images/retro_carte_pc.png"));
+                    asset = AssetLoader.Open(new Uri($"avares://{Assembly.GetEntryAssembly().GetName().Name}/Assets/retro_carte_pc.png"));
                     cartaCpu.Source = new Bitmap(asset);
                 }
                 Cpu0.Source = cartaCpu.Source;
