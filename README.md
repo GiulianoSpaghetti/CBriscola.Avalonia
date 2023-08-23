@@ -51,6 +51,9 @@ Infine compilare.
 I mazzi aggiuntivi sono quelli della wxbriscola, si possono scaricare sulle relative home page dei progetti, per windows e linux.
 Tenete presente che il mazzo fable 3 ha un bug: bisogna rinominare le immagini da 0 a 9 aggiungendo un 2 e bisogna togliere il 2 nelle immagini da 20 a 29.
 
+# Applicazzoni self contained
+
+Oggi i file di visual studio non sono più binari, ma sono xml. Provate ad aprire il file csproj col blocco note, può darsi che vi piaccia...
 
 # Bibliografia
 https://stackoverflow.com/questions/68684968/close-a-window-in-avalonia-gui
