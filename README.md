@@ -4,6 +4,10 @@ Lo so che vi siete scocciati, però la Cbriscola torna completamente libera e mu
 # Dedica
 Voglio dedicare l'intero progetto non a Francesca la barista, ma a sory, quella gentil donzella in quel di rivisondoli che mi ha aiutato quando ero una povera anima in pena ed ora mi rende sia felice che "felice"..
 
+# Video di presentazione
+
+https://youtu.be/nyGrVOnt8Rc?si=983UJSTwpUB-d5tJ
+
 # Come installare
 
 # Su windows
@@ -33,13 +37,7 @@ basandosi solo sui carichi si rischia di perdere, perché
 
 60-36=24, prendendo tutte le altre carte bastano solo 3 carichi per vincere.
 
-Per cui non metto i livelli, ma vi lascio imparare la teoria delle carte a lungo, da me inventata a 18 anni, con la wxbriscola, che mi ha portato l'amore di Francesca.
-
-# Video
-https://www.twitch.tv/videos/1856276989
-
-[https://youtu.be/Zcbq0DwYcW8
-](https://www.youtube.com/watch?v=nUHb5jiKbxk)                                                                                                                                                  
+Per cui non metto i livelli, ma vi lascio imparare la teoria delle carte a lungo, da me inventata a 18 anni, con la wxbriscola, che mi ha portato l'amore di Francesca.                                                                                                                                              
 # Internazionalizzazione
 Aprire il file MainWindows.axaml, all'interno del tag MainWindow.Resources ci sono qulli che vengono chiamati dizionari.
 BIsogna copiare un dizioario ed aggiungrlo alla fine dei dizionari, chiamarlo con la denominazione internazionale a due carattri ella lingua (it per italiano, pt per portoghese, es per spagnolo e via dicendo) e bisogna tradurre tutto qullo che è il contenuto del tag x:string, non il parametro.
@@ -49,7 +47,7 @@ Infine compilare.
 # Dove recuperare i mazzi aggiuntivi
 
 I mazzi aggiuntivi sono quelli della wxbriscola, si possono scaricare sulle relative home page dei progetti, per windows e linux.
-Tenete presente che il mazzo fable 3 ha un bug: bisogna rinominare le immagini da 0 a 9 aggiungendo un 2 e bisogna togliere il 2 nelle immagini da 20 a 29.
+
 
 # Applicazzoni self contained
 
