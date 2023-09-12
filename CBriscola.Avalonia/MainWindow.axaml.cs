@@ -448,6 +448,16 @@ namespace CBriscola.Avalonia
                 Utente0.Source = g.GetImmagine(0);
                 Utente1.Source = g.GetImmagine(1);
                 Utente2.Source = g.GetImmagine(2);
+                try
+                {
+                    Giocata0.Source = g.GetCartaGiocata().GetImmagine();
+                }
+                catch (System.IndexOutOfRangeException ex) {; }
+                try
+                {
+                    Giocata1.Source = cpu.GetCartaGiocata().GetImmagine();
+                }
+                catch (System.IndexOutOfRangeException ex) {; }
 
                 briscola = Carta.GetCarta(ElaboratoreCarteBriscola.GetCartaBriscola());
                 Briscola.Source = briscola.GetImmagine();
