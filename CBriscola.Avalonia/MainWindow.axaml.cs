@@ -27,7 +27,7 @@ namespace CBriscola.Avalonia
         private static Carta c, c1, briscola;
         private static Image cartaCpu = new Image();
         private static Image i, i1;
-        private static bool avvisaTalloneFinito = true, briscolaDaPunti = false;
+        private static bool avvisaTalloneFinito = true, briscolaDaPunti = false, primaUtente = true;
         private static GiocatoreHelperCpu helper;
         private ResourceDictionary d;
         private ElaboratoreCarteBriscola e;
@@ -312,7 +312,6 @@ namespace CBriscola.Avalonia
 
         private void NuovaPartita()
         {
-            bool primaUtente = primo == g;
             if (o.livello!=helper.GetLivello())
                 notification.Show(new Notification($"{d["LivelloCambiato"]}",$"{d["PartitaRiavviata"]}"));
             bool cartaBriscola = true;
