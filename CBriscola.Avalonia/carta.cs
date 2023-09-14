@@ -85,7 +85,7 @@ namespace org.altervista.numerone.framework
                     {
                         carte[i].img = new Bitmap(s + m.GetNome() + App.separator + i + ".png");
                     }
-                    catch (System.IO.FileNotFoundException ex)
+                    catch (Exception ex)
                     {
                         m.SetNome("Napoletano");
                         CaricaImmagini(m, n, helper, d);

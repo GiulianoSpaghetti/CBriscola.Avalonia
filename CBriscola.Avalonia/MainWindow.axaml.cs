@@ -38,7 +38,7 @@ namespace CBriscola.Avalonia
         {
             this.InitializeComponent();
             notification = new WindowNotificationManager(this) { Position = NotificationPosition.BottomRight };
-            d = this.FindResource(CultureInfo.CurrentUICulture.TwoLetterISOLanguageName) as ResourceDictionary;
+            d = this.FindResource(CultureInfo.CurrentCulture.TwoLetterISOLanguageName) as ResourceDictionary;
             if (d==null)
                 d = this.FindResource("it") as ResourceDictionary;
             e = new ElaboratoreCarteBriscola(false);
@@ -58,7 +58,7 @@ namespace CBriscola.Avalonia
                 {  
                         cartaCpu.Source = new Bitmap($"{App.path}{App.separator}Mazzi{App.separator}{m.GetNome()}{App.separator}retro carte pc.png");
                 }
-                catch (System.IO.FileNotFoundException ex)
+                catch (Exception ex)
                 {
                     asset = AssetLoader.Open(new Uri($"avares://{Assembly.GetEntryAssembly().GetName().Name}/Assets/retro_carte_pc.png"));
                     cartaCpu.Source = new Bitmap(asset);
