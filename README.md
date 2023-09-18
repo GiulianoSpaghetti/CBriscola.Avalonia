@@ -10,10 +10,9 @@ https://youtu.be/nyGrVOnt8Rc?si=983UJSTwpUB-d5tJ
 
 # Come installare
 
-# Su windows
+# Su Windows
 
-winget install GiulioSorrentino.CBriscola.Avalonia
-oppure scaricatevi il 0.7.1 self contained, tanto o lo fa winget o lo fate voi è la stessa cosa
+[![winget](https://user-images.githubusercontent.com/49786146/159123313-3bdafdd3-5130-4b0d-9003-40618390943a.png)](https://marticliment.com/wingetui/share?pid=GiulioSorrentino.CBriscola.Avalo…&pname=CBriscola.Avalonia&psource=Winget:%20winget)
 
 # Su GNU/linux
 Sweguite le istruzioni su http://numeronesoft.ddns.net
