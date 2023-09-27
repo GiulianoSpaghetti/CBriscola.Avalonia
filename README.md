@@ -58,7 +58,7 @@ Poi ditemi perché il .net framework é diventato mit.
 
 Per usare il .net 8 preview col visul studio serve il visual studio preview. Potete provare a vedere su winget...
 
-# Donazioni
+# Donazione
 
 [![paypal](https://www.paypalobjects.com/it_IT/IT/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=JZVR4QQFGLR6Q)
 
