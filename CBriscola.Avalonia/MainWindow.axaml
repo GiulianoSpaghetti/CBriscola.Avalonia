@@ -100,7 +100,7 @@
 			<x:String x:Key="Livello">CPU Level</x:String>
 			<x:String x:Key="LivelloCambiato">The level has changed</x:String>
 			<x:String x:Key="PartitaRiavviata">A new game will start</x:String>
-			<x:String x:Key="EffettuaSecondaPartita">do you want to play a second game</x:String>
+			<x:String x:Key="EffettuaSecondaPartita">Do you want to play a second game</x:String>
 		</ResourceDictionary>
 		<ResourceDictionary x:Key="de">
 			<x:String x:Key="PuntiDiPrefisso">&#160;</x:String>
@@ -188,7 +188,7 @@
 			<x:String x:Key="Livello">niveau processeur</x:String>
 			<x:String x:Key="LivelloCambiato">Le niveau a changé</x:String>
 			<x:String x:Key="PartitaRiavviata">Un nouveau jeu va commencer</x:String>
-			<x:String x:Key="EffettuaSecondaPartita">est-ce qu'il joue un deuxième jeu</x:String>
+			<x:String x:Key="EffettuaSecondaPartita">Est-ce qu'il joue un deuxième jeu</x:String>
 		</ResourceDictionary>
 		<ResourceDictionary x:Key="es">
 			<x:String x:Key="PuntiDiPrefisso">Puntos de</x:String>

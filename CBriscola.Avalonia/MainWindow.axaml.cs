@@ -232,7 +232,6 @@ namespace CBriscola.Avalonia
                 if (partite % 2 == 1) {
                     fpRisultrato.Content = $"{d["PartitaFinita"]}. {s}. {d["NuovaPartita"]}?";
                     fpShare.IsVisible=true;
-                    puntiUtente = puntiCpu = 0;
                 } else {
                     fpRisultrato.Content = $"{d["PartitaFinita"]}. {s}. {d["EffettuaSecondaPartita"]}?";
                     fpShare.IsVisible = false;
@@ -330,6 +329,8 @@ namespace CBriscola.Avalonia
                 puntiUtente = 0;
                 partite = 0;
             }
+            if (partite % 2 == 0)
+                puntiUtente = puntiCpu = 0;
             bool cartaBriscola = true;
             if (cbCartaBriscola.IsChecked == false)
                 cartaBriscola = false;
