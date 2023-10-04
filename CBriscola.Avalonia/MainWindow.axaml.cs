@@ -217,19 +217,22 @@ namespace CBriscola.Avalonia
             else
             {
                 String s;
-                if (g.GetPunteggio() == cpu.GetPunteggio())
+                puntiUtente+=g.GetPunteggio();
+                puntiCpu += cpu.GetPunteggio();
+                if (puntiUtente == puntiCpu)
                     s = $"{d["PartitaPatta"]}";
                 else
                 {
-                    if (g.GetPunteggio() > cpu.GetPunteggio())
+                    if (puntiUtente > puntiCpu)
                         s = $"{d["HaiVinto"]}";
                     else
                         s = $"{d["HaiPerso"]}";
-                    s = $"{s} {d["per"]} {Math.Abs(g.GetPunteggio()+puntiUtente - cpu.GetPunteggio()-puntiCpu)} {d["punti"]}";
+                    s = $"{s} {d["per"]} {Math.Abs(puntiUtente - puntiCpu)} {d["punti"]}";
                 }
                 if (partite % 2 == 1) {
                     fpRisultrato.Content = $"{d["PartitaFinita"]}. {s}. {d["NuovaPartita"]}?";
                     fpShare.IsVisible=true;
+                    puntiUtente = puntiCpu = 0;
                 } else {
                     fpRisultrato.Content = $"{d["PartitaFinita"]}. {s}. {d["SecondaPartita"]}?";
                     fpShare.IsVisible = false;
