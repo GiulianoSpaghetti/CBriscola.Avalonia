@@ -325,8 +325,7 @@ namespace CBriscola.Avalonia
         {
             if (o.livello != helper.GetLivello()) {
                 notification.Show(new Notification($"{d["LivelloCambiato"]}", $"{d["PartitaRiavviata"]}"));
-                puntiCpu = 0;
-                puntiUtente = 0;
+                puntiCpu = puntiUtente = 0;
                 partite = 0;
             }
             if (partite % 2 == 0)
@@ -518,7 +517,7 @@ namespace CBriscola.Avalonia
         {
             var psi = new ProcessStartInfo
             {
-                FileName = $"https://twitter.com/intent/tweet?text=Con%20la%20CBriscola%20la%20partita%20numero%20{partite+1}%20{g.GetNome()}%20contro%20{cpu.GetNome()}%20%C3%A8%20finita%20{puntiUtente}%20a%20{puntiCpu}%20col%20mazzo%20{m.GetNome()}%20su%20sistema%20operativo%20{App.SistemaOperativo}&url=https%3A%2F%2Fgithub.com%2Fnumerunix%2Fcbriscola.Avalonia",
+                FileName = $"https://twitter.com/intent/tweet?text=Con%20la%20CBriscola%20la%20partita%20numero%20{partite}%20{g.GetNome()}%20contro%20{cpu.GetNome()}%20%C3%A8%20finita%20{puntiUtente}%20a%20{puntiCpu}%20col%20mazzo%20{m.GetNome()}%20su%20sistema%20operativo%20{App.SistemaOperativo}&url=https%3A%2F%2Fgithub.com%2Fnumerunix%2Fcbriscola.Avalonia",
                 UseShellExecute = true
             };
             fpShare.IsEnabled = false;
