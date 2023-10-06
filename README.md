@@ -1,25 +1,28 @@
-# CBriscola.Avalonia
+## CBriscola.Avalonia
 Lo so che vi siete scocciati, però la Cbriscola torna completamente libera e multipiattaforma con l'interfaccia in Avalonia, il pezzotto dell'XAML. Una chicca per appassionati.
 
-# Dedica
-Voglio dedicare l'intero progetto non a Francesca la barista, ma a sory, quella gentil donzella in quel di rivisondoli che mi ha aiutato quando ero una povera anima in pena ed ora mi rende sia felice che "felice"..
+## Dedica
+Voglio dedicare l'intero progetto non a Francesca la barista, ma alla vecchia sory, ossia numerona, quella gentil donzella in quel di rivisondoli che mi ha aiutato quando ero una povera anima in pena ed ora mi rende sia felice che "felice"..
+Perché io adesso sono anche "felice", non conto di diventarlo, ma lo sono.
 
-# Video di presentazione
+## Video di presentazione
 
 https://youtu.be/nyGrVOnt8Rc?si=983UJSTwpUB-d5tJ
 
 # Come installare
 
-# Su Windows
+## Su Windows
 
 [![winget](https://user-images.githubusercontent.com/49786146/159123313-3bdafdd3-5130-4b0d-9003-40618390943a.png)](https://marticliment.com/wingetui/share?pid=GiulioSorrentino.CBriscola.Avalo…&pname=CBriscola.Avalonia&psource=Winget:%20winget)
 
-# Su GNU/linux
-Sweguite le istruzioni su http://numeronesoft.ddns.net
+## Su GNU/linux
+Seguite le istruzioni su http://numeronesoft.ddns.net
 
 Poi installate cbriscola.avalonia
+ATTENZIONE:
+Avalonia si basa su due librerie native libharfbuzzsharp e libskiasharp che non sono libere, quindi avalonia non è libero.
 
-# Come funziona
+## Come funziona
 Per festeggiare, vi spiego come funziona il mio algoritmo brevettato:
 i punti in totale sono 120, ossia 4 assi che valgono 11 punti ciascuno, 4 3 che valgono 10 punti ciascuno, 4 10 che valgono 4 punti ciascuno, 4 9 che valgono 3 punti ciascuno, 4 8 che valgono 2 punti ciascuno.
 Dal momento che la matematica non è una opinione:
@@ -37,32 +40,22 @@ basandosi solo sui carichi si rischia di perdere, perché
 60-36=24, prendendo tutte le altre carte bastano solo 3 carichi per vincere.
 
 Per cui non metto i livelli, ma vi lascio imparare la teoria delle carte a lungo, da me inventata a 18 anni, con la wxbriscola, che mi ha portato l'amore di Francesca.                                                                                                                                              
-# Internazionalizzazione
+## Internazionalizzazione
 Aprire il file MainWindows.axaml, all'interno del tag MainWindow.Resources ci sono qulli che vengono chiamati dizionari.
 BIsogna copiare un dizioario ed aggiungrlo alla fine dei dizionari, chiamarlo con la denominazione internazionale a due carattri ella lingua (it per italiano, pt per portoghese, es per spagnolo e via dicendo) e bisogna tradurre tutto qullo che è il contenuto del tag x:string, non il parametro.
 
 Infine compilare.
 
-# Dove recuperare i mazzi aggiuntivi
+## Dove recuperare i mazzi aggiuntivi
 
 I mazzi aggiuntivi sono quelli della wxbriscola, si possono scaricare sulle relative home page dei progetti, per windows e linux.
 
 
-# Applicazzoni self contained
-
-Oggi i file di visual studio non sono più binari, ma sono xml. Provate ad aprire il file csproj col blocco note, può darsi che vi piaccia...
-
-Poi ditemi perché il .net framework é diventato mit.
-
-# Usare il .net 8 con visual studio
-
-Per usare il .net 8 preview col visul studio serve il visual studio preview. Potete provare a vedere su winget...
-
-# Donazione
+## Donazione
 
 http://numerone.altervista.org/donazioni.php
 
-# Bibliografia
+## Bibliografia
 https://stackoverflow.com/questions/68684968/close-a-window-in-avalonia-gui
 
 https://docs.avaloniaui.net/docs/controls/image
