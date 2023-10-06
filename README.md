@@ -6,8 +6,8 @@ Voglio dedicare l'intero progetto non a Francesca la barista, ma alla vecchia so
 Perché io adesso sono anche "felice", non conto di diventarlo, ma lo sono.
 
 ## Video di presentazione
-
-https://youtu.be/nyGrVOnt8Rc?si=983UJSTwpUB-d5tJ
+[
+https://youtu.be/nyGrVOnt8Rc?si=983UJSTwpUB-d5tJ](https://youtube.com/live/xZ0VFvn1Ixg)
 
 # Come installare
 
