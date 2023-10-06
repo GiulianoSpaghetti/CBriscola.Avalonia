@@ -232,6 +232,7 @@ namespace CBriscola.Avalonia
                 if (partite % 2 == 1) {
                     fpRisultrato.Content = $"{d["PartitaFinita"]}. {s}. {d["NuovaPartita"]}?";
                     fpShare.IsVisible=true;
+                    fpShare.IsEnabled=true;
                 } else {
                     fpRisultrato.Content = $"{d["PartitaFinita"]}. {s}. {d["EffettuaSecondaPartita"]}?";
                     fpShare.IsVisible = false;
