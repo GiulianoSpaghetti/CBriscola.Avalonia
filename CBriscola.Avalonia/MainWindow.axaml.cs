@@ -15,8 +15,11 @@ using System.Globalization;
 using org.altervista.numerone.framework;
 using static System.Net.WebRequestMethods;
 using System.Threading.Tasks;
-using Avalonia.Controls.Notifications;
 using Avalonia.Controls.Shapes;
+using DesktopNotifications;
+using DesktopNotifications.FreeDesktop;
+using DesktopNotifications.Windows;
+using System.Runtime.InteropServices;
 
 namespace CBriscola.Avalonia
 {
@@ -34,12 +37,28 @@ namespace CBriscola.Avalonia
         private ResourceDictionary d;
         private ElaboratoreCarteBriscola e;
         private Stream asset;
-        private WindowNotificationManager notification;
+        private INotificationManager notification;
         private Opzioni o;
+
+        private static INotificationManager CreateManager()
+        {
+            if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
+            {
+                return new FreeDesktopNotificationManager();
+            }
+
+            if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+            {
+                return new WindowsNotificationManager();
+            }
+
+            throw new PlatformNotSupportedException();
+        }
         public MainWindow()
         {
             this.InitializeComponent();
-            notification = new WindowNotificationManager(this) { Position = NotificationPosition.BottomRight };
+            notification = CreateManager();
+            notification.Initialize();
             d = this.FindResource(CultureInfo.CurrentCulture.TwoLetterISOLanguageName) as ResourceDictionary;
             if (d==null)
                 d = this.FindResource("it") as ResourceDictionary;
@@ -184,7 +203,14 @@ namespace CBriscola.Avalonia
                     NelMazzoRimangono.IsVisible = false;
                     Briscola.IsVisible = false;
                     if (avvisaTalloneFinito)
-                        notification.Show(new Notification($"{d["TalloneFinitoIntestazione"]}", d["TalloneFinito"] as string));
+                    {
+                        var not = new Notification
+                        {
+                            Title = $"{d["TalloneFinitoIntestazione"]}",
+                            Body = $"{d["TalloneFinito"]}"
+                        };
+                        notification.ShowNotification(not);
+                    }
                 }
                 Utente0.Source = g.GetImmagine(0);
                 if (cpu.GetNumeroCarte() > 1)
@@ -205,13 +231,29 @@ namespace CBriscola.Avalonia
                     Utente1.IsVisible = false;
                     Cpu1.IsVisible = false;
                 }
-                if (primo == cpu)
-                {
-                    i1 = GiocaCpu();
+                    if (primo == cpu)
+                    {
+                        i1 = GiocaCpu();
                     if (cpu.GetCartaGiocata().StessoSeme(briscola))
-                        notification.Show(new Notification($"{d["GiocataCarta"]}", $"{d["LaCPUHaGiocatoIl"]} {cpu.GetCartaGiocata().GetValore() + 1} {d["di"]} {d["Briscola"]}"));
+                    {
+                        var not = new Notification
+                        {
+                            Title = $"{d["GiocataCarta"]}",
+                            Body = $"{d["LaCPUHaGiocatoIl"]} {cpu.GetCartaGiocata().GetValore() + 1} {d["di"]} {d["Briscola"]}"
+                        };
+                        notification.ShowNotification(not);
+
+                    }
                     else if (cpu.GetCartaGiocata().GetPunteggio() > 0)
-                        notification.Show(new Notification($"{d["GiocataCarta"]}", $"{d["LaCPUHaGiocatoIl"]} {cpu.GetCartaGiocata().GetValore() + 1} {d["di"]} {cpu.GetCartaGiocata().GetSemeStr()}"));
+                    {
+                        var not = new Notification
+                        {
+                            Title = $"{d["GiocataCarta"]}",
+                            Body = $"{d["LaCPUHaGiocatoIl"]} {cpu.GetCartaGiocata().GetValore() + 1} {d["di"]} {cpu.GetCartaGiocata().GetSemeStr()}"
+                        };
+                        notification.ShowNotification(not);
+
+                    }
                 }
             }
             else
@@ -325,7 +367,12 @@ namespace CBriscola.Avalonia
         private void NuovaPartita()
         {
             if (o.livello != helper.GetLivello()) {
-                notification.Show(new Notification($"{d["LivelloCambiato"]}", $"{d["PartitaRiavviata"]}"));
+                var not = new Notification
+                {
+                    Title = $"{d["LivelloCambiato"]}",
+                    Body = $"{d["PartitaRiavviata"]}"
+                };
+                notification.ShowNotification(not);
                 puntiCpu = puntiUtente = 0;
                 partite = 0;
             }
