@@ -20,6 +20,7 @@ using DesktopNotifications;
 using DesktopNotifications.FreeDesktop;
 using DesktopNotifications.Windows;
 using System.Runtime.InteropServices;
+using DesktopNotifications.Apple;
 
 namespace CBriscola.Avalonia
 {
@@ -43,14 +44,13 @@ namespace CBriscola.Avalonia
         private static INotificationManager CreateManager()
         {
             if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
-            {
                 return new FreeDesktopNotificationManager();
-            }
 
             if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
-            {
                 return new WindowsNotificationManager();
-            }
+
+            if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX))
+                return new AppleNotificationManager();
 
             throw new PlatformNotSupportedException();
         }
@@ -204,7 +204,7 @@ namespace CBriscola.Avalonia
                     Briscola.IsVisible = false;
                     if (avvisaTalloneFinito)
                     {
-                        var not = new Notification
+                        Notification not = new Notification
                         {
                             Title = $"{d["TalloneFinitoIntestazione"]}",
                             Body = $"{d["TalloneFinito"]}"
@@ -236,7 +236,7 @@ namespace CBriscola.Avalonia
                         i1 = GiocaCpu();
                     if (cpu.GetCartaGiocata().StessoSeme(briscola))
                     {
-                        var not = new Notification
+                        Notification not = new Notification
                         {
                             Title = $"{d["GiocataCarta"]}",
                             Body = $"{d["LaCPUHaGiocatoIl"]} {cpu.GetCartaGiocata().GetValore() + 1} {d["di"]} {d["Briscola"]}"
@@ -246,7 +246,7 @@ namespace CBriscola.Avalonia
                     }
                     else if (cpu.GetCartaGiocata().GetPunteggio() > 0)
                     {
-                        var not = new Notification
+                        Notification not = new Notification
                         {
                             Title = $"{d["GiocataCarta"]}",
                             Body = $"{d["LaCPUHaGiocatoIl"]} {cpu.GetCartaGiocata().GetValore() + 1} {d["di"]} {cpu.GetCartaGiocata().GetSemeStr()}"
@@ -367,7 +367,7 @@ namespace CBriscola.Avalonia
         private void NuovaPartita()
         {
             if (o.livello != helper.GetLivello()) {
-                var not = new Notification
+                Notification not = new Notification
                 {
                     Title = $"{d["LivelloCambiato"]}",
                     Body = $"{d["PartitaRiavviata"]}"
