@@ -1,5 +1,5 @@
 ## CBriscola.Avalonia
-Lo so che vi siete scocciati, però la Cbriscola torna completamente libera e multipiattaforma con l'interfaccia in Avalonia, il pezzotto dell'XAML. Una chicca per appassionati.
+Lo so che vi siete scocciati, però la Cbriscola torna multipiattaforma con l'interfaccia in Avalonia (quindi non completamente libera), il pezzotto dell'XAML. Una chicca per appassionati.
 
 ## Dedica
 Voglio dedicare l'intero progetto non a Francesca la barista, ma alla vecchia sory, ossia numerona, quella gentil donzella in quel di rivisondoli che mi ha aiutato quando ero una povera anima in pena ed ora mi rende sia felice che "felice"..
