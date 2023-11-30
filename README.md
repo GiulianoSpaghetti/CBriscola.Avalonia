@@ -2,8 +2,7 @@
 Lo so che vi siete scocciati, però la Cbriscola torna multipiattaforma con l'interfaccia in Avalonia (quindi non completamente libera), il pezzotto dell'XAML. Una chicca per appassionati.
 
 ## Dedica
-Voglio dedicare l'intero progetto non a Francesca la barista, ma alla vecchia sory, ossia numerona, quella gentil donzella in quel di rivisondoli che mi ha aiutato quando ero una povera anima in pena ed ora mi rende sia felice che "felice"..
-Perché io adesso sono anche "felice", non conto di diventarlo, ma lo sono.
+Voglio dedicare l'intero progetto non a Francesca la barista, ma alla vecchia sory, ossia numerona, quella gentil donzella in quel di rivisondoli che mi ha aiutato quando ero una povera anima in pena ed ora mi ha reso "felice" per oltre 3 anni, la mia prima scopamica.
 
 ## Video di presentazione
 
