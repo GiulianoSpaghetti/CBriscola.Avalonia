@@ -293,7 +293,6 @@
 				<Label Grid.Row="1">ⓒ Giulio Sorrentino 2023</Label>
 				<Label Grid.Row="2">License: GPL v3 or, in your humble opinion, any later version</Label>
 				<Label Grid.Row="3">This trump wins because it scores more points not because it deals the cards, therefore also taking the 8s, 9s and 10s</Label>
-				<Label Grid.Row="4">Dedicato a Francesca, ossia "Quella".</Label>
 				<Button Click="OnSito_Click" Grid.Row="5">https://github.com/numerunix/CBriscola.Avalonia</Button>
 				<Button x:Name="InfoApplicazione" Click="OnApp_Click" Grid.Row="6">Applicazione</Button>
 			</Grid>
