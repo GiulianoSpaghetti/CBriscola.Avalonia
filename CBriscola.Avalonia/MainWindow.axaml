@@ -57,6 +57,8 @@
 			<x:String x:Key="LivelloCambiato">Il Livello è cambiato</x:String>
 			<x:String x:Key="PartitaRiavviata">Comincerà una nuova partita</x:String>
 			<x:String x:Key="EffettuaSecondaPartita">Vuoi effettuare la seconda partita</x:String>
+			<x:String x:Key="MazzoNonTrovatoTitolo">Impossibile trovare il mazzo personalizzato</x:String>
+			<x:String x:Key="MazzoNonTrovatoTesto">Impossibile trovare il mazzo personalizzato, probabilmente è stato cancellato. Verrà caricato il mazzo Napoletano.</x:String>
 		</ResourceDictionary>
 		<ResourceDictionary x:Key="en">
 			<x:String x:Key="PuntiDiPrefisso">&#160;</x:String>
@@ -100,7 +102,9 @@
 			<x:String x:Key="Livello">CPU Level</x:String>
 			<x:String x:Key="LivelloCambiato">The level has changed</x:String>
 			<x:String x:Key="PartitaRiavviata">A new game will start</x:String>
-			<x:String x:Key="EffettuaSecondaPartita">Do you want to play a second game</x:String>
+			<x:String x:Key="EffettuaSecondaPartita">do you want to play a second game</x:String>
+			<x:String x:Key="MazzoNonTrovatoTitolo">Cannot find custom deck</x:String>
+			<x:String x:Key="MazzoNonTrovatoTesto">The custom deck could not be found, it has probably been deleted. The Neapolitan deck will be loaded.</x:String>
 		</ResourceDictionary>
 		<ResourceDictionary x:Key="de">
 			<x:String x:Key="PuntiDiPrefisso">&#160;</x:String>
@@ -145,6 +149,8 @@
 			<x:String x:Key="LivelloCambiato">Level hat sich geändert</x:String>
 			<x:String x:Key="PartitaRiavviata">Ein neues Spiel beginnt</x:String>
 			<x:String x:Key="EffettuaSecondaPartita">Spielt er ein zweites Spiel</x:String>
+			<x:String x:Key="MazzoNonTrovatoTitolo">Benutzerdefiniertes Deck kann nicht gefunden werden</x:String>
+			<x:String x:Key="MazzoNonTrovatoTesto">Das benutzerdefinierte Deck konnte nicht gefunden werden, es wurde wahrscheinlich gelöscht. Das neapolitanische Deck wird geladen.</x:String>
 		</ResourceDictionary>
 		<ResourceDictionary x:Key="fr">
 			<x:String x:Key="PuntiDiPrefisso">Points de</x:String>
@@ -188,7 +194,9 @@
 			<x:String x:Key="Livello">niveau processeur</x:String>
 			<x:String x:Key="LivelloCambiato">Le niveau a changé</x:String>
 			<x:String x:Key="PartitaRiavviata">Un nouveau jeu va commencer</x:String>
-			<x:String x:Key="EffettuaSecondaPartita">Est-ce qu'il joue un deuxième jeu</x:String>
+			<x:String x:Key="EffettuaSecondaPartita">est-ce qu'il joue un deuxième jeu</x:String>
+			<x:String x:Key="MazzoNonTrovatoTitolo">Impossible de trouver un deck personnalisé</x:String>
+			<x:String x:Key="MazzoNonTrovatoTesto">Le deck personnalisé est introuvable, il a probablement été supprimé. Le jeu napolitain sera chargé.</x:String>
 		</ResourceDictionary>
 		<ResourceDictionary x:Key="es">
 			<x:String x:Key="PuntiDiPrefisso">Puntos de</x:String>
@@ -233,6 +241,8 @@
 			<x:String x:Key="LivelloCambiato">El nivel ha cambiado</x:String>
 			<x:String x:Key="PartitaRiavviata">Comenzará un nuevo juego</x:String>
 			<x:String x:Key="EffettuaSecondaPartita">¿Hace un segundo juego</x:String>
+			<x:String x:Key="MazzoNonTrovatoTitolo">No se puede encontrar el mazo personalizado</x:String>
+			<x:String x:Key="MazzoNonTrovatoTesto">No se pudo encontrar la plataforma personalizada, probablemente se haya eliminado. Se cargará la baraja napolitana.</x:String>
 		</ResourceDictionary>
 	</Window.Resources>
 	<Window.Content>

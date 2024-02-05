@@ -74,22 +74,22 @@ namespace org.altervista.numerone.framework
             return img;
         }
 
-        public static void CaricaImmagini(Mazzo m, ushort n, CartaHelperBriscola helper, ResourceDictionary d)
+        public static bool CaricaImmagini(Mazzo m, ushort n, CartaHelperBriscola helper, ResourceDictionary d)
         {
-            String s = $"{App.path}{App.separator}Mazzi{App.separator}";
+            String s = $"{System.IO.Path.Combine(App.path, "Mazzi")}";
             for (UInt16 i = 0; i < n; i++)
             {
                 Stream asset;
                 if (m.GetNome() != "Napoletano")
                     try
                     {
-                        carte[i].img = new Bitmap(s + m.GetNome() + App.separator + i + ".png");
+                        carte[i].img = new Bitmap($"{System.IO.Path.Combine(Path.Combine(s, m.GetNome()))}{i}.png");
                     }
                     catch (Exception ex)
                     {
                         m.SetNome("Napoletano");
                         CaricaImmagini(m, n, helper, d);
-                        return;
+                        return false;
                     }
                 else
                 {
@@ -97,6 +97,7 @@ namespace org.altervista.numerone.framework
                 }
                 carte[i].semeStr = helper.GetSemeStr(i, m.GetNome(), d);
             }
+            return true;
         }
     }
 }

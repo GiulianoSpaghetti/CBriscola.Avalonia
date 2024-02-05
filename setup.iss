@@ -2,7 +2,7 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "CBriscola.Avalonia"
-#define MyAppVersion "0.7.6"
+#define MyAppVersion "0.7.7"
 #define MyAppPublisher "Giulio Sorrentino"
 #define MyAppURL "https://github.com/numerunix/cbriscola.avalonia"
 #define MyAppExeName "CBriscola.Avalonia.exe"
@@ -20,11 +20,11 @@ AppSupportURL={#MyAppURL}
 AppUpdatesURL={#MyAppURL}
 DefaultDirName={autopf64}\{#MyAppName}
 DisableProgramGroupPage=yes
-LicenseFile=C:\Users\numer\source\repos\CBriscola.Avalonia\LICENSE.txt
+LicenseFile=D:\source\CBriscola.Avalonia\LICENSE.txt
 ; Uncomment the following line to run in non administrative install mode (install for current user only.)
 ;PrivilegesRequired=lowest
 OutputDir=C:\Users\numer
-OutputBaseFilename=cbriscola.avalonia-0.7.6-x64
+OutputBaseFilename=cbriscola.avalonia-0.7.7-x64
 Compression=lzma
 SolidCompression=yes
 WizardStyle=modern
@@ -62,9 +62,9 @@ Name: "ukrainian"; MessagesFile: "compiler:Languages\Ukrainian.isl"
 Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked
 
 [Files]
-Source: "C:\Users\numer\source\repos\CBriscola.Avalonia\CBriscola.Avalonia\bin\Release\{#MyAppExeName}"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Users\numer\source\repos\CBriscola.Avalonia\CBriscola.Avalonia\bin\Release\net7.0-windows10.0.22621.0\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
-Source: "C:\Users\numer\source\repos\CBriscola.Avalonia\opzioni.json"; DestDir: "{localappdata}\CBriscola.Avalonia"; Flags: ignoreversion 
+Source: "D:\source\CBriscola.Avalonia\CBriscola.Avalonia\bin\Release\{#MyAppExeName}"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\source\CBriscola.Avalonia\CBriscola.Avalonia\bin\Release\net8.0-windows10.0.22621.0\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "D:\source\CBriscola.Avalonia\opzioni.json"; DestDir: "{localappdata}\CBriscola.Avalonia"; Flags: ignoreversion 
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
 [Icons]
