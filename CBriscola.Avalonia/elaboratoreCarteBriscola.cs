@@ -44,8 +44,6 @@ namespace org.altervista.numerone.framework
 					{
 						Carta = (UInt16)(Carta - valore + 1);
 					}
-					if (!briscolaDaPunti)
-						Carta = CartaHelperBriscola.GetIstanza(this).GetNumero(CartaHelperBriscola.GetIstanza(this).GetSeme(Carta), 1);
 					CartaBriscola = Carta;
 					inizio = false;
 				}
