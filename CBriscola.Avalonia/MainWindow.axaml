@@ -4,7 +4,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d" d:DesignWidth="1280" d:DesignHeight="800"
         x:Class="CBriscola.Avalonia.MainWindow"
-        Title="CBriscola.Avalonia">
+        Title="CBriscola.Avalonia"
+		Icon="/Assets/icon.png">
 	<Window.Styles>
 		<Style Selector="Label">
 			<Setter Property="Foreground" Value="White" />
@@ -299,7 +300,7 @@
 					<RowDefinition />
 				</Grid.RowDefinitions>
 				<Image Source="avares://CBriscola.Avalonia/Assets/background.jpg" Grid.Row="0" Grid.Column="0" Grid.RowSpan="7" Stretch="Fill" />
-				<Label Grid.Row="0">CBriscola.Avalonia versione 0.7.5</Label>
+				<Label Grid.Row="0">CBriscola.Avalonia versione 0.7.8</Label>
 				<Label Grid.Row="1">ⓒ Giulio Sorrentino 2023</Label>
 				<Label Grid.Row="2">License: GPL v3 or, in your humble opinion, any later version</Label>
 				<Label Grid.Row="3">This trump wins because it scores more points not because it deals the cards, therefore also taking the 8s, 9s and 10s</Label>
