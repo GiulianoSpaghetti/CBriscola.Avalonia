@@ -5,6 +5,8 @@ VisualStudioVersion = 17.4.33213.308
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CBriscola.Avalonia", "CBriscola.Avalonia\CBriscola.Avalonia.csproj", "{76629C3E-FEDC-424A-A075-287E8CD39D8F}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "cbriscola.avalonia-setup", "cbriscola.avalonia-setup\cbriscola.avalonia-setup.csproj", "{A2F41960-9EE8-4ED3-84F3-C81216D98F4F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,22 @@ Global
 		{76629C3E-FEDC-424A-A075-287E8CD39D8F}.Release|x64.Build.0 = Release|Any CPU
 		{76629C3E-FEDC-424A-A075-287E8CD39D8F}.Release|x86.ActiveCfg = Release|Any CPU
 		{76629C3E-FEDC-424A-A075-287E8CD39D8F}.Release|x86.Build.0 = Release|Any CPU
+		{A2F41960-9EE8-4ED3-84F3-C81216D98F4F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A2F41960-9EE8-4ED3-84F3-C81216D98F4F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A2F41960-9EE8-4ED3-84F3-C81216D98F4F}.Debug|ARM64.ActiveCfg = Debug|Any CPU
+		{A2F41960-9EE8-4ED3-84F3-C81216D98F4F}.Debug|ARM64.Build.0 = Debug|Any CPU
+		{A2F41960-9EE8-4ED3-84F3-C81216D98F4F}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{A2F41960-9EE8-4ED3-84F3-C81216D98F4F}.Debug|x64.Build.0 = Debug|Any CPU
+		{A2F41960-9EE8-4ED3-84F3-C81216D98F4F}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{A2F41960-9EE8-4ED3-84F3-C81216D98F4F}.Debug|x86.Build.0 = Debug|Any CPU
+		{A2F41960-9EE8-4ED3-84F3-C81216D98F4F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A2F41960-9EE8-4ED3-84F3-C81216D98F4F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A2F41960-9EE8-4ED3-84F3-C81216D98F4F}.Release|ARM64.ActiveCfg = Release|Any CPU
+		{A2F41960-9EE8-4ED3-84F3-C81216D98F4F}.Release|ARM64.Build.0 = Release|Any CPU
+		{A2F41960-9EE8-4ED3-84F3-C81216D98F4F}.Release|x64.ActiveCfg = Release|Any CPU
+		{A2F41960-9EE8-4ED3-84F3-C81216D98F4F}.Release|x64.Build.0 = Release|Any CPU
+		{A2F41960-9EE8-4ED3-84F3-C81216D98F4F}.Release|x86.ActiveCfg = Release|Any CPU
+		{A2F41960-9EE8-4ED3-84F3-C81216D98F4F}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
