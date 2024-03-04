@@ -7,9 +7,7 @@ Perché io adesso sono anche "felice", non conto di diventarlo, ma lo sono.
 
 ## Video di presentazione
 
-[https://www.youtube.com/watch?v=Hy9giH3CFSM](https://www.youtube.com/watch?v=Hy9giH3CFSM)
-
-[https://www.youtube.com/watch?v=IyL-y_QVcio](https://www.youtube.com/watch?v=IyL-y_QVcio)
+https://1drv.ms/u/s!ApmOB0x2yBN0kohpLGZYUm1EtGUDoA?e=pO2UEr
 
 # Come installare
 
