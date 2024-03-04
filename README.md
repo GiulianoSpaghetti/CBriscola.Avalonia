@@ -22,6 +22,10 @@ Poi installate cbriscola.avalonia
 ATTENZIONE:
 Avalonia si basa su due librerie native libharfbuzzsharp e libskiasharp che non sono libere, quindi avalonia non è libero.
 
+## Per compilare
+
+Bisogna scaricarsi da nuget il package CardFramework.avalonia
+
 ## Come funziona
 Per festeggiare, vi spiego come funziona il mio algoritmo brevettato:
 i punti in totale sono 120, ossia 4 assi che valgono 11 punti ciascuno, 4 3 che valgono 10 punti ciascuno, 4 10 che valgono 4 punti ciascuno, 4 9 che valgono 3 punti ciascuno, 4 8 che valgono 2 punti ciascuno.
