@@ -1,27 +1,18 @@
 using Avalonia.Controls;
 using Avalonia.Interactivity;
-using Avalonia.Threading;
-using Microsoft.Win32;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System;
-using System.Runtime.CompilerServices;
 using Avalonia.Platform;
-using Avalonia;
 using System.Reflection;
 using Avalonia.Media.Imaging;
 using System.Globalization;
-using org.altervista.numerone.framework;
-using static System.Net.WebRequestMethods;
-using System.Threading.Tasks;
-using Avalonia.Controls.Shapes;
-using DesktopNotifications;
 using DesktopNotifications.FreeDesktop;
 using System.Runtime.InteropServices;
-using Avalonia.Controls.Notifications;
 using INotificationManager = DesktopNotifications.INotificationManager;
 using Notification= DesktopNotifications.Notification;
+using org.altervista.numerone.framework;
 
 namespace CBriscola.Avalonia
 {
@@ -43,6 +34,7 @@ namespace CBriscola.Avalonia
         private Stream asset;
         private INotificationManager notification;
         private Opzioni o;
+        private static CartaHelperBriscola cartaHelper;
         private static INotificationManager CreateManager()
         {
             if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
@@ -71,7 +63,7 @@ namespace CBriscola.Avalonia
             m = new Mazzo(e);
    
             m.SetNome(o.nomeMazzo);
-            Carta.Inizializza(App.path, m, 40, CartaHelperBriscola.GetIstanza(e), d);
+            Carta.Inizializza(App.path, m, 40, cartaHelper=new CartaHelperBriscola(ElaboratoreCarteBriscola.GetCartaBriscola()), d["bastoni"] as string, d["coppe"] as string, d["denari"] as string, d["spade"] as string, d["Fiori"] as string, d["Quadri"] as string, d["Cuori"] as string, d["Picche"] as string);
 
         if (o.nomeMazzo == "Napoletano")
             {
@@ -387,6 +379,7 @@ namespace CBriscola.Avalonia
                 cartaBriscola = false;
             e = new ElaboratoreCarteBriscola(cartaBriscola);
             m = new Mazzo(e);
+            Carta.SetHelper(cartaHelper=new CartaHelperBriscola(ElaboratoreCarteBriscola.GetCartaBriscola()));
             m.SetNome(o.nomeMazzo);
             briscola = Carta.GetCarta(ElaboratoreCarteBriscola.GetCartaBriscola());
             g = new Giocatore(new GiocatoreHelperUtente(), g.GetNome(), 3);
@@ -514,7 +507,7 @@ namespace CBriscola.Avalonia
             if (i != null)
             {
                 m.SetNome((string)i.Content);
-                Carta.CaricaImmagini(App.path, m, 40, CartaHelperBriscola.GetIstanza(e), d);
+                Carta.CaricaImmagini(App.path, m, 40, d["bastoni"] as string, d["coppe"] as string, d["denari"] as string, d["spade"] as string, d["Fiori"] as string, d["Quadri"] as string, d["Cuori"] as string, d["Picche"] as string);
                 Utente0.Source = g.GetImmagine(0);
                 Utente1.Source = g.GetImmagine(1);
                 Utente2.Source = g.GetImmagine(2);
