@@ -8,6 +8,8 @@ Perché io adesso sono anche "felice", non conto di diventarlo, ma lo sono.
 ## Video di presentazione
 
 https://1drv.ms/u/s!ApmOB0x2yBN0kohpLGZYUm1EtGUDoA?e=pO2UEr (su windows)
+
+
 https://1drv.ms/u/s!ApmOB0x2yBN0ktR6rFcvmC18tSWdDg?e=oj6fhu (su debian)
 
 # Come installare
