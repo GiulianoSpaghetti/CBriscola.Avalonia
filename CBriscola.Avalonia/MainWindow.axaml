@@ -5,7 +5,8 @@
         mc:Ignorable="d" d:DesignWidth="1280" d:DesignHeight="800"
         x:Class="CBriscola.Avalonia.MainWindow"
         Title="CBriscola.Avalonia"
-		Icon="/Assets/icon.png">
+		Icon="/Assets/icon.png"
+		WindowState="Maximized">
 	<Window.Styles>
 		<Style Selector="Label">
 			<Setter Property="Foreground" Value="White" />
