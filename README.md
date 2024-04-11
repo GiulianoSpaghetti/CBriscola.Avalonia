@@ -1,3 +1,5 @@
+:it: Made in Italy. Il primo prodotto serio pubblicato in avalonia ed internazionalizzato.
+
 ## CBriscola.Avalonia
 Lo so che vi siete scocciati, però la Cbriscola torna multipiattaforma con l'interfaccia in Avalonia (quindi non completamente libera), il pezzotto dell'XAML. Una chicca per appassionati.
 
