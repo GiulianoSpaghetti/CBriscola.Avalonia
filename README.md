@@ -1,4 +1,8 @@
 :it: Made in Italy. Il primo prodotto serio pubblicato in avalonia ed internazionalizzato.
+![Napoli-Logo](https://github.com/user-attachments/assets/93731f01-6f38-42e0-8654-e2b9447928c8)
+![made in parco grifeo](https://github.com/user-attachments/assets/1d54c0ab-ccaa-4e57-8cde-b815f705bf1b)
+
+
 
 ## CBriscola.Avalonia
 Lo so che vi siete scocciati, però la Cbriscola torna multipiattaforma con l'interfaccia in Avalonia (quindi non completamente libera), il pezzotto dell'XAML. Una chicca per appassionati.
