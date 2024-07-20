@@ -1,3 +1,8 @@
+:it: Made in Italy. Il primo prodotto serio pubblicato in avalonia ed internazionalizzato.
+![Napoli-Logo](https://github.com/user-attachments/assets/8163c808-62d3-40d3-bce3-0957e57bc26a)
+![made in parco grifeo](https://github.com/user-attachments/assets/fadbf046-aeae-4f11-bda4-eb332c701d56)
+
+
 ## CBriscola.Avalonia
 Lo so che vi siete scocciati, però la Cbriscola torna multipiattaforma con l'interfaccia in Avalonia (quindi non completamente libera), il pezzotto dell'XAML. Una chicca per appassionati.
 
@@ -16,7 +21,7 @@ https://1drv.ms/u/s!ApmOB0x2yBN0ktR6rFcvmC18tSWdDg?e=oj6fhu (su debian)
 
 ## Su Windows
 
-[![winget](https://user-images.githubusercontent.com/49786146/159123313-3bdafdd3-5130-4b0d-9003-40618390943a.png)](https://marticliment.com/wingetui/share?pid=GiulioSorrentino.CBriscola.Avalo…&pname=CBriscola.Avalonia&psource=Winget:%20winget)
+[![winget](https://user-images.githubusercontent.com/49786146/159123313-3bdafdd3-5130-4b0d-9003-40618390943a.png)](https://marticliment.com/wingetui/share?pid=GiulioSorrentino.CBriscola.Avalonia&pname=CBriscola.Avalonia&psource=Winget:%20winget)
 
 ## Su GNU/linux
 Seguite le istruzioni su http://numeronesoft.ddns.net:8080
