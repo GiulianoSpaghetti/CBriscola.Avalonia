@@ -34,7 +34,7 @@ namespace CBriscola.Avalonia
         private Stream asset;
         private INotificationManager notification;
         private Opzioni o;
-        private static CartaHelperBriscola cartaHelper;
+        private static org.altervista.numerone.framework.briscola.CartaHelper cartaHelper;
         private static INotificationManager CreateManager()
         {
             if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
@@ -63,7 +63,7 @@ namespace CBriscola.Avalonia
             m = new Mazzo(e);
    
             m.SetNome(o.nomeMazzo);
-            Carta.Inizializza(App.path, m, 40, cartaHelper=new CartaHelperBriscola(ElaboratoreCarteBriscola.GetCartaBriscola()), d["bastoni"] as string, d["coppe"] as string, d["denari"] as string, d["spade"] as string, d["Fiori"] as string, d["Quadri"] as string, d["Cuori"] as string, d["Picche"] as string);
+            Carta.Inizializza(App.path, m, 40, cartaHelper=new org.altervista.numerone.framework.briscola.CartaHelper(ElaboratoreCarteBriscola.GetCartaBriscola()), d["bastoni"] as string, d["coppe"] as string, d["denari"] as string, d["spade"] as string, d["Fiori"] as string, d["Quadri"] as string, d["Cuori"] as string, d["Picche"] as string, "Cbriscola.Avalonia");
 
         if (o.nomeMazzo == "Napoletano")
             {
@@ -145,11 +145,19 @@ namespace CBriscola.Avalonia
             Opzioni o;
                 if (!System.IO.Path.Exists(folder))
                Directory.CreateDirectory(folder);
-            StreamReader file;
+            StreamReader file=null;
             try
             {
                 file = new StreamReader(System.IO.Path.Combine(folder, "opzioni.json"));
-                o = Newtonsoft.Json.JsonConvert.DeserializeObject<Opzioni>(file.ReadToEnd());
+                try
+                {
+                    o = Newtonsoft.Json.JsonConvert.DeserializeObject<Opzioni>(file.ReadToEnd());
+                }
+                catch (Newtonsoft.Json.JsonReaderException ex)
+                {
+                    o = null;
+                    file.Close();
+                }
                 if (o == null)
                     throw new FileNotFoundException();
             }
@@ -409,7 +417,7 @@ namespace CBriscola.Avalonia
                 cartaBriscola = false;
             e = new ElaboratoreCarteBriscola(cartaBriscola);
             m = new Mazzo(e);
-            Carta.SetHelper(cartaHelper=new CartaHelperBriscola(ElaboratoreCarteBriscola.GetCartaBriscola()));
+            Carta.SetHelper(cartaHelper= new org.altervista.numerone.framework.briscola.CartaHelper(ElaboratoreCarteBriscola.GetCartaBriscola()));
             m.SetNome(o.nomeMazzo);
             briscola = Carta.GetCarta(ElaboratoreCarteBriscola.GetCartaBriscola());
             g = new Giocatore(new GiocatoreHelperUtente(), g.GetNome(), 3);
@@ -556,7 +564,7 @@ namespace CBriscola.Avalonia
             if (i != null)
             {
                 m.SetNome((string)i.Content);
-                Carta.CaricaImmagini(App.path, m, 40, d["bastoni"] as string, d["coppe"] as string, d["denari"] as string, d["spade"] as string, d["Fiori"] as string, d["Quadri"] as string, d["Cuori"] as string, d["Picche"] as string);
+                Carta.CaricaImmagini(App.path, m, 40, d["bastoni"] as string, d["coppe"] as string, d["denari"] as string, d["spade"] as string, d["Fiori"] as string, d["Quadri"] as string, d["Cuori"] as string, d["Picche"] as string, "CBriscola.Avalonia");
                 Utente0.Source = g.GetImmagine(0);
                 Utente1.Source = g.GetImmagine(1);
                 Utente2.Source = g.GetImmagine(2);
