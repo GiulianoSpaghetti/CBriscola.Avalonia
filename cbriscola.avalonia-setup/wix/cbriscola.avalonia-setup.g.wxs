@@ -6,7 +6,7 @@
     To suppress generation of this file remove `set ide=true` from the PostBuildEvent of the VS project
 </auto-generated>
 -->
-  <Package Compressed="yes" ProductCode="68b61de0-07a0-499e-b3fb-f15873f42eb4" Name="CBriscola.Avalonia" Language="1033" Version="0.9.0" UpgradeCode="68b61de0-07a0-499e-b3fb-f15873641eb4" Manufacturer="Giulio Sorrentino" InstallerVersion="200">
+  <Package Compressed="yes" ProductCode="68b61de0-07a0-499e-b3fb-f15873f41eb6" Name="CBriscola.Avalonia" Language="1033" Version="0.9.0.1" UpgradeCode="68b61de0-07a0-499e-b3fb-f15873641eb4" Manufacturer="Giulio Sorrentino" InstallerVersion="200">
     <SummaryInformation Codepage="Windows-1252" Description="Simulatore del gioco della briscola in avalonia a due giocatori senza multiplayer" />
     <Media Id="1" Cabinet="CBriscola.Avalonia_.cab" EmbedCab="yes" />
 
@@ -79,6 +79,10 @@
 
         <Component Id="Component.Avalonia.Themes.Fluent.dll_2845796681" Guid="68b61de0-07a0-499e-b3fb-f1584e6d42bc" Bitness="always64">
           <File Id="Avalonia.Themes.Fluent.dll_2845796681" Source="Avalonia.Themes.Fluent.dll" />
+        </Component>
+
+        <Component Id="Component.Avalonia.Vulkan.dll_1756901464" Guid="68b61de0-07a0-499e-b3fb-f1584f54d268" Bitness="always64">
+          <File Id="Avalonia.Vulkan.dll_1756901464" Source="Avalonia.Vulkan.dll" />
         </Component>
 
         <Component Id="Component.Avalonia.Win32.dll_2128635293" Guid="68b61de0-07a0-499e-b3fb-f1584ae8c78f" Bitness="always64">
@@ -234,7 +238,7 @@
 
     <WixUI Id="WixUI_Minimal" xmlns="http://wixtoolset.org/schemas/v4/wxs/ui" />
 
-    <WixVariable Id="WixUILicenseRtf" Value="E:\source\CBriscola.Avalonia\CBriscola.Avalonia\bin\Release\net8.0-windows10.0.22621.0\LICENSE.rtf" />
+    <WixVariable Id="WixUILicenseRtf" Value="D:\source\CBriscola.Avalonia\CBriscola.Avalonia\bin\Release\net8.0-windows10.0.22621.0\LICENSE.rtf" />
 
     <UIRef Id="WixUI_ErrorProgressText" />
 
@@ -258,6 +262,7 @@
       <ComponentRef Id="Component.Avalonia.Remote.Protocol.dll_856865421" />
       <ComponentRef Id="Component.Avalonia.Skia.dll_1262385531" />
       <ComponentRef Id="Component.Avalonia.Themes.Fluent.dll_2845796681" />
+      <ComponentRef Id="Component.Avalonia.Vulkan.dll_1756901464" />
       <ComponentRef Id="Component.Avalonia.Win32.dll_2128635293" />
       <ComponentRef Id="Component.Avalonia.X11.dll_3918326533" />
       <ComponentRef Id="Component.CardFramework.avalonia.dll_1785405297" />

@@ -20,13 +20,13 @@
 
 
   <ItemGroup>
-    <PackageReference Include="Avalonia" Version="11.0.11" />
-    <PackageReference Include="Avalonia.Desktop" Version="11.0.11" />
-    <PackageReference Include="Avalonia.Themes.Fluent" Version="11.0.11" />
-    <PackageReference Include="Avalonia.Fonts.Inter" Version="11.0.11" />
+    <PackageReference Include="Avalonia" Version="11.2.0-beta1" />
+    <PackageReference Include="Avalonia.Desktop" Version="11.2.0-beta1" />
+    <PackageReference Include="Avalonia.Themes.Fluent" Version="11.2.0-beta1" />
+    <PackageReference Include="Avalonia.Fonts.Inter" Version="11.2.0-beta1" />
     <!--Condition below is needed to remove Avalonia.Diagnostics package from build output in Release configuration.-->
     <PackageReference Condition="'$(Configuration)' == 'Debug'" Include="Avalonia.Diagnostics" Version="11.0.10" />
-    <PackageReference Include="CardFramework.avalonia" Version="1.3.6" />
+    <PackageReference Include="CardFramework.avalonia" Version="1.3.8" />
     <PackageReference Include="DesktopNotifications" Version="1.3.1" />
     <PackageReference Include="DesktopNotifications.Apple" Version="1.3.1" />
     <PackageReference Include="DesktopNotifications.FreeDesktop" Version="1.3.1" />

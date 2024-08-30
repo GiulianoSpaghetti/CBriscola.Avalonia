@@ -35,11 +35,11 @@ namespace cbriscola.avalonia_setup
             );
 
             project.GUID = new Guid("68B61DE0-07A0-499E-B3FB-F15873641EB4");
-            project.Version = new Version("0.9.0");
+            project.Version = new Version("0.9.0.1");
             project.Platform = Platform.x64;
-            project.SourceBaseDir = "E:\\source\\CBriscola.Avalonia\\CBriscola.Avalonia\\bin\\Release\\net8.0-windows10.0.22621.0";
+            project.SourceBaseDir = "D:\\source\\CBriscola.Avalonia\\CBriscola.Avalonia\\bin\\Release\\net8.0-windows10.0.22621.0";
             project.LicenceFile = "LICENSE.rtf";
-            project.OutDir = "E:\\";
+            project.OutDir = "D:\\";
             project.ControlPanelInfo.Manufacturer = "Giulio Sorrentino";
             project.ControlPanelInfo.Name = "CBriscola.Avalonia";
             project.ControlPanelInfo.HelpLink = "https://github.com/numerunix/CBriscola.Avalonia/issues";

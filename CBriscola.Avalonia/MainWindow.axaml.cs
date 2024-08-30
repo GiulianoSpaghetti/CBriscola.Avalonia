@@ -32,7 +32,8 @@ namespace CBriscola.Avalonia
         private ResourceDictionary d;
         private ElaboratoreCarteBriscola e;
         private Stream asset;
-        private INotificationManager notification;
+        private static INotificationManager notification;
+        private static Notification not;
         private Opzioni o;
         private static org.altervista.numerone.framework.briscola.CartaHelper cartaHelper;
         private static INotificationManager CreateManager()
@@ -51,6 +52,7 @@ namespace CBriscola.Avalonia
         public MainWindow()
         {
             this.InitializeComponent();
+            SystemDecorations = SystemDecorations.None;
             notification = CreateManager();
             notification.Initialize();
             d = this.FindResource(CultureInfo.CurrentCulture.TwoLetterISOLanguageName) as ResourceDictionary;
@@ -210,7 +212,7 @@ namespace CBriscola.Avalonia
                     Briscola.IsVisible = false;
                     if (avvisaTalloneFinito)
                     {
-                        Notification not = new Notification
+                        not = new Notification
                         {
                             Title = $"{d["TalloneFinitoIntestazione"]}",
                             Body = $"{d["TalloneFinito"]}"
@@ -242,7 +244,7 @@ namespace CBriscola.Avalonia
                         i1 = GiocaCpu();
                     if (cpu.GetCartaGiocata().StessoSeme(briscola))
                     {
-                        Notification not = new Notification
+                        not = new Notification
                         {
                             Title = $"{d["GiocataCarta"]}",
                             Body = $"{d["LaCPUHaGiocatoIl"]} {cpu.GetCartaGiocata().GetValore() + 1} {d["di"]} {d["Briscola"]}"
@@ -252,7 +254,7 @@ namespace CBriscola.Avalonia
                     }
                     else if (cpu.GetCartaGiocata().GetPunteggio() > 0)
                     {
-                        Notification not = new Notification
+                        not = new Notification
                         {
                             Title = $"{d["GiocataCarta"]}",
                             Body = $"{d["LaCPUHaGiocatoIl"]} {cpu.GetCartaGiocata().GetValore() + 1} {d["di"]} {cpu.GetCartaGiocata().GetSemeStr()}"
@@ -378,7 +380,7 @@ namespace CBriscola.Avalonia
         private void NuovaPartita(bool vecchioStessoSeme)
         {
             if (o.livello != helper.GetLivello()) {
-                Notification not = new Notification
+                not = new Notification
                 {
                     Title = $"{d["LivelloCambiato"]}",
                     Body = $"{d["PartitaRiavviata"]}"
@@ -390,7 +392,7 @@ namespace CBriscola.Avalonia
             if (stessoSeme!=vecchioStessoSeme)
             {
                 if (stessoSeme) {
-                    Notification not = new Notification
+                    not = new Notification
                     {
                         Title = d["VarianteBussataTitolo"] as string,
                         Body = d["VarianteBussataTesto"] as string
@@ -399,7 +401,7 @@ namespace CBriscola.Avalonia
                 }
                 else
                 {
-                    Notification not = new Notification
+                    not = new Notification
                     {
                         Title = d["VarianteNormaleTitolo"] as string,
                         Body = d["VarianteNormaleTesto"] as string
@@ -529,7 +531,7 @@ namespace CBriscola.Avalonia
             }
             catch (Exception ex)
             {
-                Notification not = new Notification
+                not = new Notification
                 {
                     Title = d["MossaNonConsentitaTitolo"] as string,
                     Body = d["MossaNonConsentitaTesto"] as string

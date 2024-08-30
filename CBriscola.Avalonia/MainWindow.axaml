@@ -6,7 +6,7 @@
         x:Class="CBriscola.Avalonia.MainWindow"
         Title="CBriscola.Avalonia"
 		Icon="/Assets/icon.png"
-		WindowState="Maximized">
+		WindowState="Maximized" Topmost="true">
 	<Window.Styles>
 		<Style Selector="Label">
 			<Setter Property="Foreground" Value="White" />
@@ -173,7 +173,7 @@
 			<x:String x:Key="VarianteNormaleTitolo">Sie haben sich für die normale Variante entschieden</x:String>
 			<x:String x:Key="VarianteNormaleTesto">Sie haben sich für die normale Variante entschieden, das Spiel wird neu gestartet</x:String>
 			<x:String x:Key="MossaNonConsentitaTitolo">Bewegung nicht erlaubt</x:String>
-			<x:String x:Key="MossaNonConsentitaTesto">Sie müssen auf den Samen reagieren</x:String>
+			<x:String x:Key="MossaNonConsentitaTesto">Sie müssen auf den Anzung reagieren</x:String>
 		</ResourceDictionary>
 		<ResourceDictionary x:Key="fr">
 			<x:String x:Key="PuntiDiPrefisso">Points de</x:String>
@@ -233,7 +233,7 @@
 			<x:String x:Key="PuntiDiSuffisso">&#160;</x:String>
 			<x:String x:Key="NelMazzoRimangono">Quedan</x:String>
 			<x:String x:Key="carte">tarjetas en la baraja</x:String>
-			<x:String x:Key="IlSemeDiBriscolaE">La semilla de triunfo es</x:String>
+			<x:String x:Key="IlSemeDiBriscolaE">La traje de triunfo es</x:String>
 			<x:String x:Key="BriscolaDaPunti">La tarjeta que designa el triunfo puede tener un peso</x:String>
 			<x:String x:Key="AvvisaTallone">Alerta cuando se acaba la baraja</x:String>
 			<x:String x:Key="NomeUtente">Nombre de usuario</x:String>
@@ -273,13 +273,13 @@
 			<x:String x:Key="EffettuaSecondaPartita">¿Hace un segundo juego</x:String>
 			<x:String x:Key="MazzoNonTrovatoTitolo">No se puede encontrar el mazo personalizado</x:String>
 			<x:String x:Key="MazzoNonTrovatoTesto">No se pudo encontrar la plataforma personalizada, probablemente se haya eliminado. Se cargará la baraja napolitana.</x:String>
-			<x:String x:Key="VarianteStessoSeme">Variante en la que hay que responder a la demanda</x:String>
+			<x:String x:Key="VarianteStessoSeme">Variante en la que hay que responder a la traje</x:String>
 			<x:String x:Key="VarianteBussataTitolo">Has elegido jugar la variante knock.</x:String>
 			<x:String x:Key="VarianteBussataTesto">Has elegido jugar la variante knock, el juego se reiniciará.</x:String>
 			<x:String x:Key="VarianteNormaleTitolo">Has elegido jugar la variante normal.</x:String>
 			<x:String x:Key="VarianteNormaleTesto">Has elegido jugar la variante normal, el juego se reiniciará.</x:String>
 			<x:String x:Key="MossaNonConsentitaTitolo">Mover no permitido</x:String>
-			<x:String x:Key="MossaNonConsentitaTesto">Tienes que responder a la semilla.</x:String>
+			<x:String x:Key="MossaNonConsentitaTesto">Tienes que responder a la traje.</x:String>
 		</ResourceDictionary>
 	</Window.Resources>
 	<Window.Content>
@@ -335,7 +335,7 @@
 					<RowDefinition />
 				</Grid.RowDefinitions>
 				<Image Source="avares://CBriscola.Avalonia/Assets/background.jpg" Grid.Row="0" Grid.Column="0" Grid.RowSpan="7" Stretch="Fill" />
-				<Label Grid.Row="0">CBriscola.Avalonia versione 0.8.0</Label>
+				<Label Grid.Row="0">CBriscola.Avalonia versione 0.9.0.9 con avalonia 11.2.0-beta1</Label>
 				<Label Grid.Row="1">ⓒ Giulio Sorrentino 2023-2024</Label>
 				<Label Grid.Row="2">License: GPL v3 or, in your humble opinion, any later version</Label>
 				<Label Grid.Row="3">This trump wins because it scores more points not because it deals the cards, therefore also taking the 8s, 9s and 10s</Label>
