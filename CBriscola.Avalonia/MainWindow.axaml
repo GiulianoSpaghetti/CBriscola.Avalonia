@@ -168,7 +168,7 @@
 			<x:String x:Key="MazzoNonTrovatoTitolo">Benutzerdefiniertes Deck kann nicht gefunden werden</x:String>
 			<x:String x:Key="MazzoNonTrovatoTesto">Das benutzerdefinierte Deck konnte nicht gefunden werden, es wurde wahrscheinlich gelöscht. Das neapolitanische Deck wird geladen.</x:String>
 			<x:String x:Key="VarianteStessoSeme">Variante, bei der Sie die Klage beantworten müssen</x:String>
-			<x:String x:Key="VarianteBussataTitolo">Sie haben sich für die Klopfvariante entschieden</x:String>
+			<x:String x:Key="VarianteBussataTitolo">Sie haben sich für die Klopfvariante entschtoggler buttonieden</x:String>
 			<x:String x:Key="VarianteBussataTesto">Sie haben sich für die Klopfvariante entschieden, das Spiel wird neu gestartet</x:String>
 			<x:String x:Key="VarianteNormaleTitolo">Sie haben sich für die normale Variante entschieden</x:String>
 			<x:String x:Key="VarianteNormaleTesto">Sie haben sich für die normale Variante entschieden, das Spiel wird neu gestartet</x:String>
@@ -335,7 +335,7 @@
 					<RowDefinition />
 				</Grid.RowDefinitions>
 				<Image Source="avares://CBriscola.Avalonia/Assets/background.jpg" Grid.Row="0" Grid.Column="0" Grid.RowSpan="7" Stretch="Fill" />
-				<Label Grid.Row="0">CBriscola.Avalonia versione 0.9.0.9 con avalonia 11.2.0-beta1</Label>
+				<Label Grid.Row="0">CBriscola.Avalonia versione 0.9.3 con avalonia 11.2.0-rc1</Label>
 				<Label Grid.Row="1">ⓒ Giulio Sorrentino 2023-2024</Label>
 				<Label Grid.Row="2">License: GPL v3 or, in your humble opinion, any later version</Label>
 				<Label Grid.Row="3">This trump wins because it scores more points not because it deals the cards, therefore also taking the 8s, 9s and 10s</Label>
@@ -364,12 +364,12 @@
 				<TextBox x:Name="txtNomeUtente" Grid.Row="0" Grid.Column="1" />
 				<Label x:Name="opNomeCpu" Grid.Row="1" Grid.Column="0" />
 				<TextBox x:Name="txtCpu" Grid.Row="1" Grid.Column="1" />
-				<CheckBox x:Name="cbCartaBriscola" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" IsChecked="True" />
-				<Label x:Name="lbCartaBriscola" Grid.Row="3" Grid.Column="1" Foreground="Black"/>
-				<CheckBox x:Name="cbAvvisaTallone" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" IsChecked="True" />
-				<Label x:Name="lbAvvisaTallone" Grid.Row="4" Grid.Column="1"  Foreground="Black"/>
-				<Label x:Name="lbStessoSeme" Grid.Row="5" Grid.Column="1"  Foreground="Black"/>
-				<CheckBox x:Name="cbStessoSeme" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" IsChecked="True" />
+				<ToggleSwitch x:Name="tsCartaBriscola" Grid.Row="3" Grid.Column="1" IsChecked="True" />
+				<Label x:Name="lbCartaBriscola" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" />
+				<ToggleSwitch x:Name="tsAvvisaTallone" Grid.Row="4" Grid.Column="1" IsChecked="True" />
+				<Label x:Name="lbAvvisaTallone" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" />
+				<Label x:Name="lbStessoSeme" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2"  />
+				<ToggleSwitch x:Name="tsStessoSeme" Grid.Row="5" Grid.Column="1" IsChecked="True" />
 				<Label x:Name="lbLivello" Grid.Row="6" Grid.Column="0" />
 				<ComboBox x:Name="cbLivello" Grid.Row="6" Grid.Column="1">
 					<ComboBoxItem>1</ComboBoxItem>

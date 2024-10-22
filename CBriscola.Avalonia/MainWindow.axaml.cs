@@ -32,18 +32,15 @@ namespace CBriscola.Avalonia
         private ResourceDictionary d;
         private ElaboratoreCarteBriscola e;
         private Stream asset;
-        private static INotificationManager notification;
-        private static Notification not;
+        private INotificationManager notification;
         private Opzioni o;
         private static org.altervista.numerone.framework.briscola.CartaHelper cartaHelper;
         private static INotificationManager CreateManager()
         {
             if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
                 return new FreeDesktopNotificationManager();
-
-            if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+  if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
                 return new DesktopNotifications.Windows.WindowsNotificationManager(null);
-
             if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX))
                 return new DesktopNotifications.Apple.AppleNotificationManager();
 
@@ -52,7 +49,7 @@ namespace CBriscola.Avalonia
         public MainWindow()
         {
             this.InitializeComponent();
-            SystemDecorations = SystemDecorations.None;
+            SystemDecorations=SystemDecorations.None;
             notification = CreateManager();
             notification.Initialize();
             d = this.FindResource(CultureInfo.CurrentCulture.TwoLetterISOLanguageName) as ResourceDictionary;
@@ -63,7 +60,8 @@ namespace CBriscola.Avalonia
 
             e = new ElaboratoreCarteBriscola(briscolaDaPunti);
             m = new Mazzo(e);
-   
+               	
+
             m.SetNome(o.nomeMazzo);
             Carta.Inizializza(App.path, m, 40, cartaHelper=new org.altervista.numerone.framework.briscola.CartaHelper(ElaboratoreCarteBriscola.GetCartaBriscola()), d["bastoni"] as string, d["coppe"] as string, d["denari"] as string, d["spade"] as string, d["Fiori"] as string, d["Quadri"] as string, d["Cuori"] as string, d["Picche"] as string, "Cbriscola.Avalonia");
 
@@ -82,7 +80,6 @@ namespace CBriscola.Avalonia
                 {
                     asset = AssetLoader.Open(new Uri($"avares://{Assembly.GetEntryAssembly().GetName().Name}/Assets/retro_carte_pc.png"));
                     cartaCpu.Source = new Bitmap(asset);
-
                 }
             g = new Giocatore(new GiocatoreHelperUtente(), o.NomeUtente, 3);
             switch (o.livello) {
@@ -94,7 +91,8 @@ namespace CBriscola.Avalonia
             cpu = new Giocatore(helper, o.NomeCpu, 3);
             avvisaTalloneFinito = o.avvisaTalloneFinito;
             stessoSeme = o.stessoSeme;
-            primo = g;
+            primo = g;            	
+
             secondo = cpu;
             briscola = Carta.GetCarta(ElaboratoreCarteBriscola.GetCartaBriscola());
             Image[] img = new Image[3];
@@ -106,7 +104,9 @@ namespace CBriscola.Avalonia
             }
             NomeUtente.Content = g.GetNome();
             NomeCpu.Content = cpu.GetNome();
-            Utente0.Source = g.GetImmagine(0);
+            Utente0.Source = g.GetImmagine(0);            	
+            	
+
             Utente1.Source = g.GetImmagine(1);
             Utente2.Source = g.GetImmagine(2);
             Cpu0.Source = cartaCpu.Source;
@@ -191,7 +191,8 @@ namespace CBriscola.Avalonia
         private void Gioca_Click(object sender, RoutedEventArgs e)
         {
             c = primo.GetCartaGiocata();
-            c1 = secondo.GetCartaGiocata();
+            c1 = secondo.GetCartaGiocata();            	
+
             if ((c.CompareTo(c1) > 0 && c.StessoSeme(c1)) || (c1.StessoSeme(briscola) && !c.StessoSeme(briscola)))
             {
                 temp = secondo;
@@ -199,11 +200,13 @@ namespace CBriscola.Avalonia
                 primo = temp;
             }
 
-            primo.AggiornaPunteggio(secondo);
+            primo.AggiornaPunteggio(secondo);            	
+
             PuntiCpu.Content = $"{d["PuntiDiPrefisso"]} {cpu.GetNome()} {d["PuntiDiSuffisso"]}: {cpu.GetPunteggio()}";
             PuntiUtente.Content = $"{d["PuntiDiPrefisso"]} {g.GetNome()} {d["PuntiDiSuffisso"]}: {g.GetPunteggio()}";
             if (AggiungiCarte())
-            {
+            {            	stessoSeme = false;
+
                 NelMazzoRimangono.Content = $"{d["NelMazzoRimangono"]} {m.GetNumeroCarte()} {d["carte"]}";
                 CartaBriscola.Content = $"{d["IlSemeDiBriscolaE"]}: {briscola.GetSemeStr()}";
                 if (Briscola.IsVisible && m.GetNumeroCarte() == 0)
@@ -212,7 +215,7 @@ namespace CBriscola.Avalonia
                     Briscola.IsVisible = false;
                     if (avvisaTalloneFinito)
                     {
-                        not = new Notification
+                        Notification not = new Notification
                         {
                             Title = $"{d["TalloneFinitoIntestazione"]}",
                             Body = $"{d["TalloneFinito"]}"
@@ -244,7 +247,7 @@ namespace CBriscola.Avalonia
                         i1 = GiocaCpu();
                     if (cpu.GetCartaGiocata().StessoSeme(briscola))
                     {
-                        not = new Notification
+                        Notification not = new Notification
                         {
                             Title = $"{d["GiocataCarta"]}",
                             Body = $"{d["LaCPUHaGiocatoIl"]} {cpu.GetCartaGiocata().GetValore() + 1} {d["di"]} {d["Briscola"]}"
@@ -254,7 +257,7 @@ namespace CBriscola.Avalonia
                     }
                     else if (cpu.GetCartaGiocata().GetPunteggio() > 0)
                     {
-                        not = new Notification
+                        Notification not = new Notification
                         {
                             Title = $"{d["GiocataCarta"]}",
                             Body = $"{d["LaCPUHaGiocatoIl"]} {cpu.GetCartaGiocata().GetValore() + 1} {d["di"]} {cpu.GetCartaGiocata().GetSemeStr()}"
@@ -266,7 +269,7 @@ namespace CBriscola.Avalonia
             }
             else
             {
-                String s;
+                String s="";
                 puntiUtente+=g.GetPunteggio();
                 puntiCpu += cpu.GetPunteggio();
                 if (puntiUtente == puntiCpu)
@@ -296,7 +299,8 @@ namespace CBriscola.Avalonia
         }
         private Image GiocaUtente(Image img)
         {
-            UInt16 quale = 0;
+            UInt16 quale = 0;            	
+
             Image img1 = Utente0;
             if (img == Utente1)
             {
@@ -304,7 +308,8 @@ namespace CBriscola.Avalonia
                 img1 = Utente1;
             }
             if (img == Utente2)
-            {
+            {            	
+
                 quale = 2;
                 img1 = Utente2;
             }
@@ -340,9 +345,9 @@ namespace CBriscola.Avalonia
             GOpzioni.IsVisible = true;
             txtNomeUtente.Text = g.GetNome();
             txtCpu.Text = cpu.GetNome();
-            cbCartaBriscola.IsChecked = briscolaDaPunti;
-            cbAvvisaTallone.IsChecked = avvisaTalloneFinito;
-            cbStessoSeme.IsChecked = stessoSeme;
+            tsCartaBriscola.IsChecked = briscolaDaPunti;
+            tsAvvisaTallone.IsChecked = avvisaTalloneFinito;
+            tsStessoSeme.IsChecked = stessoSeme;
             List<ListBoxItem> mazzi;
             List<String> path;
             cbLivello.SelectedIndex = helper.GetLivello() - 1;
@@ -373,26 +378,28 @@ namespace CBriscola.Avalonia
                 lsmazzi.Items.Add(item);
 
             }
-            
+                        	
+
 
         }
 
         private void NuovaPartita(bool vecchioStessoSeme)
         {
             if (o.livello != helper.GetLivello()) {
-                not = new Notification
+                Notification not = new Notification
                 {
                     Title = $"{d["LivelloCambiato"]}",
                     Body = $"{d["PartitaRiavviata"]}"
                 };
-                notification.ShowNotification(not);
+                notification.ShowNotification(not);            
+
                 puntiCpu = puntiUtente = 0;
                 partite = 0;
             }
             if (stessoSeme!=vecchioStessoSeme)
             {
                 if (stessoSeme) {
-                    not = new Notification
+                    Notification not = new Notification
                     {
                         Title = d["VarianteBussataTitolo"] as string,
                         Body = d["VarianteBussataTesto"] as string
@@ -401,7 +408,7 @@ namespace CBriscola.Avalonia
                 }
                 else
                 {
-                    not = new Notification
+                    Notification not = new Notification
                     {
                         Title = d["VarianteNormaleTitolo"] as string,
                         Body = d["VarianteNormaleTesto"] as string
@@ -414,9 +421,9 @@ namespace CBriscola.Avalonia
             }
             if (partite % 2 == 0)
                 puntiUtente = puntiCpu = 0;
-            bool cartaBriscola = true;
-            if (cbCartaBriscola.IsChecked == false)
-                cartaBriscola = false;
+            bool cartaBriscola = false;
+            if (tsCartaBriscola.IsChecked == true)
+            	cartaBriscola = true;
             e = new ElaboratoreCarteBriscola(cartaBriscola);
             m = new Mazzo(e);
             Carta.SetHelper(cartaHelper= new org.altervista.numerone.framework.briscola.CartaHelper(ElaboratoreCarteBriscola.GetCartaBriscola()));
@@ -467,7 +474,8 @@ namespace CBriscola.Avalonia
                 primo = g;
                 secondo = cpu;
             }
-            else {
+            else {           
+
                 primo = cpu;
                 secondo = g;
                 i1=GiocaCpu();
@@ -479,7 +487,8 @@ namespace CBriscola.Avalonia
         {
             FinePartita.IsVisible = false;
             NuovaPartita(stessoSeme);
-            Applicazione.IsVisible = true;
+            Applicazione.IsVisible = true;         
+
 
         }
         private void OnCancelFp_Click(object sender, RoutedEventArgs e)
@@ -488,6 +497,7 @@ namespace CBriscola.Avalonia
         }
 
         private Image GiocaCpu()
+
         {
             UInt16 quale = 0;
             Image img1 = Cpu0;
@@ -531,7 +541,7 @@ namespace CBriscola.Avalonia
             }
             catch (Exception ex)
             {
-                not = new Notification
+                Notification not = new Notification
                 {
                     Title = d["MossaNonConsentitaTitolo"] as string,
                     Body = d["MossaNonConsentitaTesto"] as string
@@ -548,18 +558,19 @@ namespace CBriscola.Avalonia
             bool vecchioStessoSeme = o.stessoSeme;
             g.SetNome(txtNomeUtente.Text);
             cpu.SetNome(txtCpu.Text);
-            if (cbCartaBriscola.IsChecked == false)
-                briscolaDaPunti = false;
+            if (tsCartaBriscola.IsChecked == true)
+	            briscolaDaPunti = true;
             else
-                briscolaDaPunti = true;
-            if (cbAvvisaTallone.IsChecked == false)
-                avvisaTalloneFinito = false;
+	            briscolaDaPunti = false;
+            if (tsAvvisaTallone.IsChecked == true)
+	            avvisaTalloneFinito = true;
             else
-                avvisaTalloneFinito = true;
-            if (cbStessoSeme.IsChecked == false)
-                stessoSeme = false;
+	            avvisaTalloneFinito = false;
+	    if (tsStessoSeme.IsChecked == true)
+            	stessoSeme = true;
             else
-                stessoSeme = true;
+            	stessoSeme = false;
+
             NomeUtente.Content = g.GetNome();
             NomeCpu.Content = cpu.GetNome();
             ListBoxItem i = (ListBoxItem) lsmazzi.SelectedItem;
@@ -630,7 +641,7 @@ namespace CBriscola.Avalonia
 
             var psi = new ProcessStartInfo
             {
-                FileName = $"https://twitter.com/intent/tweet?text=Con%20la%20CBriscola.avalonia%20{s}la%20partita%20numero%20{partite}%20{g.GetNome()}%20contro%20{cpu.GetNome()}%20%C3%A8%20finita%20{puntiUtente}%20a%20{puntiCpu}%20col%20mazzo%20{m.GetNome()}%20su%20sistema%20operativo%20{App.SistemaOperativo}&url=https%3A%2F%2Fgithub.com%2Fnumerunix%2Fcbriscola.Avalonia",
+                FileName = $"https://twitter.com/intent/tweet?text=Con%20la%20CBriscola.avalonia%20{s}la%20partita%20numero%20{partite}%20{g.GetNome()}%20contro%20{cpu.GetNome()}%20%C3%A8%20finita%20{puntiUtente}%20a%20{puntiCpu}%20col%20mazzo%20{m.GetNome()}%20su%20piattaforma%20{App.SistemaOperativo}&url=https%3A%2F%2Fgithub.com%2Fnumerunix%2Fcbriscola.Avalonia",
                 UseShellExecute = true
             };
             fpShare.IsEnabled = false;
