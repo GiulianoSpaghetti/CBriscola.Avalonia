@@ -160,6 +160,11 @@ namespace CBriscola.Avalonia
                     o = null;
                     file.Close();
                 }
+                catch (Newtonsoft.Json.JsonSerializationException ex1)
+                {
+                    o = null;
+                    file.Close();
+                }
                 if (o == null)
                     throw new FileNotFoundException();
             }
@@ -209,7 +214,7 @@ namespace CBriscola.Avalonia
 
                 NelMazzoRimangono.Content = $"{d["NelMazzoRimangono"]} {m.GetNumeroCarte()} {d["carte"]}";
                 CartaBriscola.Content = $"{d["IlSemeDiBriscolaE"]}: {briscola.GetSemeStr()}";
-                if (Briscola.IsVisible)
+                             if (Briscola.IsVisible)
                 {
 		    switch (m.GetNumeroCarte())
       		    {
@@ -225,8 +230,8 @@ namespace CBriscola.Avalonia
 			 }
     			break;
        			case 0:
-	  			NelMazzoRimangono.IsVisible = false;
-                    		Briscola.IsVisible = false;
+	  			        NelMazzoRimangono.IsVisible = false;
+                    	Briscola.IsVisible = false;
 		        break;
 			
                     }
