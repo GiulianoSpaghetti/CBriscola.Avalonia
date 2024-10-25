@@ -205,22 +205,30 @@ namespace CBriscola.Avalonia
             PuntiCpu.Content = $"{d["PuntiDiPrefisso"]} {cpu.GetNome()} {d["PuntiDiSuffisso"]}: {cpu.GetPunteggio()}";
             PuntiUtente.Content = $"{d["PuntiDiPrefisso"]} {g.GetNome()} {d["PuntiDiSuffisso"]}: {g.GetPunteggio()}";
             if (AggiungiCarte())
-            {            	stessoSeme = false;
+            {
 
                 NelMazzoRimangono.Content = $"{d["NelMazzoRimangono"]} {m.GetNumeroCarte()} {d["carte"]}";
                 CartaBriscola.Content = $"{d["IlSemeDiBriscolaE"]}: {briscola.GetSemeStr()}";
-                if (Briscola.IsVisible && m.GetNumeroCarte() == 0)
+                if (Briscola.IsVisible)
                 {
-                    NelMazzoRimangono.IsVisible = false;
-                    Briscola.IsVisible = false;
-                    if (avvisaTalloneFinito)
-                    {
-                        Notification not = new Notification
-                        {
-                            Title = $"{d["TalloneFinitoIntestazione"]}",
-                            Body = $"{d["TalloneFinito"]}"
-                        };
-                        notification.ShowNotification(not);
+		    switch (m.GetNumeroCarte())
+      		    {
+	    		case 2:
+	                    if (avvisaTalloneFinito)
+         	           {
+                	        Notification not = new Notification
+                        	{
+                            	Title = $"{d["TalloneFinitoIntestazione"]}",
+                           	 Body = $"{d["TalloneFinito"]}"
+                        	};
+                        	notification.ShowNotification(not);
+			 }
+    			break;
+       			case 0:
+	  			NelMazzoRimangono.IsVisible = false;
+                    		Briscola.IsVisible = false;
+		        break;
+			
                     }
                 }
                 Utente0.Source = g.GetImmagine(0);
