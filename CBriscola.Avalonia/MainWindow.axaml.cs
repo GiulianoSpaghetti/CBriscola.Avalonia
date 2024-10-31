@@ -227,7 +227,7 @@ namespace CBriscola.Avalonia
                            	 Body = $"{d["TalloneFinito"]}"
                         	};
                         	notification.ShowNotification(not);
-			 }
+			            }
     			break;
        			case 0:
 	  			        NelMazzoRimangono.IsVisible = false;
@@ -245,19 +245,20 @@ namespace CBriscola.Avalonia
                 i1.IsVisible = true;
                 Giocata0.IsVisible = false;
                 Giocata1.IsVisible = false;
-                if (cpu.GetNumeroCarte() == 2)
+                switch (cpu.GetNumeroCarte())
                 {
-                    Utente2.IsVisible = false;
-                    Cpu2.IsVisible = false;
+                    case 2:
+                        Utente2.IsVisible = false;
+                        Cpu2.IsVisible = false;
+                        break;
+                    case 1:
+                        Utente1.IsVisible = false;
+                        Cpu1.IsVisible = false;
+                        break;
                 }
-                if (cpu.GetNumeroCarte() == 1)
+                if (primo == cpu)
                 {
-                    Utente1.IsVisible = false;
-                    Cpu1.IsVisible = false;
-                }
-                    if (primo == cpu)
-                    {
-                        i1 = GiocaCpu();
+                    i1 = GiocaCpu();
                     if (cpu.GetCartaGiocata().StessoSeme(briscola))
                     {
                         Notification not = new Notification
@@ -666,7 +667,7 @@ namespace CBriscola.Avalonia
         {
             var psi = new ProcessStartInfo
             {
-                FileName = "https://github.com/numerunix/cbriscola.Avalonia",
+                FileName = "https://github.com/GiulianoSpaghetti/cbriscola.Avalonia",
                 UseShellExecute = true
             };
             Process.Start(psi);
