@@ -29,7 +29,7 @@ https://1drv.ms/u/s!ApmOB0x2yBN0k5kFWV3-apCK93n8vg?e=Bf6RYh
 
 ## Su GNU/linux
 Seguite le istruzioni su http://numeronesoft.ddns.net:8080
-
+NOTA BENE: la connessione a numeronesoft.ddns.net non e https
 Poi installate cbriscola.avalonia
 ATTENZIONE:
 Avalonia si basa su due librerie native libharfbuzzsharp e libskiasharp che non sono libere, quindi avalonia non è libero.
