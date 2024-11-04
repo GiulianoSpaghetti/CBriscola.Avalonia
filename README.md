@@ -12,10 +12,14 @@ Perché io adesso sono anche "felice", non conto di diventarlo, ma lo sono.
 
 ## Video di presentazione
 
-https://1drv.ms/u/s!ApmOB0x2yBN0kohpLGZYUm1EtGUDoA?e=pO2UEr (su windows)
+ https://1drv.ms/u/s!ApmOB0x2yBN0k5Nw7UJ-GvVwiRONzw?e=BlQSVn (su windows)
 
 
-https://1drv.ms/u/s!ApmOB0x2yBN0ktR6rFcvmC18tSWdDg?e=oj6fhu (su debian)
+https://1drv.ms/u/s!ApmOB0x2yBN0ktR6rFcvmC18tSWdDg?e=6LfI6m 
+
+https://1drv.ms/u/s!ApmOB0x2yBN0k5kFWV3-apCK93n8vg?e=Bf6RYh
+
+(su debian)
 
 # Come installare
 
