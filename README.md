@@ -66,6 +66,10 @@ Infine compilare.
 
 I mazzi aggiuntivi sono quelli della wxbriscola, si possono scaricare sulle relative home page dei progetti, per windows e linux.
 
+## Bug noti
+
+Se lanciate il computer dalla finestra é improbabile che poi sia possibile giocare ancora xD
+
 
 ## Donazione
 
