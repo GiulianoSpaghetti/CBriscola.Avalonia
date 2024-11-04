@@ -72,7 +72,7 @@ I mazzi aggiuntivi sono quelli della wxbriscola, si possono scaricare sulle rela
 
 ## Bug noti
 
-Se lanciate il computer dalla finestra é improbabile che poi sia possibile giocare ancora xD
+Se si usa un mazzo non completo viene caricato il mazzo napoletano senza dare nessun avviso.
 
 
 ## Donazione
