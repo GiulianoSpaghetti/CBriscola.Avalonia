@@ -73,7 +73,7 @@ I mazzi aggiuntivi sono quelli della wxbriscola, si possono scaricare sulle rela
 
 ## Bug noti
 
-Se si usa un mazzo non completo viene caricato il mazzo napoletano senza dare nessun avviso.
+Se si usa un mazzo non completo all'avvio del programma, verrà caricato il mazzo napoletano e l'avviso non è garantito che esca.
 
 
 ## Donazione
