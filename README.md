@@ -5,6 +5,8 @@ Questo gioco dimostra che la teoria dei giochi è vera: l'algorimo brevettato fu
 ![Napoli-Logo](https://github.com/user-attachments/assets/8163c808-62d3-40d3-bce3-0957e57bc26a)
 ![made in parco grifeo](https://github.com/user-attachments/assets/fadbf046-aeae-4f11-bda4-eb332c701d56)
 
+## ATTENZIONE
+Questo prodotto viene dichiarato dismesso e sostituito dalla cbriscola.material.
 
 ## CBriscola.Avalonia
 Quello che avete davanti non è il gioco della briscola come si intende oggi, perché oggi tutti i simulatori di briscola dicono "hai preso l'asso, bravo" e finisce lì. Quello che avete davanti è un simulatore equo e professionale, con punteggio aggiornato in tempo reale, in modo da poter decidere se "rischiare" o meno coscientemente, scritto in avalonia.
@@ -13,34 +15,6 @@ Dal momento che avalonia ha i timer che vengono blacklistati, c'è il pulsante p
 ## Dedica
 Voglio dedicare l'intero progetto non a Francesca la barista, ma alla vecchia sory, ossia numerona, quella gentil donzella in quel di rivisondoli che mi ha aiutato quando ero una povera anima in pena ed ora mi rende sia felice che "felice"..
 Perché io adesso sono anche "felice", non conto di diventarlo, ma lo sono.
-
-## Video di presentazione
-
- https://1drv.ms/u/s!ApmOB0x2yBN0k5Nw7UJ-GvVwiRONzw?e=BlQSVn (su windows)
-
-
-https://1drv.ms/u/s!ApmOB0x2yBN0ktR6rFcvmC18tSWdDg?e=6LfI6m 
-
-https://1drv.ms/u/s!ApmOB0x2yBN0k5kFWV3-apCK93n8vg?e=Bf6RYh
-
-(su debian)
-
-# Come installare
-
-## Su Windows
-
-[![winget](https://user-images.githubusercontent.com/49786146/159123313-3bdafdd3-5130-4b0d-9003-40618390943a.png)](https://marticliment.com/wingetui/share?pid=GiulioSorrentino.CBriscola.Avalonia&pname=CBriscola.Avalonia&psource=Winget:%20winget)
-
-## Su GNU/linux
-Seguite le istruzioni su http://numeronesoft.ddns.net:8080
-
-NOTA BENE: la connessione a numeronesoft.ddns.net non e https
-
-Poi installate cbriscola.avalonia
-
-ATTENZIONE:
-
-Avalonia si basa su due librerie native libharfbuzzsharp e libskiasharp che non sono libere, quindi avalonia non è libero.
 
 ## Per compilare
 
