@@ -13,6 +13,10 @@
     <AvaloniaResource Include="Assets\**" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Content Remove="C:\Users\numer\.nuget\packages\cardframework.avalonia\1.3.8\contentFiles\any\net8.0\icon.ico" />
+  </ItemGroup>
+
 
   <ItemGroup>
     <PackageReference Include="Avalonia" Version="11.2.0-beta1" />
