@@ -49,7 +49,6 @@ namespace CBriscola.Avalonia
         public MainWindow()
         {
             this.InitializeComponent();
-            SystemDecorations = SystemDecorations.None;
             notification = CreateManager();
             notification.Initialize();
             d = this.FindResource(CultureInfo.CurrentCulture.TwoLetterISOLanguageName) as ResourceDictionary;

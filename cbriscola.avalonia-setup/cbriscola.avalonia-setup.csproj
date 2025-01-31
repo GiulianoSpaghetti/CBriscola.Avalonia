@@ -16,7 +16,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="WixSharp_wix4" Version="2.3.2" />
+    <PackageReference Include="WixSharp_wix4" Version="2.4.4" />
+    <PackageReference Include="WixToolset.Dtf.WindowsInstaller" Version="5.0.2" />
+    <PackageReference Include="WixToolset.Mba.Core" Version="4.0.6" />
   </ItemGroup>
 
   <ItemGroup>
