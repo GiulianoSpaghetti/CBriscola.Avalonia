@@ -9,7 +9,7 @@ Questo gioco dimostra che la teoria dei giochi è vera: l'algorimo brevettato fu
 Questo prodotto viene dichiarato dismesso e sostituito dalla cbriscola.material.
 
 ## CBriscola.Avalonia
-Quello che avete davanti non è il gioco della briscola come si intende oggi, perché oggi tutti i simulatori di briscola dicono "hai preso l'asso, bravo" e finisce lì. Quello che avete davanti è un simulatore equo e professionale, con punteggio aggiornato in tempo reale, in modo da poter decidere se "rischiare" o meno coscientemente, scritto in avalonia. Sembra stano a dirsi, ma è Hard Core (i vecchietti che urlano "guarda che sto piombo a denari davanti al monitor nella variante normale, oppure i bambini nella variante bussata), perché permette in ogni istante di cambiare l'andamento della partita coscientemente con le proprie scelte.
+Quello che avete davanti non è il gioco della briscola come si intende oggi, perché oggi tutti i simulatori di briscola dicono "hai preso l'asso, bravo" e finisce lì. Quello che avete davanti è un simulatore equo e professionale, con punteggio aggiornato in tempo reale, in modo da poter decidere se "rischiare" o meno coscientemente, scritto in avalonia. Sembra stano a dirsi, ma è Hard Core (i vecchietti che urlano "guarda che sto piombo a denari" davanti al monitor nella variante normale, oppure i bambini nella variante bussata), perché permette in ogni istante di cambiare l'andamento della partita coscientemente con le proprie scelte.
 
 Dal momento che avalonia ha i timer che vengono blacklistati, c'è il pulsante per continuare a giocare.
 
