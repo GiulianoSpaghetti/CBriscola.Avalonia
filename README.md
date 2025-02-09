@@ -8,48 +8,20 @@ Questo gioco dimostra che la teoria dei giochi è vera: l'algorimo brevettato fu
 ## ATTENZIONE
 Questo prodotto viene dichiarato dismesso e sostituito dalla cbriscola.material.
 
-## CBriscola.Avalonia
-Quello che avete davanti non è il gioco della briscola come si intende oggi, perché oggi tutti i simulatori di briscola dicono "hai preso l'asso, bravo" e finisce lì. Quello che avete davanti è un simulatore equo e professionale, con punteggio aggiornato in tempo reale, in modo da poter decidere se "rischiare" o meno coscientemente, scritto in avalonia. Sembra stano a dirsi, ma è Hard Core (i vecchietti che urlano "guarda che sto piombo a denari" davanti al monitor nella variante normale, oppure i bambini nella variante bussata), perché permette in ogni istante di cambiare l'andamento della partita coscientemente con le proprie scelte.
+## CBriscola.Material
+Quello che avete davanti non è il gioco della briscola come si intende oggi, perché oggi tutti i simulatori di briscola dicono "hai preso l'asso, bravo" e finisce lì. Quello che avete davanti è un simulatore equo e professionale, con punteggio aggiornato in tempo reale, in modo da poter decidere se "rischiare" o meno coscientemente, scritto in avalonia col dialetto material. Sembra strano a dirsi, ma è Hard Core, perché si ha il potere di cambiare in ogni istante l'andamento della parita coscientemente con le proprie scelte.
 
 Dal momento che avalonia ha i timer che vengono blacklistati, c'è il pulsante per continuare a giocare.
 
-Ha la variante "bussata" nella quale bisogna rispondere al seme (il "poker" nella teoria dei giochi).
+Permette di usare la variante "bussata" nella quale bisogna rispondere al seme (il "poker" nella teoria dei giochi).
 
-## Dedica
-Voglio dedicare l'intero progetto non a Francesca la barista, ma alla vecchia sory, ossia numerona, quella gentil donzella in quel di rivisondoli che mi ha aiutato quando ero una povera anima in pena ed ora mi rende sia felice che "felice"..
-Perché io adesso sono anche "felice", non conto di diventarlo, ma lo sono.
+E' in avalonia, ma col dialetto material di google, ma senza usare il foglio di stile di google, ma usando la reactive ui (si legge multithreaded)
 
-## Per compilare
+## Use case
 
-Bisogna scaricarsi da nuget il package CardFramework.avalonia
+Le carte si vedono più grandi sui tablet in modalità portrait e non landscape, per cui il nonnino col pro x, mentre aspetta il pullman o la metropolitana gioca, magari con denari come briscola e il computer, primo di mano, ha il 3 e l'asso di briscola ed un carico non meglio specificato. Da primo di mano gioca il carico ed il noninno non può sopratagliare né ha denari, quindi lascia andare la prima volta, la seconda volta consecutiva, la terza volta consecutiva e poi urla "Guarda che sto piombo a denari.".
 
-## Come funziona
-Per festeggiare, vi spiego come funziona il mio algoritmo brevettato:
-i punti in totale sono 120, ossia 4 assi che valgono 11 punti ciascuno, 4 3 che valgono 10 punti ciascuno, 4 10 che valgono 4 punti ciascuno, 4 9 che valgono 3 punti ciascuno, 4 8 che valgono 2 punti ciascuno.
-Dal momento che la matematica non è una opinione:
-4x11+4x10=84.
-4x4+4x3+4x2=16+12+8=36
-
-84+36=120 punti totali
-
-120/2 = 60, servono 61 punti per vincere
-
-basandosi solo sui carichi si rischia di perdere, perché
-
-84-61=23, bisogna prenderli quasi tutti e lasciare solo 23 punti di carichi
-
-60-36=24, prendendo tutte le altre carte bastano solo 3 carichi per vincere.
-
-Per cui non metto i livelli, ma vi lascio imparare la teoria delle carte a lungo, da me inventata a 18 anni, con la wxbriscola, che mi ha portato l'amore di Francesca.                                                                                                                                              
-## Internazionalizzazione
-Aprire il file MainWindows.axaml, all'interno del tag MainWindow.Resources ci sono qulli che vengono chiamati dizionari.
-BIsogna copiare un dizioario ed aggiungrlo alla fine dei dizionari, chiamarlo con la denominazione internazionale a due carattri ella lingua (it per italiano, pt per portoghese, es per spagnolo e via dicendo) e bisogna tradurre tutto qullo che è il contenuto del tag x:string, non il parametro.
-
-Infine compilare.
-
-## Dove recuperare i mazzi aggiuntivi
-
-I mazzi aggiuntivi sono quelli della wxbriscola, si possono scaricare sulle relative home page dei progetti, per windows e linux.
+Questo è il motto registrato per questa briscola.
 
 ## Bug noti
 
