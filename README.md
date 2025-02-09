@@ -8,14 +8,12 @@ Questo gioco dimostra che la teoria dei giochi è vera: l'algorimo brevettato fu
 ## ATTENZIONE
 Questo prodotto viene dichiarato dismesso e sostituito dalla cbriscola.material.
 
-## CBriscola.Material
-Quello che avete davanti non è il gioco della briscola come si intende oggi, perché oggi tutti i simulatori di briscola dicono "hai preso l'asso, bravo" e finisce lì. Quello che avete davanti è un simulatore equo e professionale, con punteggio aggiornato in tempo reale, in modo da poter decidere se "rischiare" o meno coscientemente, scritto in avalonia col dialetto material. Sembra strano a dirsi, ma è Hard Core, perché si ha il potere di cambiare in ogni istante l'andamento della parita coscientemente con le proprie scelte.
+## CBriscola.Avalonia
+Quello che avete davanti non è il gioco della briscola come si intende oggi, perché oggi tutti i simulatori di briscola dicono "hai preso l'asso, bravo" e finisce lì. Quello che avete davanti è un simulatore equo e professionale, con punteggio aggiornato in tempo reale, in modo da poter decidere se "rischiare" o meno coscientemente, scritto in avalonia. Sembra strano a dirsi, ma è Hard Core, perché si ha il potere di cambiare in ogni istante l'andamento della parita coscientemente con le proprie scelte.
 
 Dal momento che avalonia ha i timer che vengono blacklistati, c'è il pulsante per continuare a giocare.
 
 Permette di usare la variante "bussata" nella quale bisogna rispondere al seme (il "poker" nella teoria dei giochi).
-
-E' in avalonia, ma col dialetto material di google, ma senza usare il foglio di stile di google, ma usando la reactive ui (si legge multithreaded)
 
 ## Use case
 
