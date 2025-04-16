@@ -6,7 +6,7 @@ Questo gioco dimostra che la teoria dei giochi è vera: l'algorimo brevettato fu
 ![made in parco grifeo](https://github.com/user-attachments/assets/fadbf046-aeae-4f11-bda4-eb332c701d56)
 
 ## ATTENZIONE
-Questo prodotto viene dichiarato dismesso e sostituito dalla cbriscola.material.
+Questo prodotto viene dichiarato deprecato (legacy) perché c'è un bug di fondo (https://photos.app.goo.gl/aAq2QDR6bdkYvwsi7) e sostituito dalla cbriscola.material che a partire dalla versione 1.1 il bug non lo ha più.
 
 ## CBriscola.Avalonia
 Quello che avete davanti non è il gioco della briscola come si intende oggi, perché oggi tutti i simulatori di briscola dicono "hai preso l'asso, bravo" e finisce lì. Quello che avete davanti è un simulatore equo e professionale, con punteggio aggiornato in tempo reale, in modo da poter decidere se "rischiare" o meno coscientemente, scritto in avalonia. Sembra strano a dirsi, ma è Hard Core, perché si ha il potere di cambiare in ogni istante l'andamento della parita coscientemente con le proprie scelte.
